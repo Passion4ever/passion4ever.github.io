@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/github_default_180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/github_default_32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/github_default_16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-flash.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"passion4ever.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+
+
+<link rel="canonical" href="https://passion4ever.github.io/posts/6d196d24-86cb-11ee-b04c-f58259a2146b/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://passion4ever.github.io/posts/6d196d24-86cb-11ee-b04c-f58259a2146b/","path":"posts/6d196d24-86cb-11ee-b04c-f58259a2146b/","title":"Bert模型详解"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Bert模型详解 | 🇨🇳 Passion4ever</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">🇨🇳 Passion4ever</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">🎯 Goal-Oriented</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-所有文章"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>所有文章</a></li><li class="menu-item menu-item-编程代码"><a href="/1-code" rel="section"><i class="fa fa-code fa-fw"></i>编程代码</a></li><li class="menu-item menu-item-人工智能"><a href="/2-AI" rel="section"><i class="fa fa-robot fa-fw"></i>人工智能</a></li><li class="menu-item menu-item-生物信息"><a href="/3-bioinformatics" rel="section"><i class="fa fa-dna fa-fw"></i>生物信息</a></li><li class="menu-item menu-item-其他"><a href="/4-others" rel="section"><i class="fa fa-bars fa-fw"></i>其他</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#bert"><span class="nav-number">1.</span> <span class="nav-text"> BERT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bert-%E7%BB%93%E6%9E%84"><span class="nav-number">2.</span> <span class="nav-text"> BERT 结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bert-%E7%9A%84%E8%BE%93%E5%85%A5"><span class="nav-number">2.1.</span> <span class="nav-text"> BERT 的输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bert-%E9%A2%84%E8%AE%AD%E7%BB%83"><span class="nav-number">2.2.</span> <span class="nav-text"> BERT 预训练</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bert-%E7%94%A8%E4%BA%8E%E5%85%B7%E4%BD%93-nlp-%E4%BB%BB%E5%8A%A1"><span class="nav-number">2.3.</span> <span class="nav-text"> BERT 用于具体 NLP 任务</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%84%E8%AE%AD%E7%BB%83%E4%BB%BB%E5%8A%A1"><span class="nav-number">3.</span> <span class="nav-text"> 预训练任务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#masked-lm"><span class="nav-number">3.1.</span> <span class="nav-text"> Masked LM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#32-%E4%B8%8B%E4%B8%80%E5%8F%A5%E9%A2%84%E6%B5%8B"><span class="nav-number">3.2.</span> <span class="nav-text"> 3.2 下一句预测</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bert-%E6%80%BB%E7%BB%93"><span class="nav-number">4.</span> <span class="nav-text"> BERT 总结</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="❤️Passion4ever"
+      src="/images/avatar/4d-boy.webp">
+  <p class="site-author-name" itemprop="name">❤️Passion4ever</p>
+  <div class="site-description" itemprop="description">🙅 勿为工具之奴</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://passion4ever.github.io/posts/6d196d24-86cb-11ee-b04c-f58259a2146b/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar/4d-boy.webp">
+      <meta itemprop="name" content="❤️Passion4ever">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="🇨🇳 Passion4ever">
+      <meta itemprop="description" content="🙅 勿为工具之奴">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Bert模型详解 | 🇨🇳 Passion4ever">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Bert模型详解
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-09-08 23:29:16" itemprop="dateCreated datePublished" datetime="2023-09-08T23:29:16+08:00">2023-09-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-19 21:58:09" itemprop="dateModified" datetime="2023-11-19T21:58:09+08:00">2023-11-19</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><div class="note info"><p>参考: <a target="_blank" rel="noopener" href="https://juejin.cn/post/6949887655479869476">https://juejin.cn/post/6949887655479869476</a><br />
+<strong>BERT</strong>论文: <strong>《<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1810.04805.pdf">BERT: Pre-training of Deep Bidirectional Transformers forLanguage Understanding</a>》</strong></p>
+</div>
+<p>2018年, Google 在论文《<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1810.04805.pdf">BERT: Pre-training of Deep Bidirectional Transformers forLanguage Understanding</a>》中提出了 BERT 模型, BERT 模型主要利用了 Transformer 的 Encoder 结构, 采用的是最原始的 <a href="/posts/58948">Transformer</a></p>
+<span id="more"></span>
+<h2 id="bert"><a class="markdownIt-Anchor" href="#bert"></a> BERT</h2>
+<p>总的来说 BERT 具有以下的特点：<br />
+<strong>结构</strong> :</p>
+<ul>
+<li>采用了 Transformer 的 Encoder 结构, 但是模型结构比 Transformer 要深.</li>
+<li>Transformer Encoder 包含 6 个 Encoder block, BERT-base 模型包含 12 个 Encoder block, BERT-large 包含 24 个 Encoder block.</li>
+</ul>
+<p><strong>训练</strong> :</p>
+<ul>
+<li>预训练阶段：与 Word2Vec, ELMo 等类似, 在大型数据集上根据预训练任务训练得到.</li>
+<li>Fine-tuning 阶段：用于一些下游任务的时候进行微调, 例如文本分类, 词性标注, 问答系统等, BERT 无需调整结构就可以在不同的任务上进行微调.</li>
+</ul>
+<p><strong>预训练任务1 - Masked LM</strong> :</p>
+<ul>
+<li>在句子中随机遮盖一部分单词, 然后同时利用上下文的信息预测遮盖的单词, 这样可以更好地根据全文理解单词的意思. Masked LM 是 BERT 的重点, 和 biLSTM 预测方法是有区别的, 后续会讲到.</li>
+</ul>
+<p><strong>预训练任务2 - Next Sentence Prediction (NSP)</strong> :</p>
+<ul>
+<li>下一句预测任务, 这个任务主要是让模型能够更好地理解句子间的关系.</li>
+</ul>
+<h2 id="bert-结构"><a class="markdownIt-Anchor" href="#bert-结构"></a> BERT 结构</h2>
+<img data-src="/posts/6d196d24-86cb-11ee-b04c-f58259a2146b/bert-1.webp" class="" width="700">
+<blockquote class="blockquote-center">
+<p>BERT结构图, 左侧表示预训练的过程, 右侧是对于具体任务的微调过程.</p>
+
+</blockquote>
+<h3 id="bert-的输入"><a class="markdownIt-Anchor" href="#bert-的输入"></a> BERT 的输入</h3>
+<p>BERT 的输入可以是<strong>一个句子对</strong> (句子 A 和句子 B), 也可以是<strong>单个句子</strong>. 同时 BERT 增加了一些有特殊作用的标志位：</p>
+<ul>
+<li><code>[CLS]</code>标志放在第一个句子的首位, 经过 BERT 得到的的表征向量 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi></mrow><annotation encoding="application/x-tex">C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span> 可以用于后续的分类任务.</li>
+<li><code>[SEP]</code>标志用于分开两个输入句子, 例如输入句子 A 和 B, 要在句子 A, B 后面增加<code>[SEP]</code>标志.</li>
+<li><code>[MASK]</code>标志用于遮盖句子中的一些单词, 将单词用<code>[MASK]</code>遮盖之后, 再利用 BERT 输出的<code>[MASK]</code>向量预测单词是什么.</li>
+</ul>
+<p>例如给定两个句子<code>&quot;my dog is cute&quot;</code>和<code>&quot;he likes palying&quot;</code>作为输入样本, BERT 会转为<code>&quot;[CLS] my dog is cute [SEP] he likes play ##ing [SEP]&quot;</code>. BERT 里面用了 WordPiece 方法, 会将单词拆成<strong>子词单元 (SubWord)</strong>, 所以有的词会拆出词根, 例如 <code>&quot;palying&quot;</code>会变成<code>&quot;paly&quot;</code> + <code>&quot;##ing&quot;</code>.</p>
+<p>BERT 得到要输入的句子后, 要将句子的单词转成 Embedding, Embedding 用 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi></mrow><annotation encoding="application/x-tex">E</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span></span></span></span> 表示. 与 Transformer 不同, BERT 的输入 Embedding 由三个部分相加得到：<strong>Token Embedding</strong>, <strong>Segment Embedding</strong>, <strong>Position Embedding</strong>.</p>
+<img data-src="/posts/6d196d24-86cb-11ee-b04c-f58259a2146b/bert-2.webp" class="" width="700">
+<ul>
+<li><strong>Token Embedding:</strong> 单词的 Embedding, 例如<code>[CLS] dog</code>等, 通过训练学习得到.</li>
+<li><strong>Segment Embedding:</strong> 用于区分每一个单词属于句子 A 还是句子 B, 如果只输入一个句子就只使用 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mi>A</mi></msub></mrow><annotation encoding="application/x-tex">E_A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.05764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">A</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, 通过训练学习得到.</li>
+<li><strong>Position Embedding:</strong> 编码单词出现的位置, 与 Transformer 使用固定的公式计算不同, BERT 的 Position Embedding 也是通过学习得到的, 在 BERT 中, 假设句子最长为 512.</li>
+</ul>
+<h3 id="bert-预训练"><a class="markdownIt-Anchor" href="#bert-预训练"></a> BERT 预训练</h3>
+<p>BERT 输入句子中单词的 Embedding 之后, 通过预训练方式训练模型, 预训练有两个任务.</p>
+<p>第一个是 Masked LM, 在句子中随机用<code>[MASK]</code>替换一部分单词, 然后将句子传入 BERT 中编码每一个单词的信息, 最终用 <code>[MASK]</code> 的编码信息 <strong>T</strong><code>[MASK]</code> 预测该位置的正确单词.</p>
+<p>第二个是下一句预测, 将句子 A 和 B 输入 BERT, 预测 B 是否 A 的下一句, 使用<code>[CLS]</code>的编码信息 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi></mrow><annotation encoding="application/x-tex">C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span> 进行预测.</p>
+<img data-src="/posts/6d196d24-86cb-11ee-b04c-f58259a2146b/bert-3.webp" class="" width="700">
+<h3 id="bert-用于具体-nlp-任务"><a class="markdownIt-Anchor" href="#bert-用于具体-nlp-任务"></a> BERT 用于具体 NLP 任务</h3>
+<p>预训练得到的 BERT 模型可以在后续用于具体 NLP 任务的时候进行微调 (<strong>Fine-tuning 阶段</strong>), BERT 模型可以适用于多种不同的 NLP 任务, 如下图所示.</p>
+<img data-src="/posts/6d196d24-86cb-11ee-b04c-f58259a2146b/bert-4.webp" class="" width="700">
+<ul>
+<li><strong>一对句子的分类任务</strong> : 例如自然语言推断 (MNLI), 句子语义等价判断 (QQP) 等, 如上图 a 所示, 需要将两个句子传入 BERT, 然后使用<code>[CLS]</code>的输出值 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi></mrow><annotation encoding="application/x-tex">C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span> 进行句子对分类.</li>
+<li><strong>单个句子分类任务</strong> : 例如句子情感分析 (SST-2), 判断句子语法是否可以接受 (CoLA) 等, 如上图 b 所示, 只需要输入一个句子, 无需使用<code>[SEP]</code>标志, 然后也是用<code>[CLS]</code>的输出值 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi></mrow><annotation encoding="application/x-tex">C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span> 进行分类.</li>
+<li><strong>问答任务</strong> : 如 SQuAD v1.1 数据集, 样本是语句对 (Question, Paragraph), Question 表示问题, Paragraph 是一段来自 Wikipedia 的文本, Paragraph 包含了问题的答案. 而训练的目标是在 Paragraph 找出答案的起始位置 (Start, End). 如上图 c 所示, 将 Question 和 Paragraph 传入 BERT, 然后 BERT 根据 Paragraph 所有单词的输出预测 Start 和 End 的位置.</li>
+<li><strong>单个句子标注任务</strong> : 例如命名实体识别 (NER), 输入单个句子, 然后根据 BERT 对于每个单词的输出 <strong>T</strong> 预测这个单词的类别, 是属于 Person, Organization, Location, Miscellaneous 还是 Other (非命名实体).</li>
+</ul>
+<h2 id="预训练任务"><a class="markdownIt-Anchor" href="#预训练任务"></a> 预训练任务</h2>
+<p>预训练部分是 BERT 的重点, 接下来了解 BERT 预训练的细节. BERT 包括两个预训练任务 <strong>Masked LM</strong> 和 <strong>下一句预测</strong>.</p>
+<h3 id="masked-lm"><a class="markdownIt-Anchor" href="#masked-lm"></a> Masked LM</h3>
+<p>我们先回顾一下以往语言模型的预训练方法, 使用句子<code>&quot;我/喜欢/学习/自然/语言/处理&quot;</code>为例. 在训练语言模型的时候通常需要进行一些<code>Mask</code>操作, 防止信息泄露问题, 信息泄露指在预测单词<code>&quot;自然&quot;</code>的时候, 提前得知<code>&quot;自然&quot;</code>的信息. 后面会讲到 Transformer Encoder 信息泄露的原因.</p>
+<ul>
+<li><strong>Word2Vec 的 CBOW</strong> : 通过单词 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathnormal">i</span></span></span></span> 的上文和下文信息预测单词 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathnormal">i</span></span></span></span>, 但是采用的是词袋模型, 不知道单词的顺序信息. 例如预测单词<code>&quot;自然&quot;</code>的时候, 会同时采用上文<code>&quot;我/喜欢/学习&quot;</code>和下文&quot;<code>语言/处理&quot;</code>进行预测. CBOW 在训练时是相当于把<code>&quot;自然&quot;</code>这个单词<code>Mask</code>的.</li>
+<li><strong>ELMo</strong> : ELMo 在训练的时候使用 Bi-LSTM, 预测<code>&quot;自然&quot;</code>的时候, 前向 LSTM 会<strong>Mask</strong><code>&quot;自然&quot;</code>之后的所有单词, 使用上文<code>&quot;我/喜欢/学习&quot;</code>预测；后向 LSTM 会<strong>Mask</strong><code>&quot;自然&quot;</code>之前的单词, 使用下文<code>&quot;语言/处理&quot;</code>进行预测. 然后再将前向 LSTM 和后向 LSTM 的输出拼接在一起, 因此 ELMo 是将上下文信息分隔开进行预测的, 而不是同时利用上下文信息进行预测.</li>
+<li><strong>OpenAI GPT</strong> : OpenAI GPT 是另外一种使用 Transformer 训练语言模型的算法, 但是 OpenAI GPT 使用的是 Transformer 的 Decoder, 是一种单向的结构. 预测<code>&quot;自然&quot;</code>的时候只使用上文<code>&quot;我/喜欢/学习&quot;</code>, Decoder 中包含了<code>Mask</code>操作, 将当前预测词之后的单词都<code>Mask</code>.</li>
+</ul>
+<p>下图显示了 BERT 和 ELMo、OpenAI GPT 的区别.</p>
+<img data-src="/posts/6d196d24-86cb-11ee-b04c-f58259a2146b/bert-5.webp" class="" width="700">
+<p>BERT 的作者认为在预测单词时, 要同时利用单词 left (上文) 和 right (下文) 信息才能最好地预测.<br />
+将 ELMo 这种分别进行 left-to-right 和 right-to-left 的模型称为 <strong>shallow bidirectional model (浅层双向模型)</strong>, BERT 希望在 Transformer Encoder 结构上训练出一种深度双向模型 <strong>deep bidirectional model</strong>, 因此提出了 Mask LM 这种方法进行训练.</p>
+<p><strong>Mask LM 是用于防止信息泄露的</strong>, 例如预测单词<code>&quot;自然&quot;</code>的时候, 如果不把输入部分的<code>&quot;自然&quot;</code>Mask 掉, 则预测输出的地方是可以直接获得<code>&quot;自然&quot;</code>的信息.</p>
+<img data-src="/posts/6d196d24-86cb-11ee-b04c-f58259a2146b/bert-6.webp" class="" width="700">
+<p>BERT 在训练时只预测<code>[Mask]</code>位置的单词, 这样就可以同时利用上下文信息. 但是在后续使用的时候, 句子中并不会出现<code>[Mask]</code>的单词, 这样会影响模型的性能. 因此在训练时采用如下策略, 随机选择句子中 15% 的单词进行 Mask, 在选择为 Mask 的单词中, 有 80% 真的使用<code>[Mask]</code>进行替换, 10% 不进行替换, 剩下 10% 使用一个随机单词替换.</p>
+<p>例如句子<code>&quot;my dog is hairy&quot;</code>, 选择了单词<code>&quot;hairy&quot;</code>进行<code>Mask</code>, 则:</p>
+<ul>
+<li>80% 的概率, 将句子<code>&quot;my dog is hairy&quot;</code>转换为句子 <code>&quot;my dog is [Mask]&quot;</code>.</li>
+<li>10% 的概率, 保持句子为<code>&quot;my dog is hairy&quot;</code>不变.</li>
+<li>10% 的概率, 将单词<code>&quot;hairy&quot;</code>替换成另一个随机词, 例如<code>&quot;apple&quot;</code>. 将句子<code>&quot;my dog is hairy&quot;</code>转换为句子<code>&quot;my dog is apple&quot;</code>.</li>
+</ul>
+<p>以上是 BERT 的第一个预训练任务 Masked LM.</p>
+<h3 id="32-下一句预测"><a class="markdownIt-Anchor" href="#32-下一句预测"></a> 3.2 下一句预测</h3>
+<p>BERT 的第二个预训练任务是 <strong>Next Sentence Prediction (NSP)</strong>, 即下一句预测, 给定两个句子 A 和 B, 要预测句子 B 是否是句子 A 的下一个句子.</p>
+<p>BERT 使用这一预训练任务的主要原因是, 很多下游任务, 例如问答系统 (QA), 自然语言推断 (NLI) 都需要模型能够理解两个句子之间的关系, 但是通过训练语言模型达不到这个目的.</p>
+<p>BERT 在进行训练的时候, 有 50% 的概率会选择相连的两个句子 A B, 有 50% 的概率会选择不相连得到两个句子 A B, 然后通过<code>[CLS]</code>标志位的输出 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi></mrow><annotation encoding="application/x-tex">C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span> 预测句子 A 的下一句是不是句子 B.</p>
+<ul>
+<li>
+<p><strong>输入</strong> = <code>[CLS] 我 喜欢 玩 [Mask] 联盟 [SEP] 我 最 擅长 的 [Mask] 是 亚索 [SEP]</code></p>
+<p><strong>类别</strong> = <code>B 是 A 的下一句</code></p>
+</li>
+<li>
+<p><strong>输入</strong> = <code>[CLS] 我 喜欢 玩 [Mask] 联盟 [SEP] 今天 天气 很 [Mask] [SEP]</code></p>
+<p><strong>类别</strong> = <code>B 不是 A 的下一句</code></p>
+</li>
+</ul>
+<h2 id="bert-总结"><a class="markdownIt-Anchor" href="#bert-总结"></a> BERT 总结</h2>
+<p>因为 BERT 预训练时候采用了 Masked LM, 每个 batch 只会训练 15% 的单词, 因此需要更多的预训练步骤. ELMo 之类的顺序模型, 会对每一个单词都进行预测.</p>
+<p>BERT 使用了 Transformer 的 Encoder 和 Masked LM 预训练方法, 因此可以进行双向预测；而 OpenAI GPT 使用了 Transformer 的 Decoder 结构, 利用了 Decoder 中的 Mask, 只能顺序预测.</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/6d196d23-86cb-11ee-b04c-f58259a2146b/" rel="prev" title="Denoising Diffusion Probabilistic Models">
+                  <i class="fa fa-angle-left"></i> Denoising Diffusion Probabilistic Models
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/6d196d28-86cb-11ee-b04c-f58259a2146b/" rel="next" title="GPT模型详解">
+                  GPT模型详解 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2020 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Passion4ever</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr+QR0SQDNfgglgtcM=" crossorigin="anonymous">
+  <script class="next-config" data-name="katex" type="application/json">{"copy_tex_js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/copy-tex.min.js","integrity":"sha256-Us54+rSGDSTvIhKKUs4kygE2ipA0RXpWWh0/zLqw3bs="}}</script>
+  <script src="/js/third-party/math/katex.js"></script>
+
+
+
+</body>
+</html>

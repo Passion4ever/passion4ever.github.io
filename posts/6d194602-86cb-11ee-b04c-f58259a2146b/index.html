@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/github_default_180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/github_default_32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/github_default_16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-flash.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"passion4ever.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+
+
+<link rel="canonical" href="https://passion4ever.github.io/posts/6d194602-86cb-11ee-b04c-f58259a2146b/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://passion4ever.github.io/posts/6d194602-86cb-11ee-b04c-f58259a2146b/","path":"posts/6d194602-86cb-11ee-b04c-f58259a2146b/","title":"pathlib"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>pathlib | 🇨🇳 Passion4ever</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">🇨🇳 Passion4ever</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">🎯 Goal-Oriented</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-所有文章"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>所有文章</a></li><li class="menu-item menu-item-编程代码"><a href="/1-code" rel="section"><i class="fa fa-code fa-fw"></i>编程代码</a></li><li class="menu-item menu-item-人工智能"><a href="/2-AI" rel="section"><i class="fa fa-robot fa-fw"></i>人工智能</a></li><li class="menu-item menu-item-生物信息"><a href="/3-bioinformatics" rel="section"><i class="fa fa-dna fa-fw"></i>生物信息</a></li><li class="menu-item menu-item-其他"><a href="/4-others" rel="section"><i class="fa fa-bars fa-fw"></i>其他</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#pathlib%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text"> pathlib介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%99%AE%E9%80%9A%E6%93%8D%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text"> 普通操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C"><span class="nav-number">3.</span> <span class="nav-text"> 常用操作</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="❤️Passion4ever"
+      src="/images/avatar/4d-boy.webp">
+  <p class="site-author-name" itemprop="name">❤️Passion4ever</p>
+  <div class="site-description" itemprop="description">🙅 勿为工具之奴</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://passion4ever.github.io/posts/6d194602-86cb-11ee-b04c-f58259a2146b/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar/4d-boy.webp">
+      <meta itemprop="name" content="❤️Passion4ever">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="🇨🇳 Passion4ever">
+      <meta itemprop="description" content="🙅 勿为工具之奴">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="pathlib | 🇨🇳 Passion4ever">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          pathlib
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-09-07 14:05:37" itemprop="dateCreated datePublished" datetime="2023-09-07T14:05:37+08:00">2023-09-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-19 21:54:29" itemprop="dateModified" datetime="2023-11-19T21:54:29+08:00">2023-11-19</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><div class="note info"><p>😎 平时操作路径主要是创建文件夹和路径拼接或者筛选路径字符串，了解常用的操作就行</p>
+<p>更多内容详见<a target="_blank" rel="noopener" href="https://www.notion.so/pathlib-e97fff4668984ca99ec95f9f1705b09b?pvs=21">pathlib官方文档</a></p>
+</div>
+<h2 id="pathlib介绍"><a class="markdownIt-Anchor" href="#pathlib介绍"></a> pathlib介绍</h2>
+<p>在操作路径时，现在使用<code>pathlib</code>模块基本可以代替 <code>os.path</code>来处理路径。它采用了完全面向对象的编程方式。</p>
+<span id="more"></span>
+<p>其包含了6个Python类：</p>
+<p><img data-src="standard_imgs/pathlib_1.webp" alt="A→B表示A继承自B" /></p>
+<p>大体分为两类：</p>
+<ul>
+<li>pure paths 路径计算操作没有IO功能</li>
+<li>concrete paths 路径计算操作和IO功能</li>
+</ul>
+<p>从上图可以看出：<code>PurePath</code>类是所有类的基类</p>
+<p><strong>我们重点要掌握<code>PurePath</code>和<code>Path</code>这两个类,在Windows平台下路径对象会有Windows前缀,Unix平台上路径对象会有Posix前缀。</strong></p>
+<p>日常使用中最常用到<code>Path</code>类</p>
+<h2 id="普通操作"><a class="markdownIt-Anchor" href="#普通操作"></a> 普通操作</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pathlib <span class="keyword">import</span> Path</span><br><span class="line"></span><br><span class="line"><span class="comment"># 当前工作路径：</span></span><br><span class="line">Path.cwd()</span><br><span class="line"><span class="comment"># PosixPath(&#x27;/Users/test&#x27;)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># home路径</span></span><br><span class="line">Path.home()</span><br><span class="line"><span class="comment"># PosixPath(&#x27;/Users/test&#x27;)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 列出当前目录的子目录：</span></span><br><span class="line">p = Path(<span class="string">&#x27;.&#x27;</span>)</span><br><span class="line">[x <span class="keyword">for</span> x <span class="keyword">in</span> p.iterdir() <span class="keyword">if</span> x.is_dir()]</span><br><span class="line"></span><br><span class="line">p.iterdir() <span class="comment"># 当路径指向一个目录时，产生该路径下的对象的路径</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将路径绝对化</span></span><br><span class="line">p.resolve()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 列出当前目录下所有的`csv`文件：</span></span><br><span class="line"><span class="built_in">list</span>(p.glob(<span class="string">&#x27;**/*.csv&#x27;</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看路径是否存在</span></span><br><span class="line">a = Path(<span class="string">&#x27;data/data2/Iris.csv&#x27;</span>)</span><br><span class="line">a.exists() <span class="comment"># True</span></span><br><span class="line">b = Path(<span class="string">&#x27;data/data2/NoIris.csv&#x27;</span>)</span><br><span class="line">b.exists() <span class="comment"># False</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 判断是否为文件夹</span></span><br><span class="line">a.is_dir()  <span class="comment"># False</span></span><br><span class="line">p.is_dir() <span class="comment"># True</span></span><br><span class="line">a.is_dir() <span class="comment"># True</span></span><br><span class="line">p.is_file() <span class="comment"># False</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取文件内容</span></span><br><span class="line">a.read_text()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取文件名和后缀</span></span><br><span class="line"><span class="built_in">print</span>(a.name)</span><br><span class="line"><span class="comment"># prints &quot;Iris.csv&quot;</span></span><br><span class="line"><span class="built_in">print</span>(a.suffix)</span><br><span class="line"><span class="comment"># prints &quot;.csv&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 分离路径 </span></span><br><span class="line">a.parts  <span class="comment"># (&#x27;data&#x27;, &#x27;data2&#x27;, &#x27;Iris.csv&#x27;)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改目录权限</span></span><br><span class="line">p.chmod(<span class="number">777</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除目录</span></span><br><span class="line">path_to_remove = Path(<span class="string">&#x27;to_remove&#x27;</span>)</span><br><span class="line">path_to_remove.rmdir()</span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="常用操作"><a class="markdownIt-Anchor" href="#常用操作"></a> 常用操作</h2>
+<ol>
+<li>
+<p>用 <code>/</code> 拼接路径</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pathlib <span class="keyword">import</span> Path</span><br><span class="line"></span><br><span class="line">path = Path(<span class="string">&#x27;/aaa/bbb/ccc&#x27;</span>)</span><br><span class="line"></span><br><span class="line">path2 = path / <span class="string">&#x27;ddd&#x27;</span> / <span class="string">&#x27;eee&#x27;</span></span><br><span class="line"><span class="comment"># path2: &#x27;/aaa/bbb/ccc/ddd/eee&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 由于parent返回的还是Path对象，所以可以链式的获取其parent属性。</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><code>parent</code>/<code>parents</code></p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">path = Path(<span class="string">&#x27;/aaa/bbb/ccc&#x27;</span>)</span><br><span class="line"></span><br><span class="line">path.parents[<span class="number">0</span>]</span><br><span class="line"><span class="comment"># PosixPath(&#x27;/aaa/bbb&#x27;)</span></span><br><span class="line"></span><br><span class="line">path.parents[<span class="number">1</span>]</span><br><span class="line"><span class="comment"># PosixPath(&#x27;/aaa&#x27;)</span></span><br><span class="line"></span><br><span class="line">path.parents[<span class="number">2</span>]</span><br><span class="line"><span class="comment"># PosixPath(&#x27;/&#x27;)</span></span><br><span class="line"></span><br><span class="line">path.parent</span><br><span class="line"><span class="comment"># PosixPath(&#x27;/aaa/bbb&#x27;)</span></span><br><span class="line"></span><br><span class="line">path.parent.parent</span><br><span class="line"><span class="comment"># PosixPath(&#x27;/aaa&#x27;)</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><code>suffix</code>/<code>stem</code></p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">path = Path(<span class="string">&#x27;/aaa/bbb/ccc/test.py&#x27;</span>)</span><br><span class="line"></span><br><span class="line">path.suffix, path.stem</span><br><span class="line"><span class="comment"># (&#x27;.py&#x27;, &#x27;test&#x27;)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 注意: 当文件有多个后缀，可以用suffixes返回文件所有后缀列表:</span></span><br><span class="line">Path(<span class="string">&#x27;my.tar.bz2&#x27;</span>).suffixes</span><br><span class="line">[<span class="string">&#x27;.tar&#x27;</span>, <span class="string">&#x27;.bz2&#x27;</span>]</span><br><span class="line"></span><br><span class="line">Path(<span class="string">&#x27;my.tar&#x27;</span>).suffixes</span><br><span class="line">[<span class="string">&#x27;.tar&#x27;</span>]</span><br><span class="line"></span><br><span class="line">Path(<span class="string">&#x27;my&#x27;</span>).suffixes</span><br><span class="line">[]</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><code>torch</code>创建文件</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Path(<span class="string">&#x27;new.txt&#x27;</span>).touch()</span><br><span class="line"><span class="comment"># touch接受mode参数，能够在创建时确认文件权限，还能通过exist_ok参数方式确认是否可以重复touch(默认可以重复创建，会更新文件的mtime)</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><code>with_name</code> / <code>with_suffix</code></p>
+<p>基于某个文件路径生成另外一个文件路径。举个例子，有一个文件地址<code>'/home/aaa/abc.jpg'</code>，2个需求:</p>
+<ol>
+<li>获得转成<code>webp</code>格式的路径</li>
+<li>把图片名字改成<code>123</code></li>
+</ol>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">p = Path(<span class="string">&#x27;/home/aaa/abc.jpg&#x27;</span>)</span><br><span class="line"></span><br><span class="line">p.with_suffix(<span class="string">&#x27;.webp&#x27;</span>)</span><br><span class="line"><span class="comment"># PosixPath(&#x27;/home/aaa/abc.webp&#x27;)</span></span><br><span class="line"></span><br><span class="line">p.with_name(<span class="string">f&#x27;123<span class="subst">&#123;p.suffix&#125;</span>&#x27;</span>)</span><br><span class="line"><span class="comment"># PosixPath(&#x27;/home/aaa/123.webp&#x27;)</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>创建目录</strong></p>
+<p><code>Path.mkdir(mode=0o777, parents=False, exist_ok=False)</code></p>
+<p>新建给定路径的目录。</p>
+<p>如果给出了 <em><code>mode</code></em> ，它将与当前进程的 <code>umask</code> 值合并来决定文件模式和访问标志。如果路径已经存在，则抛出 <code>FileExistsError</code>。</p>
+<p>如果 <em><code>parents</code></em> 为True，任何找不到的父目录都会伴随着此路径被创建</p>
+<p>如果 <em><code>parents</code></em> 为假值（默认），则找不到的父级目录会引发 <code>FileNotFoundError</code>。</p>
+<p>如果 <em><code>exist_ok</code></em> 为 false（默认），则在目标已存在的情况下抛出 <code>FileExistsError</code>。</p>
+<p>如果 <em><code>exist_ok</code></em> 为 true， 则 <code>FileExistsError</code> 异常将被忽略，但是只有在最后一个路径组件不是现存的非目录文件时才生效。</p>
+ <div class="note info"><p>一般 <code>exist_ok</code> 和 <code>parents</code> 都为 <code>True</code></p>
+</div>
+</li>
+<li>
+<p><strong><strong>owner</strong></strong></p>
+<p>有时操作文件前需要确认拥有此文件的用户</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">p.owner()</span><br><span class="line"><span class="string">&#x27;yg&#x27;</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/6d194600-86cb-11ee-b04c-f58259a2146b/" rel="prev" title="logging">
+                  <i class="fa fa-angle-left"></i> logging
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/6d194608-86cb-11ee-b04c-f58259a2146b/" rel="next" title="re">
+                  re <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2020 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Passion4ever</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr+QR0SQDNfgglgtcM=" crossorigin="anonymous">
+  <script class="next-config" data-name="katex" type="application/json">{"copy_tex_js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/copy-tex.min.js","integrity":"sha256-Us54+rSGDSTvIhKKUs4kygE2ipA0RXpWWh0/zLqw3bs="}}</script>
+  <script src="/js/third-party/math/katex.js"></script>
+
+
+
+</body>
+</html>
