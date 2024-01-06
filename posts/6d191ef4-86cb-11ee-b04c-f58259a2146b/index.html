@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/github_default_180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/github_default_32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/github_default_16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-flash.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"passion4ever.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+
+
+<link rel="canonical" href="https://passion4ever.github.io/posts/6d191ef4-86cb-11ee-b04c-f58259a2146b/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://passion4ever.github.io/posts/6d191ef4-86cb-11ee-b04c-f58259a2146b/","path":"posts/6d191ef4-86cb-11ee-b04c-f58259a2146b/","title":"Mac环境 Github + Hexo + NexT 搭建个人网站"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Mac环境 Github + Hexo + NexT 搭建个人网站 | Passion4ever</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Passion4ever</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Goal-Oriented</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-所有文章"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>所有文章</a></li><li class="menu-item menu-item-编程代码"><a href="/1-code" rel="section"><i class="fa fa-code fa-fw"></i>编程代码</a></li><li class="menu-item menu-item-人工智能"><a href="/2-AI" rel="section"><i class="fa fa-robot fa-fw"></i>人工智能</a></li><li class="menu-item menu-item-生物信息"><a href="/3-bioinformatics" rel="section"><i class="fa fa-dna fa-fw"></i>生物信息</a></li><li class="menu-item menu-item-其他"><a href="/4-others" rel="section"><i class="fa fa-bars fa-fw"></i>其他</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E8%BD%AF%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text"> 配置环境软件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-nodejs-%E5%92%8C-git"><span class="nav-number">1.1.</span> <span class="nav-text"> 安装 Node.js 和 Git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9npm%E9%95%9C%E5%83%8F%E6%BA%90"><span class="nav-number">1.2.</span> <span class="nav-text"> 修改npm镜像源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-git"><span class="nav-number">1.3.</span> <span class="nav-text"> 配置 Git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-hexo"><span class="nav-number">1.4.</span> <span class="nav-text"> 安装 hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E6%AC%A1%E4%BD%BF%E7%94%A8hexo"><span class="nav-number">1.5.</span> <span class="nav-text"> 初次使用hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E7%AB%99%E7%82%B9%E5%85%B3%E8%81%94%E5%88%B0github"><span class="nav-number">1.6.</span> <span class="nav-text"> 本地站点关联到Github</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%9F%E5%90%8D%E7%BB%91%E5%AE%9A%E5%88%B0-github-pages%E5%8F%AF%E9%80%89"><span class="nav-number">1.7.</span> <span class="nav-text"> 域名绑定到 Github Pages(可选)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-next-%E4%B8%BB%E9%A2%98"><span class="nav-number">1.8.</span> <span class="nav-text"> 安装 NexT 主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%A0%E5%8F%AF%E8%83%BD%E6%83%B3%E6%9B%B4%E6%94%B9-hexo-%E6%88%96%E8%80%85-next-%E7%9A%84%E9%85%8D%E7%BD%AE-%E6%83%B3%E7%BE%8E%E5%8C%96"><span class="nav-number">1.9.</span> <span class="nav-text"> 你可能想更改 hexo 或者 next 的配置, 想美化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%88%86%E7%B1%BB%E9%A1%B5%E9%9D%A2%E5%92%8C%E6%A0%87%E7%AD%BE%E9%A1%B5%E9%9D%A2"><span class="nav-number">1.9.1.</span> <span class="nav-text"> 创建分类页面和标签页面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2next-%E6%8F%92%E4%BB%B6"><span class="nav-number">1.9.2.</span> <span class="nav-text"> 添加搜索(NEXT) - 插件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#next%E4%B8%BB%E9%A2%98%E4%B9%8Blatex%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E6%B8%B2%E6%9F%93-%E6%8F%92%E4%BB%B6"><span class="nav-number">1.9.3.</span> <span class="nav-text"> Next主题之Latex数学公式渲染 - 插件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%94%AF%E4%B8%80%E9%93%BE%E6%8E%A5%E6%A0%87%E8%AF%86-%E6%8F%92%E4%BB%B6"><span class="nav-number">1.9.4.</span> <span class="nav-text"> 唯一链接标识 - 插件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%BE%E7%89%87%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">1.9.5.</span> <span class="nav-text"> 图片的问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E6%96%87%E7%AB%A0%E7%BD%AE%E9%A1%B6%E5%8A%9F%E8%83%BD"><span class="nav-number">1.9.6.</span> <span class="nav-text"> 添加文章置顶功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%87%E7%AB%A0%E6%B7%BB%E5%8A%A0%E9%98%B4%E5%BD%B1"><span class="nav-number">1.9.7.</span> <span class="nav-text"> 文章添加阴影</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">2.</span> <span class="nav-text"> hexo 常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#next-%E4%B8%BB%E9%A2%98-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">3.</span> <span class="nav-text"> NexT 主题 常用命令</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="❤️Passion4ever"
+      src="/images/avatar/4d-boy.webp">
+  <p class="site-author-name" itemprop="name">❤️Passion4ever</p>
+  <div class="site-description" itemprop="description">勿为工具之奴</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://passion4ever.github.io/posts/6d191ef4-86cb-11ee-b04c-f58259a2146b/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar/4d-boy.webp">
+      <meta itemprop="name" content="❤️Passion4ever">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Passion4ever">
+      <meta itemprop="description" content="勿为工具之奴">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Mac环境 Github + Hexo + NexT 搭建个人网站 | Passion4ever">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Mac环境 Github + Hexo + NexT 搭建个人网站
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-07-29 23:50:24" itemprop="dateCreated datePublished" datetime="2023-07-29T23:50:24+08:00">2023-07-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-01-03 23:19:32" itemprop="dateModified" datetime="2024-01-03T23:19:32+08:00">2024-01-03</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><div class="note info"><p>教程导向: 记录自己在Mac环境 <code>Github</code> + <code>Hexo</code> + <code>NexT</code> 搭建个人网站的步骤, 以及设置.<br />
+同时也记录了报错以及解决方法</p>
+</div>
+<span id="more"></span>
+<h2 id="配置环境软件"><a class="markdownIt-Anchor" href="#配置环境软件"></a> 配置环境软件</h2>
+<p>开始之前需要在电脑上安装<code>Git</code>和<code>Node.js</code>, Mac上可以使用<code>Homebrew</code>命令行工具来安装</p>
+<div class="note info"><p>关于 <code>Homebrew</code> , 没安装的直接</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ruby -e <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+<p>不具体说了, 很简单</p>
+</div>
+<div class="note success"><p>如果某一步你已经做了, 跳过就好</p>
+</div>
+<h3 id="安装-nodejs-和-git"><a class="markdownIt-Anchor" href="#安装-nodejs-和-git"></a> 安装 Node.js 和 Git</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装 Node.js</span></span><br><span class="line">brew install node</span><br><span class="line"><span class="comment"># 查看版本</span></span><br><span class="line">node -v</span><br><span class="line">npm -v</span><br><span class="line"><span class="comment"># 安装 Git</span></span><br><span class="line">brew install git</span><br><span class="line"><span class="comment"># 查看版本</span></span><br><span class="line">git -v</span><br><span class="line"><span class="comment"># 都出现版本号说明安装成功</span></span><br></pre></td></tr></table></figure>
+<h3 id="修改npm镜像源"><a class="markdownIt-Anchor" href="#修改npm镜像源"></a> 修改npm镜像源</h3>
+<p>使用npm过程中经常会遇到无法下载包的问题, 要修改镜像源<br />
+修改成淘宝镜像源</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改源</span></span><br><span class="line">npm config <span class="built_in">set</span> registry https://registry.npmmirror.com</span><br><span class="line"><span class="comment"># 验证</span></span><br><span class="line">npm config get registry</span><br><span class="line"><span class="comment"># 如果返回 https://registry.npmmirror.com 说明镜像配置成功</span></span><br></pre></td></tr></table></figure>
+<h3 id="配置-git"><a class="markdownIt-Anchor" href="#配置-git"></a> 配置 Git</h3>
+<p>这步是为了后面部署到 <code>Github</code> 上</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;username&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;email@email.com&quot;</span></span><br></pre></td></tr></table></figure>
+<p>其中 <code>username</code> 是你的用户名, <code>email@email.com</code> 是你<code>github</code>的登录邮箱<br />
+然后通过终端命令生成SSH Key</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;email@email.com&quot;</span></span><br></pre></td></tr></table></figure>
+<p>如果已经创建过会出现 <code>Overwrite (y/n)?</code> <code>n</code>提示可以输入 <code>n</code>, 如果没有创建过会要求我们输入密码, 然后<strong>一路回车</strong>下去就行, 执行完成后会在<code>~/.ssh/id_rsa.pub</code>目录下生成 需要使用的 key.</p>
+<p>可以使用命令行输出key并复制</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+<p>或者可以找到这个文件并打开它, 复制里面的内容.</p>
+<p>然后登录github账号 找到 <code>Settings</code></p>
+<img data-src="/posts/6d191ef4-86cb-11ee-b04c-f58259a2146b/github_hexo_next_tutorial_1.webp" class="">
+<p>先点击 <code>SSH and GPG keys</code> 然后再点击 <code>New SSH key</code> 进入到配置 SSH Key 的页面</p>
+<img data-src="/posts/6d191ef4-86cb-11ee-b04c-f58259a2146b/github_hexo_next_tutorial_2.webp" class="">
+<p>然后输入复制好的key的内容, 点击 <code>Add SSH Key</code> 即可</p>
+<img data-src="/posts/6d191ef4-86cb-11ee-b04c-f58259a2146b/github_hexo_next_tutorial_3.webp" class="">
+<h3 id="安装-hexo"><a class="markdownIt-Anchor" href="#安装-hexo"></a> 安装 hexo</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g hexo-cli</span><br><span class="line"><span class="comment"># 卸载的话就是</span></span><br><span class="line">sudo npm uninstall hexo-cli -g</span><br></pre></td></tr></table></figure>
+<p>这里就安装配置环境和软件就完事儿了</p>
+<h3 id="初次使用hexo"><a class="markdownIt-Anchor" href="#初次使用hexo"></a> 初次使用hexo</h3>
+<p>安装完成后在你想放个人站点的路径下创建一个文件夹<code>hexo_site</code>(叫啥都可以), 在该文件夹下初始化博客</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 先cd 到 hexo_site</span></span><br><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+<p>如果出现这个错误:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">INFO  Cloning hexo-starter https://github.com/hexojs/hexo-starter.git</span><br><span class="line">INFO  Install dependencies</span><br><span class="line">WARN  Failed to install dependencies. Please run <span class="string">&#x27;npm install&#x27;</span> <span class="keyword">in</span> <span class="string">&quot;/Users/Documents/GitHub/hexo-site&quot;</span> folder.</span><br></pre></td></tr></table></figure>
+<p>运行<code>npm install</code>即可</p>
+<p>初始化成功后, 在hexo_site目录下执行预览操作</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<p>当看到如下输出就可以预览我们创建的博客了</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">INFO  Validating config</span><br><span class="line">INFO  Start processing</span><br><span class="line">INFO  Hexo is running at http://localhost:4000 . Press Ctrl+C to stop. </span><br></pre></td></tr></table></figure>
+<p>预览效果</p>
+<img data-src="/posts/6d191ef4-86cb-11ee-b04c-f58259a2146b/github_hexo_next_tutorial_4.webp" class="">
+<h3 id="本地站点关联到github"><a class="markdownIt-Anchor" href="#本地站点关联到github"></a> 本地站点关联到Github</h3>
+<p>登录Github并且创建一个名字为 <code>username.githug.io</code> 的仓库, <code>username</code> 是你 Github 的用户名(大小写应该是无所谓的)<br />
+因为我已经创建过了, 所以会显示红色, 如果创建过, 会显示绿色的, 然后点击创建. 切记一定要选择 <code>Public</code>, 否定不能访问.</p>
+<img data-src="/posts/6d191ef4-86cb-11ee-b04c-f58259a2146b/github_hexo_next_tutorial_5.webp" class="">
+<p>然后切到<code>hexo_site</code>目录下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<p>然后开始修改配置文件 <code>/hexo_site/_config.yml</code><br />
+修改 <code>deploy</code>部分为</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 改成自己的</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">git@github.com:Passion4ever/passion4ever.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">main</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成文件</span></span><br><span class="line">hexo g</span><br><span class="line"><span class="comment"># 部署</span></span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<p>然后就可以通过 <code>username.githug.io</code> 来访问啦</p>
+<h3 id="域名绑定到-github-pages可选"><a class="markdownIt-Anchor" href="#域名绑定到-github-pages可选"></a> 域名绑定到 Github Pages(可选)</h3>
+<p>这块我不太想说, 其实差不多, 具体的自己去网上找教程吧, 多的很.</p>
+<h3 id="安装-next-主题"><a class="markdownIt-Anchor" href="#安装-next-主题"></a> 安装 NexT 主题</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> hexo_site</span><br><span class="line">npm install hexo-theme-next</span><br></pre></td></tr></table></figure>
+<p>然后在站点根目录下找到<code>_config.yml</code></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 改成 next 主题</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">next</span></span><br></pre></td></tr></table></figure>
+<p>重新部署即可</p>
+<h3 id="你可能想更改-hexo-或者-next-的配置-想美化"><a class="markdownIt-Anchor" href="#你可能想更改-hexo-或者-next-的配置-想美化"></a> 你可能想更改 hexo 或者 next 的配置, 想美化</h3>
+<p>关于如何更改配置, 请先参阅hexo next 官方文档 <a target="_blank" rel="noopener" href="https://theme-next.js.org/docs/getting-started/configuration.html">Alternate Theme Config</a>和 <a target="_blank" rel="noopener" href="https://theme-next.js.org/docs/advanced-settings/custom-files.html">Custom Files</a>. 要说的东西很多, 可以自己看.<br />
+我选择的是在 hexo配置文件中添加<code>theme_config</code>键值对, 把需要更改的 next 配置给覆盖, 这样也便于维护</p>
+<p>更改 hexo 站点的配置, 参阅<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo官方文档</a></p>
+<div class="note success"><p>其实在网上搜索了很多教程, 很多都过时了! 关于 next 相关<br />
+‼️去看<a target="_blank" rel="noopener" href="https://theme-next.js.org/">Next官方文档</a>才是最好的‼️</p>
+</div>
+<h4 id="创建分类页面和标签页面"><a class="markdownIt-Anchor" href="#创建分类页面和标签页面"></a> 创建分类页面和标签页面</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo new page categories</span><br><span class="line">hexo new page tags</span><br></pre></td></tr></table></figure>
+<p>点开分类和标签其实是没得, 还得到 <code>source</code> 目录下的 <code>categories</code> 和 <code>tags</code> 下的 <code>index.md</code> 分别添加 <code>type: categories</code>, <code>type: tags</code></p>
+<h4 id="添加搜索next-插件"><a class="markdownIt-Anchor" href="#添加搜索next-插件"></a> 添加搜索(NEXT) - 插件</h4>
+<p>next 配置</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">local_search:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>然后命令行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
+<h4 id="next主题之latex数学公式渲染-插件"><a class="markdownIt-Anchor" href="#next主题之latex数学公式渲染-插件"></a> Next主题之Latex数学公式渲染 - 插件</h4>
+<p>去 next 主题 github 仓库的<a target="_blank" rel="noopener" href="https://github.com/theme-next/hexo-theme-next/blob/master/docs/zh-CN/MATH.md">中文文档</a>有介绍, 使用 <strong>MathJax</strong> 或者 <strong>Katex</strong></p>
+<p>前者全面, 后者轻量, 我是用的是后者.</p>
+<h4 id="唯一链接标识-插件"><a class="markdownIt-Anchor" href="#唯一链接标识-插件"></a> 唯一链接标识 - 插件</h4>
+<p>使用<code>hexo-uuid</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-uuid --save</span><br></pre></td></tr></table></figure>
+<p><code>_config.yml</code> 中修改</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">posts/:uuid/</span></span><br></pre></td></tr></table></figure>
+<h4 id="图片的问题"><a class="markdownIt-Anchor" href="#图片的问题"></a> 图片的问题</h4>
+<p>我是用的资源存储方式是 <code>post_asset_folder</code> 为 <code>true</code> ,也即如下路径关系</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">_post           </span><br><span class="line">├─ test         </span><br><span class="line">│  └─ fig1.webp  </span><br><span class="line">└─ test.md      </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>那么按理来说, 我引用这个图片只需要在<code>test.md</code>中使用 <code>![alt](/test/fig1.webp)</code> 即可(路径前面有没有 <code>./</code> <code>/</code> 都无所谓), 但是, 本地 markdown渲染都没问题, hexo 在网页上就不显示.</p>
+<p>后来发现使用 <code>post_asset_folder</code> 为 <code>true</code> 这种资源存储方式, 图片最后会和 <code>.md</code> 文件在统一目录下, 所以<strong>直接引用即可</strong>, 即<code>![alt](fig1.webp)</code></p>
+<p>真的坑人!</p>
+<p>又遇到了首页无法显示图, 点进文章可以, 真的恶心, 最后使用了<br />
+<code>&#123;%asset_img xxx.webp alt %&#125;</code> 的方式<br />
+还是这个靠谱, 就是无法显示图片的 caption</p>
+<h4 id="添加文章置顶功能"><a class="markdownIt-Anchor" href="#添加文章置顶功能"></a> 添加文章置顶功能</h4>
+<p>直接在文章上加个<code>sticky: 数字</code>即可</p>
+<p>也可以使用插件<a target="_blank" rel="noopener" href="https://github.com/jiangtj-lab/hexo-cake-moon-menu">hexo-cake-moon-menu</a></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 在 node_modules/hexo-cake-moon-menu/assets 文件夹下找light.css或者 dark.css */</span></span><br><span class="line"><span class="comment">/* 好像这个是根据你系统的明暗主题和 hexo 与 next 主题无关(不确定) */</span></span><br><span class="line"><span class="selector-class">.moon-menu</span> &#123;</span><br><span class="line">  <span class="attr">--moon-cricle</span>: <span class="number">#9f9f9f</span>;</span><br><span class="line">  <span class="attr">--color</span>: <span class="number">#dddddd</span>;</span><br><span class="line">  <span class="attr">--moon-item-bg-color</span>: <span class="number">#9f9f9f</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="文章添加阴影"><a class="markdownIt-Anchor" href="#文章添加阴影"></a> 文章添加阴影</h4>
+<p><code>source/_data/styles.styl</code>下添加</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 文章添加阴影效果</span><br><span class="line"><span class="selector-class">.post-block</span> &#123;</span><br><span class="line">    <span class="attribute">visibility</span>: display;</span><br><span class="line">    <span class="attribute">margin-top</span>: <span class="number">25px</span>;</span><br><span class="line">    <span class="attribute">margin-bottom</span>: <span class="number">25px</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">25px</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">20px</span> <span class="number">20px</span> <span class="number">20px</span> <span class="number">20px</span>;</span><br><span class="line">    -webkit-<span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">20px</span> <span class="built_in">rgba</span>(<span class="number">202</span>, <span class="number">203</span>, <span class="number">203</span>, .<span class="number">5</span>);</span><br><span class="line">    -moz-<span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">5px</span> <span class="built_in">rgba</span>(<span class="number">202</span>, <span class="number">203</span>, <span class="number">204</span>, .<span class="number">5</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="hexo-常用命令"><a class="markdownIt-Anchor" href="#hexo-常用命令"></a> hexo 常用命令</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">hexo n <span class="string">&quot;博客名称&quot;</span>  =&gt; hexo new <span class="string">&quot;博客名称&quot;</span>   <span class="comment"># 这两个都是创建新文章，前者是简写模式</span></span><br><span class="line">hexo p  =&gt; hexo publish</span><br><span class="line">hexo g  =&gt; hexo generate  <span class="comment"># 生成</span></span><br><span class="line">hexo s  =&gt; hexo server  <span class="comment"># 启动服务预览</span></span><br><span class="line">hexo d  =&gt; hexo deploy  <span class="comment"># 部署  </span></span><br><span class="line"></span><br><span class="line">hexo server   <span class="comment"># Hexo 会监视文件变动并自动更新，无须重启服务器。</span></span><br><span class="line">hexo server -s   <span class="comment">#静态模式</span></span><br><span class="line">hexo server -p 5000   <span class="comment">#更改端口</span></span><br><span class="line">hexo server -i 192.168.1.1   <span class="comment">#自定义IP</span></span><br><span class="line">hexo clean   <span class="comment">#清除缓存，网页正常情况下可以忽略此条命令</span></span><br><span class="line">hexo g   <span class="comment"># 生成静态网页</span></span><br><span class="line">hexo d   <span class="comment"># 开始部署</span></span><br></pre></td></tr></table></figure>
+<p>具体的指令解释可以看<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/commands">官方文档</a></p>
+<h2 id="next-主题-常用命令"><a class="markdownIt-Anchor" href="#next-主题-常用命令"></a> NexT 主题 常用命令</h2>
+<div class="note default"><p>default 提示块标签</p>
+</div>
+<div class="note primary"><p>primary 提示块标签</p>
+</div>
+<div class="note success"><p>success 提示块标签</p>
+</div>
+<div class="note info"><p>info 提示块标签</p>
+</div>
+<div class="note warning"><p>warning 提示块标签</p>
+</div>
+<div class="note danger"><p>danger 提示块标签</p>
+</div>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&#123;% note default %&#125;</span><br><span class="line">default 提示块标签</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note primary %&#125;</span><br><span class="line">primary 提示块标签</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note success %&#125;</span><br><span class="line">success 提示块标签</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note info %&#125;</span><br><span class="line">info 提示块标签</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note warning %&#125;</span><br><span class="line">warning 提示块标签</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note danger %&#125;</span><br><span class="line">danger 提示块标签</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/6d191ef3-86cb-11ee-b04c-f58259a2146b/" rel="prev" title="混淆矩阵(Confusion Matrix)">
+                  <i class="fa fa-angle-left"></i> 混淆矩阵(Confusion Matrix)
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/6d199425-86cb-11ee-b04c-f58259a2146b/" rel="next" title="基于图的蛋白质设计模型">
+                  基于图的蛋白质设计模型 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2020 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Passion4ever</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr+QR0SQDNfgglgtcM=" crossorigin="anonymous">
+  <script class="next-config" data-name="katex" type="application/json">{"copy_tex_js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/copy-tex.min.js","integrity":"sha256-Us54+rSGDSTvIhKKUs4kygE2ipA0RXpWWh0/zLqw3bs="}}</script>
+  <script src="/js/third-party/math/katex.js"></script>
+
+
+
+</body>
+</html>

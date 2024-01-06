@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/github_default_180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/github_default_32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/github_default_16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-flash.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"passion4ever.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+
+
+<link rel="canonical" href="https://passion4ever.github.io/posts/6d196d1f-86cb-11ee-b04c-f58259a2146b/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://passion4ever.github.io/posts/6d196d1f-86cb-11ee-b04c-f58259a2146b/","path":"posts/6d196d1f-86cb-11ee-b04c-f58259a2146b/","title":"2.1 蛋白质家族和结构域数据库"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>2.1 蛋白质家族和结构域数据库 | Passion4ever</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Passion4ever</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Goal-Oriented</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-所有文章"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>所有文章</a></li><li class="menu-item menu-item-编程代码"><a href="/1-code" rel="section"><i class="fa fa-code fa-fw"></i>编程代码</a></li><li class="menu-item menu-item-人工智能"><a href="/2-AI" rel="section"><i class="fa fa-robot fa-fw"></i>人工智能</a></li><li class="menu-item menu-item-生物信息"><a href="/3-bioinformatics" rel="section"><i class="fa fa-dna fa-fw"></i>生物信息</a></li><li class="menu-item menu-item-其他"><a href="/4-others" rel="section"><i class="fa fa-bars fa-fw"></i>其他</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%9B%8B%E7%99%BD%E8%B4%A8%E6%A8%A1%E4%BD%93%E5%8F%8A%E7%BB%93%E6%9E%84%E5%9F%9F%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">1.</span> <span class="nav-text"> 蛋白质模体及结构域数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#motifs-and-domains%E6%A8%A1%E4%BD%93%E5%92%8C%E7%BB%93%E6%9E%84%E5%9F%9F"><span class="nav-number">1.1.</span> <span class="nav-text"> Motifs and Domains（模体和结构域）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#prosite%E8%9B%8B%E7%99%BD%E8%B4%A8%E5%AE%B6%E6%97%8F%E5%8F%8A%E7%BB%93%E6%9E%84%E5%9F%9F%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">1.2.</span> <span class="nav-text"> PROSITE（蛋白质家族及结构域数据库）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#prints%E8%9B%8B%E7%99%BD%E8%B4%A8%E6%A8%A1%E4%BD%93%E6%8C%87%E7%BA%B9%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">1.3.</span> <span class="nav-text"> PRINTS（蛋白质模体指纹数据库）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#blocks"><span class="nav-number">1.4.</span> <span class="nav-text"> BLOCKS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#prodom"><span class="nav-number">1.5.</span> <span class="nav-text"> ProDom</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pfam%E8%9B%8B%E7%99%BD%E8%B4%A8%E5%AE%B6%E6%97%8F%E7%9A%84%E5%BA%8F%E5%88%97%E6%AF%94%E5%AF%B9%E5%92%8Chmm%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">1.6.</span> <span class="nav-text"> Pfam（蛋白质家族的序列比对和HMM数据库）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#smart-%E7%AE%80%E5%8D%95%E7%9A%84%E6%A8%A1%E5%9D%97%E5%8C%96%E6%9E%B6%E6%9E%84%E7%A0%94%E7%A9%B6%E5%B7%A5%E5%85%B7"><span class="nav-number">1.7.</span> <span class="nav-text"> SMART (简单的模块化架构研究工具）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#interpro"><span class="nav-number">1.8.</span> <span class="nav-text"> InterPro</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cdd%E4%BF%9D%E5%AE%88%E5%9F%9F%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">1.9.</span> <span class="nav-text"> CDD（保守域数据库）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cdart-conserved-domain-architecture%E4%BF%9D%E5%AE%88%E5%9F%9F%E6%9E%B6%E6%9E%84"><span class="nav-number">1.10.</span> <span class="nav-text"> CDART (Conserved Domain Architecture，保守域架构)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%9B%8B%E7%99%BD%E8%B4%A8%E5%AE%B6%E6%97%8F%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">2.</span> <span class="nav-text"> 蛋白质家族数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cog-cluster-of-orthologous-groups"><span class="nav-number">2.1.</span> <span class="nav-text"> COG (Cluster of Orthologous Groups ):</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#protonet"><span class="nav-number">2.2.</span> <span class="nav-text"> ProtoNet</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%9B%8B%E7%99%BD%E8%B4%A8%E7%BB%93%E6%9E%84%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">3.</span> <span class="nav-text"> 蛋白质结构数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pdbprotein-data-bank"><span class="nav-number">3.1.</span> <span class="nav-text"> PDB（Protein Data Bank）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#scop%E8%9B%8B%E7%99%BD%E8%B4%A8%E7%BB%93%E6%9E%84%E5%88%86%E7%B1%BB%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">3.2.</span> <span class="nav-text"> SCOP（蛋白质结构分类数据库）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dssp%E8%9B%8B%E7%99%BD%E8%B4%A8%E4%BA%8C%E7%BA%A7%E7%BB%93%E6%9E%84%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">3.3.</span> <span class="nav-text"> DSSP（蛋白质二级结构数据库）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hssp%E8%9B%8B%E7%99%BD%E8%B4%A8%E5%90%8C%E6%BA%90%E5%BA%8F%E5%88%97%E6%AF%94%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">3.4.</span> <span class="nav-text"> HSSP（蛋白质同源序列比对数据库）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E5%AE%83%E7%94%9F%E7%89%A9%E5%A4%A7%E5%88%86%E5%AD%90%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">4.</span> <span class="nav-text"> 其它生物大分子数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#mmdb-molecular-modeling-database%E5%88%86%E5%AD%90%E5%BB%BA%E6%A8%A1%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">4.1.</span> <span class="nav-text"> MMDB （Molecular Modeling Database，分子建模数据库）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dbsnp-%E5%8D%95%E6%A0%B8%E8%8B%B7%E9%85%B8%E5%A4%9A%E6%80%81%E6%80%A7%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">4.2.</span> <span class="nav-text"> dbSNP（ 单核苷酸多态性数据库）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#omim-online-mendelian-inheritance-in-man"><span class="nav-number">4.3.</span> <span class="nav-text"> OMIM (Online Mendelian Inheritance in Man)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#epd"><span class="nav-number">4.4.</span> <span class="nav-text"> EPD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#trrd-transcription-regulatory-regions-database"><span class="nav-number">4.5.</span> <span class="nav-text"> TRRD （Transcription Regulatory Regions Database ）</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="❤️Passion4ever"
+      src="/images/avatar/4d-boy.webp">
+  <p class="site-author-name" itemprop="name">❤️Passion4ever</p>
+  <div class="site-description" itemprop="description">勿为工具之奴</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://passion4ever.github.io/posts/6d196d1f-86cb-11ee-b04c-f58259a2146b/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar/4d-boy.webp">
+      <meta itemprop="name" content="❤️Passion4ever">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Passion4ever">
+      <meta itemprop="description" content="勿为工具之奴">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="2.1 蛋白质家族和结构域数据库 | Passion4ever">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          2.1 蛋白质家族和结构域数据库
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-07-28 22:30:51" itemprop="dateCreated datePublished" datetime="2023-07-28T22:30:51+08:00">2023-07-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-01-03 23:19:32" itemprop="dateModified" datetime="2024-01-03T23:19:32+08:00">2024-01-03</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="蛋白质模体及结构域数据库"><a class="markdownIt-Anchor" href="#蛋白质模体及结构域数据库"></a> 蛋白质模体及结构域数据库</h2>
+<h3 id="motifs-and-domains模体和结构域"><a class="markdownIt-Anchor" href="#motifs-and-domains模体和结构域"></a> Motifs and Domains（模体和结构域）</h3>
+<p>生物学家可以通过识别与已知功能相关的短共有序列来深入了解蛋白质功能。这些共有序列模式称为基序和域。基序是与蛋白质或 DNA 的不同功能相关的短保守序列模式。它通常与执行特定功能的独特结构站点相关联。典型的基序，如锌指基序，长度为 10 到 20 个氨基酸。</p>
+<span id="more"></span>
+<p>域也是一种保守的序列模式，定义为独立的功能和结构单元。结构域通常比基序长。一个结构域由40多个残基组成，最多可达700个残基，平均长度为100个残基。域在其边界内可能包含也可能不包含主题。例子，跨膜结构域，配体结合结构域。</p>
+<p>识别基序和结构域主要依赖于多序列比对以及概率模型和隐马尔可夫模型（HMM）的构建</p>
+<h3 id="prosite蛋白质家族及结构域数据库"><a class="markdownIt-Anchor" href="#prosite蛋白质家族及结构域数据库"></a> PROSITE（蛋白质家族及结构域数据库）</h3>
+<p>第一个建立的序列模式数据库是蛋白质家族和结构域数据库<a target="_blank" rel="noopener" href="http://www.expasy.org/prosite/">PROSITE</a>，包含具有生物学意义的位点、模式、可帮助识别蛋白质家族的统计特征。</p>
+<p>PROSITE中涉及的序列模式包括酶的催化位点、配体结合位点、与金属离子结合的残基、二硫键的半胱氨酸、与小分子或其它蛋白质结合的区域等。</p>
+<p>PROSITE还包括根据多序列比对而构建的序列统计特征，能更敏感地发现一个（未知）序列是否具有相应的特征。</p>
+<p>这些模式的功能信息主要基于已发表的文献。</p>
+<h3 id="prints蛋白质模体指纹数据库"><a class="markdownIt-Anchor" href="#prints蛋白质模体指纹数据库"></a> PRINTS（蛋白质模体指纹数据库）</h3>
+<p>指纹是一组保守的模体，用于表征蛋白质家族；通过对SWISS-PROT/TrEMBL复合物进行迭代扫描来精细化其诊断能力。通常情况下，这些模体不重叠，而是沿着序列分开，尽管它们在三维空间中可能是连续的。 提供蛋白质同源性分析，蛋白质模体指纹分析，系统发生和序列进化分析，以及微阵列分析，并提供生物信息学和<a target="_blank" rel="noopener" href="http://bioinf.man.ac.uk/dbbrowser/PRINTS/">PRINTS</a>数据库数据下载。</p>
+<h3 id="blocks"><a class="markdownIt-Anchor" href="#blocks"></a> BLOCKS</h3>
+<p>A database of blocks Blocks：ungapped multiple alignments derived from the most conserved, ungapped regions of homologous protein sequences.</p>
+<p>The blocks, which are usually longer than motifs, are subsequently converted to PSSMs. Because blocks often encompass motifs, the functional annotation of blocks is thus consistent with that for the motifs <strong><a target="_blank" rel="noopener" href="http://blocks.fhcrc.org/blocks">http://blocks.fhcrc.org/blocks</a></strong>.</p>
+<p>检测和鉴定蛋白质模体，有BLOCK search、Get Blocks和Block Maker工具 A query sequence can be used to align with precomputed profiles in the database to select the highest scored matches.</p>
+<h3 id="prodom"><a class="markdownIt-Anchor" href="#prodom"></a> ProDom</h3>
+<p>Domain database ProDom is a comprehensive set of protein domain families automatically generated from the SWISS-PROT and TrEMBL sequence databases The domains are built using recursive iterations of PSI-BLAST. <strong><a target="_blank" rel="noopener" href="http://prodom.prabi.fr/prodom/current/html/home.php">http://prodom.prabi.fr/prodom/current/html/home.php</a></strong> 提供相似性搜索、来自SWISSPROT相关结构域的多序列比对</p>
+<h3 id="pfam蛋白质家族的序列比对和hmm数据库"><a class="markdownIt-Anchor" href="#pfam蛋白质家族的序列比对和hmm数据库"></a> Pfam（蛋白质家族的序列比对和HMM数据库）</h3>
+<p>A database with protein domain derived from sequences in SWISSPROT and TrEMBL. Each motif or domain is represented by an HMM profile generated from the seed alignment of a number of conserved homologous proteins. <strong><a target="_blank" rel="noopener" href="http://pfam.janelia.org/">http://pfam.janelia.org/</a></strong> The Pfam database is composed of two parts Pfam-A involves manual alignments Pfam-B, automatic alignment in a way similar to ProDom（ PSI-BLAST ）. The functional annotation of motifs in Pfam-A is often related to that in PROSITE. Pfam-B only contains sequence families not covered in Pfam-A. Because of the automatic nature, Pfam-B has a much larger coverage but is also more error prone because some HMMs are generated from unrelated sequences.</p>
+<h3 id="smart-简单的模块化架构研究工具"><a class="markdownIt-Anchor" href="#smart-简单的模块化架构研究工具"></a> SMART (简单的模块化架构研究工具）</h3>
+<p>Contains HMM profiles constructed from manually refined protein domain alignments. <strong><a target="_blank" rel="noopener" href="http://smart.embl-heidelberg.de/">http://smart.embl-heidelberg.de/</a></strong> Alignments in the database are built based on tertiary structures whenever available or based on PSI-BLAST profiles. Alignments are further checked and refined by human annotators before HMM profile construction.</p>
+<p>Protein functions are also manually curated. The database may be of better quality than Pfam with more extensive functional annotations.</p>
+<p>Compared to Pfam, the SMART database contains an independent collection of HMMs, with emphasis on signaling, extracellular, and chromatin-associated motifs and domains.</p>
+<p>Sequence searching in this database produces a graphical output of domains with well-annotated information with respect to cellular localization, functional sites, superfamily, and tertiary structure</p>
+<h3 id="interpro"><a class="markdownIt-Anchor" href="#interpro"></a> InterPro</h3>
+<p>An integrated pattern database <strong><a target="_blank" rel="noopener" href="http://www.ebi.ac.uk/interpro/">www.ebi.ac.uk/interpro/</a></strong> The database integrates information from PROSITE, Pfam, PRINTS, ProDom, and SMART databases. The sequence patterns from the five databases are further processed. Only overlapping motifs and domains in a protein sequence derived by all five databases are included. A popular feature of this database is a graphical output that summarizes motif matches and has links to more detailed information.</p>
+<h3 id="cdd保守域数据库"><a class="markdownIt-Anchor" href="#cdd保守域数据库"></a> CDD（保守域数据库）</h3>
+<p>a collection of multiple sequence alignments for ancient domains and full-length proteins. <strong><a target="_blank" rel="noopener" href="http://www.ncbi.nlm.nih.gov/Structure/cdd/cdd.shtml">http://www.ncbi.nlm.nih.gov/Structure/cdd/cdd.shtml</a></strong> The CD-Search service may be used to identify the conserved domains present in a protein</p>
+<p>query sequence: <strong><a target="_blank" rel="noopener" href="http://www.ncbi.nlm.nih.gov/Structure/cdd/wrpsb.cgi">http://www.ncbi.nlm.nih.gov/Structure/cdd/wrpsb.cgi</a></strong></p>
+<p>RPS-BLAST (Reverse PSI-BLAST) is the search tool used in the CD-Search service. uses a query sequence to search against a pre-computed profile database generated by PSI-BLAST. The role of the PSSM has changed from “query” to “subject”, hence the term “reverse” in RPS-BLAST. It performs only one iteration of regular BLAST searching against a database of PSI-BLAST profiles to find the high-scoring gapped matches.</p>
+<h3 id="cdart-conserved-domain-architecture保守域架构"><a class="markdownIt-Anchor" href="#cdart-conserved-domain-architecture保守域架构"></a> CDART (Conserved Domain Architecture，保守域架构)</h3>
+<p>A domain search program <strong><a target="_blank" rel="noopener" href="http://www.ncbi.nlm.nih.gov/BLAST/">www.ncbi.nlm.nih.gov/BLAST/</a></strong></p>
+<p>Combines the results from RPS-BLAST, SMART, and Pfam. The resulting domain architecture of a query sequence can be graphically presented along with related sequences. CDART is not a substitute for individual database searches because it often misses certain features that can be found in SMART and Pfam.</p>
+<h2 id="蛋白质家族数据库"><a class="markdownIt-Anchor" href="#蛋白质家族数据库"></a> 蛋白质家族数据库</h2>
+<h3 id="cog-cluster-of-orthologous-groups"><a class="markdownIt-Anchor" href="#cog-cluster-of-orthologous-groups"></a> COG (Cluster of Orthologous Groups ):</h3>
+<p>A protein family database based on phylogenetic classification. <strong><a target="_blank" rel="noopener" href="http://www.ncbi.nlm.nih.gov/COG/">www.ncbi.nlm.nih.gov/COG/</a></strong> It is constructed by comparing protein sequences encoded in completely sequenced genomes. Unicellular clusters：检索工具为COGnitor program Eukaryotic Clusters：检索工具为KOGnitor A query sequence can be assigned function if it has significant similarity matches with any member of the cluster.</p>
+<h3 id="protonet"><a class="markdownIt-Anchor" href="#protonet"></a> ProtoNet</h3>
+<p>A database of clusters of homologous proteins similar to COG. <strong><a target="_blank" rel="noopener" href="http://www.protonet.cs.huji.ac.il/">www.protonet.cs.huji.ac.il/</a></strong> Orthologous protein sequences in the SWISSPROT database are clustered based on pairwise sequence comparisons between all possible protein pairs using BLAST. Protein relatedness is defined by the E-values from the BLAST alignments. A query protein sequence can be submitted to the server for cluster identification and functional annotation.</p>
+<h2 id="蛋白质结构数据库"><a class="markdownIt-Anchor" href="#蛋白质结构数据库"></a> 蛋白质结构数据库</h2>
+<h3 id="pdbprotein-data-bank"><a class="markdownIt-Anchor" href="#pdbprotein-data-bank"></a> PDB（Protein Data Bank）</h3>
+<p>PDB中含有通过实验（X射线晶体衍射，核磁共振NMR）测定的生物大分子的三维结构 蛋白质 核酸 糖类 其它复合物 <strong><a target="_blank" rel="noopener" href="http://www.rcsb.org/pdb">http://www.rcsb.org/pdb</a></strong></p>
+<h3 id="scop蛋白质结构分类数据库"><a class="markdownIt-Anchor" href="#scop蛋白质结构分类数据库"></a> SCOP（蛋白质结构分类数据库）</h3>
+<p>提供关于已知结构的蛋白质之间结构和进化关系的详细描述，包括蛋白质结构数据库PDB中的所有条目。 <strong><a target="_blank" rel="noopener" href="http://scop.mrc-lmb.cam.ac.uk/scop/">http://scop.mrc-lmb.cam.ac.uk/scop/</a></strong> SCOP数据库除了提供蛋白质结构和进化关系信息外，对于每一个蛋白质还包括下述信息：到PDB的连接，序列，参考文献，结构的图像等。 可以按结构和进化关系对蛋白质分类，分类结果是一个具有层次结构的树，其主要的层次是家族、超家族和折叠: 家族：具有明显的进化关系 超家族：具有远源进化关系，具有共同的进化源 折叠类：主要结构相似</p>
+<h3 id="dssp蛋白质二级结构数据库"><a class="markdownIt-Anchor" href="#dssp蛋白质二级结构数据库"></a> DSSP（蛋白质二级结构数据库）</h3>
+<p>对生物大分子数据库PDB中的任何一个蛋白质，根据其三维结构推导出对应的二级结构。 <strong><a target="_blank" rel="noopener" href="http://www.sander.embl-heidelberg.de/dssp/">http://www.sander.embl-heidelberg.de/dssp/</a></strong> 对研究蛋白质序列与蛋白质二级结构及空间结构的关系非常有用 除了二级结构以外，DSSP还包括蛋白质的几何特征及溶剂。</p>
+<h3 id="hssp蛋白质同源序列比对数据库"><a class="markdownIt-Anchor" href="#hssp蛋白质同源序列比对数据库"></a> HSSP（蛋白质同源序列比对数据库）</h3>
+<p>二级数据库 <strong><a target="_blank" rel="noopener" href="http://www.sander.embl-heidelberg.de/hssp/">http://www.sander.embl-heidelberg.de/hssp/</a></strong> 数据来源于PDB，或来源于SWISS-PROT 对于PDB中的每一个蛋白质，HSSP将与其同源的所有蛋白质序列对比排列起来，从而将相似序列的蛋白质聚集成结构同源的家族。 HSSP有助于分析蛋白质的保守区域，研究蛋白质的进化关系，有助于蛋白质的分子设计。</p>
+<h2 id="其它生物大分子数据库"><a class="markdownIt-Anchor" href="#其它生物大分子数据库"></a> 其它生物大分子数据库</h2>
+<h3 id="mmdb-molecular-modeling-database分子建模数据库"><a class="markdownIt-Anchor" href="#mmdb-molecular-modeling-database分子建模数据库"></a> MMDB （Molecular Modeling Database，分子建模数据库）</h3>
+<p>MMDB 是（NCBI）Entrez的一个部分，数据库的内容包括来自于实验的生物大分子结构数据。 <strong><a target="_blank" rel="noopener" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?db=Structure">http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?db=Structure</a></strong> 与PDB相比，对于数据库中的每一个生物大分子结构，MMDB具有许多附加的信息，如分子的生物学功能、产生功能的机制、分子的进化历史等 。 还提供生物大分子三维结构模型显示、结构分析和结构比较工具。</p>
+<h3 id="dbsnp-单核苷酸多态性数据库"><a class="markdownIt-Anchor" href="#dbsnp-单核苷酸多态性数据库"></a> dbSNP（ 单核苷酸多态性数据库）</h3>
+<p><strong><a target="_blank" rel="noopener" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?db=snp">http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?db=snp</a></strong></p>
+<h3 id="omim-online-mendelian-inheritance-in-man"><a class="markdownIt-Anchor" href="#omim-online-mendelian-inheritance-in-man"></a> OMIM (Online Mendelian Inheritance in Man)</h3>
+<p>是关于人类基因和遗传疾病的分类数据库 该数据库收集了已知的人类基因及由于这些基因突变或者缺失而导致的遗传疾病。 <strong><a target="_blank" rel="noopener" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?db=OMIM">http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?db=OMIM</a></strong></p>
+<h3 id="epd"><a class="markdownIt-Anchor" href="#epd"></a> EPD</h3>
+<p>真核基因启动子数据库 <strong><a target="_blank" rel="noopener" href="http://www.epd.isb-sib.ch/">http://www.epd.isb-sib.ch/</a></strong> 提供从EMBL中得到的真核基因的启动子序列，目标是帮助实验研究人员、生物信息学研究人员分析真核基因的转录信号。</p>
+<h3 id="trrd-transcription-regulatory-regions-database"><a class="markdownIt-Anchor" href="#trrd-transcription-regulatory-regions-database"></a> TRRD （Transcription Regulatory Regions Database ）</h3>
+<p>关于基因调控信息的集成数据库 该数据库搜集真核生物基因转录调控区域结构和功能的信息。</p>
+<p>每一个TRRD的条目对应于一个基因，包含特定基因各种结构－功能特性 <strong><a target="_blank" rel="noopener" href="http://wwwmgs.bionet.nsc.ru/mgs/gnw/trrd/">http://wwwmgs.bionet.nsc.ru/mgs/gnw/trrd/</a></strong></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/6d196d16-86cb-11ee-b04c-f58259a2146b/" rel="prev" title="1.5.1 融合蛋白">
+                  <i class="fa fa-angle-left"></i> 1.5.1 融合蛋白
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/6d196d19-86cb-11ee-b04c-f58259a2146b/" rel="next" title="2.2 PDB文件解读">
+                  2.2 PDB文件解读 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2020 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Passion4ever</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr+QR0SQDNfgglgtcM=" crossorigin="anonymous">
+  <script class="next-config" data-name="katex" type="application/json">{"copy_tex_js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/copy-tex.min.js","integrity":"sha256-Us54+rSGDSTvIhKKUs4kygE2ipA0RXpWWh0/zLqw3bs="}}</script>
+  <script src="/js/third-party/math/katex.js"></script>
+
+
+
+</body>
+</html>

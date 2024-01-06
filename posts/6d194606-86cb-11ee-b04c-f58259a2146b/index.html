@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/github_default_180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/github_default_32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/github_default_16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-flash.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"passion4ever.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+
+
+<link rel="canonical" href="https://passion4ever.github.io/posts/6d194606-86cb-11ee-b04c-f58259a2146b/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://passion4ever.github.io/posts/6d194606-86cb-11ee-b04c-f58259a2146b/","path":"posts/6d194606-86cb-11ee-b04c-f58259a2146b/","title":"字符串操作"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>字符串操作 | Passion4ever</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Passion4ever</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Goal-Oriented</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-所有文章"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>所有文章</a></li><li class="menu-item menu-item-编程代码"><a href="/1-code" rel="section"><i class="fa fa-code fa-fw"></i>编程代码</a></li><li class="menu-item menu-item-人工智能"><a href="/2-AI" rel="section"><i class="fa fa-robot fa-fw"></i>人工智能</a></li><li class="menu-item menu-item-生物信息"><a href="/3-bioinformatics" rel="section"><i class="fa fa-dna fa-fw"></i>生物信息</a></li><li class="menu-item menu-item-其他"><a href="/4-others" rel="section"><i class="fa fa-bars fa-fw"></i>其他</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">1.</span> <span class="nav-text"> 修改字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80"><span class="nav-number">1.1.</span> <span class="nav-text"> 方法一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C"><span class="nav-number">1.2.</span> <span class="nav-text"> 方法二</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%89"><span class="nav-number">1.3.</span> <span class="nav-text"> 方法三</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E5%9B%9B"><span class="nav-number">1.4.</span> <span class="nav-text"> 方法四</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2f-string"><span class="nav-number">2.</span> <span class="nav-text"> 格式化字符串(f-string)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8D"><span class="nav-number">2.1.</span> <span class="nav-text"> 介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8%E6%B3%95"><span class="nav-number">2.2.</span> <span class="nav-text"> 用法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95"><span class="nav-number">2.2.1.</span> <span class="nav-text"> 基础用法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%B1%82%E5%80%BC%E5%92%8C%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8"><span class="nav-number">2.2.2.</span> <span class="nav-text"> 表达式求值和函数调用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%95%E5%8F%B7-%E5%A4%A7%E6%8B%AC%E5%8F%B7%E5%92%8C%E5%8F%8D%E6%96%9C%E6%9D%A0"><span class="nav-number">2.2.3.</span> <span class="nav-text"> 引号、大括号和反斜杠</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%9A%E8%A1%8Cf-string"><span class="nav-number">2.2.4.</span> <span class="nav-text"> 多行f-string</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%BC%E5%BC%8F"><span class="nav-number">2.2.5.</span> <span class="nav-text"> 自定义格式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AF%B9%E9%BD%90-%E8%A1%A5%E5%85%A8"><span class="nav-number">2.2.5.1.</span> <span class="nav-text"> 对齐 &amp; 补全</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%95%B0%E5%AD%97%E7%AC%A6%E5%8F%B7"><span class="nav-number">2.2.5.2.</span> <span class="nav-text"> 数字符号</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%BF%9B%E5%88%B6"><span class="nav-number">2.2.5.3.</span> <span class="nav-text"> 进制</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%BD%E5%BA%A6%E5%92%8C%E7%B2%BE%E5%BA%A6"><span class="nav-number">2.2.5.4.</span> <span class="nav-text"> 宽度和精度</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8D%83%E4%BD%8D%E5%88%86%E9%9A%94%E7%AC%A6"><span class="nav-number">2.2.5.5.</span> <span class="nav-text"> 千位分隔符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%A0%BC%E5%BC%8F%E6%8F%8F%E8%BF%B0%E7%AC%A6"><span class="nav-number">2.2.5.6.</span> <span class="nav-text"> 格式描述符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BB%BC%E5%90%88%E7%A4%BA%E4%BE%8B"><span class="nav-number">2.2.5.7.</span> <span class="nav-text"> 综合示例</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">2.2.6.</span> <span class="nav-text"> lambda表达式</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="❤️Passion4ever"
+      src="/images/avatar/4d-boy.webp">
+  <p class="site-author-name" itemprop="name">❤️Passion4ever</p>
+  <div class="site-description" itemprop="description">勿为工具之奴</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://passion4ever.github.io/posts/6d194606-86cb-11ee-b04c-f58259a2146b/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar/4d-boy.webp">
+      <meta itemprop="name" content="❤️Passion4ever">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Passion4ever">
+      <meta itemprop="description" content="勿为工具之奴">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="字符串操作 | Passion4ever">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          字符串操作
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-09-07 13:37:04" itemprop="dateCreated datePublished" datetime="2023-09-07T13:37:04+08:00">2023-09-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-01-06 15:24:14" itemprop="dateModified" datetime="2024-01-06T15:24:14+08:00">2024-01-06</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><div class="note info"><p>Python 中字符串常用操作以及<code>f-string</code>用法</p>
+</div>
+<span id="more"></span>
+<h2 id="修改字符串"><a class="markdownIt-Anchor" href="#修改字符串"></a> 修改字符串</h2>
+<p>在Python中，字符串是不可变类型，这意味着无法直接修改字符串的特定字符。</p>
+<p>直接修改会报错： <code>'str' object does not support item assignment</code></p>
+<p><strong>因此，更改字符串的元素需要创建一个新字符串</strong></p>
+<h3 id="方法一"><a class="markdownIt-Anchor" href="#方法一"></a> 方法一</h3>
+<p>将 <code>string</code> 转换为 <code>list</code> 后，修改值，然后使用 <code>join</code> 形成新字符串</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">s=<span class="string">&#x27;abcdef&#x27;</span>                      <span class="comment"># 原始字符串</span></span><br><span class="line">s1=<span class="built_in">list</span>(s)                      <span class="comment"># 将字符串转换为列表</span></span><br><span class="line">s1            </span><br><span class="line">[<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>, <span class="string">&#x27;d&#x27;</span>, <span class="string">&#x27;e&#x27;</span>, <span class="string">&#x27;f&#x27;</span>]  <span class="comment"># 列表中的每个元素都是一个字符</span></span><br><span class="line">s1[<span class="number">4</span>]=<span class="string">&#x27;E&#x27;</span>                       <span class="comment"># 将列表中的第 5 个字符更改为 E</span></span><br><span class="line">s1[<span class="number">5</span>]=<span class="string">&#x27;F&#x27;</span>                       <span class="comment"># 将列表中的第 6 个字符更改为 F</span></span><br><span class="line">s1</span><br><span class="line">[<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>, <span class="string">&#x27;d&#x27;</span>, <span class="string">&#x27;E&#x27;</span>, <span class="string">&#x27;F&#x27;</span>]</span><br><span class="line">s=<span class="string">&#x27;&#x27;</span>.join(s1)                   <span class="comment"># 使用空字符串将列表中的所有字符重新连接成字符串</span></span><br><span class="line">s</span><br><span class="line"><span class="string">&#x27;abcdEF&#x27;</span>                        <span class="comment"># 新字符串</span></span><br></pre></td></tr></table></figure>
+<h3 id="方法二"><a class="markdownIt-Anchor" href="#方法二"></a> 方法二</h3>
+<p>通过字符串切片的方法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">s=<span class="string">&#x27;Hello World&#x27;</span></span><br><span class="line">s=s[:<span class="number">6</span>] + <span class="string">&#x27;Bital&#x27;</span>   <span class="comment"># s 的前 6 个字符 + &#x27;Bital&#x27;</span></span><br><span class="line">s</span><br><span class="line"><span class="string">&#x27;Hello Bital&#x27;</span></span><br><span class="line">s=s[:<span class="number">3</span>] + s[<span class="number">8</span>:]     <span class="comment"># s 的前 3 个字符加上 s 的第 8 个位置之后的字符</span></span><br><span class="line">s</span><br><span class="line"><span class="string">&#x27;Heltal&#x27;</span></span><br></pre></td></tr></table></figure>
+<h3 id="方法三"><a class="markdownIt-Anchor" href="#方法三"></a> 方法三</h3>
+<p>使用字符串 <code>replace()</code> 方法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">s=<span class="string">&#x27;abcdef&#x27;</span></span><br><span class="line">s=s.replace(<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;A&#x27;</span>)      <span class="comment"># 将 a 替换为 A</span></span><br><span class="line">s</span><br><span class="line"><span class="string">&#x27;Abcdef&#x27;</span></span><br><span class="line">s=s.replace(<span class="string">&#x27;bcd&#x27;</span>,<span class="string">&#x27;123&#x27;</span>)  <span class="comment"># 将 bcd 替换为 123</span></span><br><span class="line">s</span><br><span class="line"><span class="string">&#x27;A123ef&#x27;</span></span><br></pre></td></tr></table></figure>
+<h3 id="方法四"><a class="markdownIt-Anchor" href="#方法四"></a> 方法四</h3>
+<p>通过为变量赋值(或重新赋值)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">s=<span class="string">&#x27;Hello World&#x27;</span></span><br><span class="line">s2=<span class="string">&#x27; 2017&#x27;</span>       <span class="comment"># 变量赋值</span></span><br><span class="line">s=s+s2</span><br><span class="line">s</span><br><span class="line"><span class="string">&#x27;Hello World 2017&#x27;</span></span><br><span class="line">s=<span class="string">&#x27;Hello World&#x27;</span></span><br><span class="line">s=<span class="string">&#x27;Hello World 2017&#x27;</span>  <span class="comment"># 重新赋值</span></span><br><span class="line">s</span><br><span class="line"><span class="string">&#x27;Hello World 2017&#x27;</span></span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="格式化字符串f-string"><a class="markdownIt-Anchor" href="#格式化字符串f-string"></a> 格式化字符串(f-string)</h2>
+<h3 id="介绍"><a class="markdownIt-Anchor" href="#介绍"></a> 介绍</h3>
+<p>f-string，也称为格式化字符串(格式化字符串常量), 是Python 3.6中引入的字符串格式化方法。 f-string 是以 <code>f</code> 或 <code>F</code> 修饰符为前缀的字符串，形式为（<code>f'xxx'或F'xxx'</code>），用大括号 <code>&#123;&#125;</code> 指示替换的字段。 <strong>f-string 本质上不是字符串常量，而是在运行时计算的表达式</strong></p>
+<h3 id="用法"><a class="markdownIt-Anchor" href="#用法"></a> 用法</h3>
+<h4 id="基础用法"><a class="markdownIt-Anchor" href="#基础用法"></a> 基础用法</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">name = <span class="string">&#x27;Eric&#x27;</span></span><br><span class="line"><span class="string">f&#x27;Hello, my name is <span class="subst">&#123;name&#125;</span>&#x27;</span></span><br><span class="line"><span class="string">&#x27;Hello, my name is Eric&#x27;</span></span><br><span class="line"></span><br><span class="line">number = <span class="number">7</span></span><br><span class="line"><span class="string">f&#x27;My lucky number is <span class="subst">&#123;number&#125;</span>&#x27;</span></span><br><span class="line"><span class="string">&#x27;My lucky number is 7&#x27;</span></span><br><span class="line"></span><br><span class="line">price = <span class="number">19.99</span></span><br><span class="line"><span class="string">f&#x27;The price of this book is <span class="subst">&#123;price&#125;</span>&#x27;</span></span><br><span class="line"><span class="string">&#x27;The price of this book is 19.99&#x27;</span></span><br></pre></td></tr></table></figure>
+<h4 id="表达式求值和函数调用"><a class="markdownIt-Anchor" href="#表达式求值和函数调用"></a> 表达式求值和函数调用</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">f&#x27;A total number of <span class="subst">&#123;<span class="number">24</span> * <span class="number">8</span> + <span class="number">4</span>&#125;</span>&#x27;</span></span><br><span class="line"><span class="string">&#x27;A total number of 196&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="string">f&#x27;Complex number <span class="subst">&#123;(<span class="number">2</span> + <span class="number">2j</span>) / (<span class="number">2</span> - <span class="number">3j</span>)&#125;</span>&#x27;</span></span><br><span class="line"><span class="string">&#x27;Complex number (-0.15384615384615388+0.7692307692307692j)&#x27;</span></span><br><span class="line"></span><br><span class="line">name = <span class="string">&#x27;ERIC&#x27;</span></span><br><span class="line"><span class="string">f&#x27;My name is <span class="subst">&#123;name.lower()&#125;</span>&#x27;</span></span><br><span class="line"><span class="string">&#x27;My name is eric&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="string">f&#x27;The answer is <span class="subst">&#123;math.log(math.pi)&#125;</span>&#x27;</span></span><br><span class="line"><span class="string">&#x27;The answer is 1.1447298858494002&#x27;</span></span><br></pre></td></tr></table></figure>
+<h4 id="引号-大括号和反斜杠"><a class="markdownIt-Anchor" href="#引号-大括号和反斜杠"></a> 引号、大括号和反斜杠</h4>
+<p>f-string大括号内使用的引号不应与大括号外的引号冲突。您可以根据情况灵活切换 <code>'</code> 和 <code>&quot;</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">f&#x27;I am <span class="subst">&#123;<span class="string">&quot;Eric&quot;</span>&#125;</span>&#x27;</span></span><br><span class="line"><span class="string">&#x27;I am Eric&#x27;</span></span><br><span class="line"><span class="string">f&#x27;I am <span class="subst">&#123;<span class="string">&#x27;Eric&#x27;</span>&#125;</span>&#x27;</span></span><br><span class="line">  File <span class="string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="number">1</span></span><br><span class="line">    <span class="string">f&#x27;I am <span class="subst">&#123;<span class="string">&#x27;Eric&#x27;</span>&#125;</span>&#x27;</span></span><br><span class="line">                ^</span><br><span class="line">SyntaxError: invalid syntax</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>如果 <code>'</code> 和 <code>&quot;</code> 还不足以满足要求，还可以使用 <code>'''</code> 和 <code>&quot;&quot;&quot;</code></strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">f&quot;He said <span class="subst">&#123;<span class="string">&quot;I&#x27;m Eric&quot;</span>&#125;</span>&quot;</span></span><br><span class="line">  File <span class="string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="number">1</span></span><br><span class="line">    <span class="string">f&quot;He said <span class="subst">&#123;<span class="string">&quot;I&#x27;m Eric&quot;</span>&#125;</span>&quot;</span></span><br><span class="line">                ^</span><br><span class="line">SyntaxError: invalid syntax</span><br><span class="line"></span><br><span class="line"><span class="string">f&#x27;He said <span class="subst">&#123;<span class="string">&quot;I&#x27;m Eric&quot;</span>&#125;</span>&#x27;</span></span><br><span class="line">  File <span class="string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="number">1</span></span><br><span class="line">    <span class="string">f&#x27;He said <span class="subst">&#123;<span class="string">&quot;I&#x27;m Eric&quot;</span>&#125;</span>&#x27;</span></span><br><span class="line">                  ^</span><br><span class="line">SyntaxError: invalid syntax</span><br><span class="line"></span><br><span class="line"><span class="string">f&quot;&quot;&quot;He said <span class="subst">&#123;<span class="string">&quot;I&#x27;m Eric&quot;</span>&#125;</span>&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">&quot;He said I&#x27;m Eric&quot;</span></span><br><span class="line"><span class="string">f&#x27;&#x27;&#x27;He said <span class="subst">&#123;<span class="string">&quot;I&#x27;m Eric&quot;</span>&#125;</span>&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">&quot;He said I&#x27;m Eric&quot;</span></span><br></pre></td></tr></table></figure>
+<p>大括号外的引号也可以使用 <code>\</code> 进行转义，但反斜杠不能用于在大括号内进行转义：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">f&#x27;&#x27;&#x27;He\&#x27;ll say <span class="subst">&#123;<span class="string">&quot;I&#x27;m Eric&quot;</span>&#125;</span>&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">&quot;He&#x27;ll say I&#x27;m Eric&quot;</span></span><br><span class="line"><span class="string">f&#x27;&#x27;&#x27;He&#x27;ll say <span class="subst">&#123;<span class="string">&quot;I\&#x27;m Eric&quot;</span>&#125;</span>&#x27;&#x27;&#x27;</span></span><br><span class="line">  File <span class="string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="number">1</span></span><br><span class="line">SyntaxError: f-string expression part cannot include a backslash</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>如果需要在f-string之外显示大括号，则应输入两个连续的大括号 <code>&#123;&#123; &#125;&#125;</code></p>
+<p>如上所述，反斜杠 <code>\</code> 不能用于在f-string大括号内进行转义。事实上，不仅如此，f-string大括号内根本不允许使用反斜杠 <code>\</code> 。如果确实需要使用反斜杠 <code>\</code>，则应首先将包含反斜杠的内容分配给变量，然后在f-string大括号内填写变量名称。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">f&quot;newline: <span class="subst">&#123;<span class="built_in">ord</span>(<span class="string">&#x27;\n&#x27;</span>)&#125;</span>&quot;</span></span><br><span class="line">  File <span class="string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="number">1</span></span><br><span class="line">SyntaxError: f-string expression part cannot include a backslash</span><br><span class="line"></span><br><span class="line">newline = <span class="built_in">ord</span>(<span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line"><span class="string">f&#x27;newline: <span class="subst">&#123;newline&#125;</span>&#x27;</span></span><br><span class="line"><span class="string">&#x27;newline: 10&#x27;</span></span><br></pre></td></tr></table></figure>
+<h4 id="多行f-string"><a class="markdownIt-Anchor" href="#多行f-string"></a> 多行f-string</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">name = <span class="string">&#x27;Eric&#x27;</span></span><br><span class="line">age = <span class="number">27</span></span><br><span class="line"><span class="string">f&quot;Hello!&quot;</span> \</span><br><span class="line"><span class="meta">... </span><span class="string">f&quot;I&#x27;m <span class="subst">&#123;name&#125;</span>.&quot;</span> \</span><br><span class="line"><span class="meta">... </span><span class="string">f&quot;I&#x27;m <span class="subst">&#123;age&#125;</span>.&quot;</span></span><br><span class="line"><span class="string">&quot;Hello!I&#x27;m Eric.I&#x27;m 27.&quot;</span></span><br><span class="line"><span class="string">f&quot;&quot;&quot;Hello!</span></span><br><span class="line"><span class="string"><span class="meta">... </span>    I&#x27;m <span class="subst">&#123;name&#125;</span>.</span></span><br><span class="line"><span class="string"><span class="meta">... </span>    I&#x27;m <span class="subst">&#123;age&#125;</span>.&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">&quot;Hello!\n    I&#x27;m Eric.\n    I&#x27;m 27.&quot;</span></span><br><span class="line"><span class="number">10</span></span><br></pre></td></tr></table></figure>
+<h4 id="自定义格式"><a class="markdownIt-Anchor" href="#自定义格式"></a> 自定义格式</h4>
+<p>f-string采用 <code>&#123;content:format&#125;</code> 设置字符串格式, 其中 <code>content</code> 是替换并填入字符串的内容, 可以是变量、表达式或函数等; <code>format</code> 是格式描述符。采用默认格式时不必指定 <code>&#123;:format&#125;</code></p>
+<h5 id="对齐-补全"><a class="markdownIt-Anchor" href="#对齐-补全"></a> 对齐 &amp; 补全</h5>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">格式</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>&lt;</code></td>
+<td style="text-align:center">左对齐（字符串的默认对齐方式）</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>&gt;</code></td>
+<td style="text-align:center">右对齐（数值的默认对齐方式）</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>^</code></td>
+<td style="text-align:center">居中</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">word = <span class="string">&quot;python&quot;</span></span><br><span class="line">num = <span class="number">123</span></span><br><span class="line"><span class="comment"># 这里的 10 表示宽度</span></span><br><span class="line"><span class="comment"># 默认</span></span><br><span class="line"><span class="string">f&quot;|<span class="subst">&#123;word:<span class="number">10</span>&#125;</span>|&quot;</span>    <span class="comment"># &#x27;|python    |&#x27;</span></span><br><span class="line"><span class="string">f&quot;|<span class="subst">&#123;num:<span class="number">10</span>&#125;</span>|&quot;</span>     <span class="comment"># &#x27;|       123|&#x27;</span></span><br><span class="line"><span class="comment"># 左对齐</span></span><br><span class="line"><span class="string">f&quot;|<span class="subst">&#123;word:&lt;<span class="number">10</span>&#125;</span>|&quot;</span>   <span class="comment"># &#x27;|python    |&#x27;</span></span><br><span class="line"><span class="string">f&quot;|<span class="subst">&#123;num:&lt;<span class="number">10</span>&#125;</span>|&quot;</span>    <span class="comment"># &#x27;|123       |&#x27;</span></span><br><span class="line"><span class="comment"># 右对齐</span></span><br><span class="line"><span class="string">f&quot;|<span class="subst">&#123;word:&gt;<span class="number">10</span>&#125;</span>|&quot;</span>   <span class="comment"># &#x27;|    python|&#x27;</span></span><br><span class="line"><span class="string">f&quot;|<span class="subst">&#123;num:&gt;<span class="number">10</span>&#125;</span>|&quot;</span>    <span class="comment"># &#x27;|       123|&#x27;</span></span><br><span class="line"><span class="comment"># 居中对齐</span></span><br><span class="line"><span class="string">f&quot;|<span class="subst">&#123;word:^<span class="number">10</span>&#125;</span>|&quot;</span>   <span class="comment"># &#x27;|  python  |&#x27;</span></span><br><span class="line"><span class="string">f&quot;|<span class="subst">&#123;num:^<span class="number">10</span>&#125;</span>|&quot;</span>    <span class="comment"># &#x27;|   123    |&#x27;</span></span><br><span class="line"><span class="comment"># 用小数点来补全空余</span></span><br><span class="line"><span class="string">f&quot;|<span class="subst">&#123;word:.&lt;<span class="number">10</span>&#125;</span>|&quot;</span>  <span class="comment"># &#x27;|python....|&#x27;</span></span><br><span class="line"><span class="string">f&quot;|<span class="subst">&#123;word:.&gt;<span class="number">10</span>&#125;</span>|&quot;</span>  <span class="comment"># &#x27;|....python|&#x27;</span></span><br><span class="line"><span class="string">f&quot;|<span class="subst">&#123;word:.^<span class="number">10</span>&#125;</span>|&quot;</span>  <span class="comment"># &#x27;|..python..|&#x27;</span></span><br></pre></td></tr></table></figure>
+<h5 id="数字符号"><a class="markdownIt-Anchor" href="#数字符号"></a> 数字符号</h5>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">格式</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>+</code></td>
+<td style="text-align:center">在负数前添加负号 (-)，在正数前添加正号 (+)。</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>-</code></td>
+<td style="text-align:center">负数前面有一个负号 (-)，而正数前面没有符号（默认）。</td>
+</tr>
+<tr>
+<td style="text-align:center">空格</td>
+<td style="text-align:center">负数前面有一个负号 (-)，而正数前面有一个“空格”。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>示例</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">num1 = <span class="number">23</span></span><br><span class="line">num2 = -<span class="number">23</span></span><br><span class="line"><span class="comment"># 默认</span></span><br><span class="line"><span class="string">f&quot;<span class="subst">&#123;num1:d&#125;</span>&quot;</span>   <span class="comment"># &#x27;23&#x27;</span></span><br><span class="line"><span class="string">f&quot;<span class="subst">&#123;num2:d&#125;</span>&quot;</span>   <span class="comment"># &#x27;-23&#x27;</span></span><br><span class="line"><span class="comment"># +</span></span><br><span class="line"><span class="string">f&quot;<span class="subst">&#123;num1:+d&#125;</span>&quot;</span>  <span class="comment"># &#x27;+23&#x27;</span></span><br><span class="line"><span class="string">f&quot;<span class="subst">&#123;num2:+d&#125;</span>&quot;</span>  <span class="comment"># &#x27;-23&#x27;</span></span><br><span class="line"><span class="comment"># -</span></span><br><span class="line"><span class="string">f&quot;<span class="subst">&#123;num1:-d&#125;</span>&quot;</span>  <span class="comment"># &#x27;23&#x27;</span></span><br><span class="line"><span class="string">f&quot;<span class="subst">&#123;num2:-d&#125;</span>&quot;</span>  <span class="comment"># &#x27;-23&#x27;</span></span><br><span class="line"><span class="comment"># 空格</span></span><br><span class="line"><span class="string">f&quot;<span class="subst">&#123;num1: d&#125;</span>&quot;</span>  <span class="comment"># &#x27; 23&#x27;</span></span><br><span class="line"><span class="string">f&quot;<span class="subst">&#123;num2: d&#125;</span>&quot;</span>  <span class="comment"># &#x27;-23&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>注：仅适用于数字类型。</p>
+<h5 id="进制"><a class="markdownIt-Anchor" href="#进制"></a> 进制</h5>
+<p>先看看python中进制</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">num = <span class="number">23</span></span><br><span class="line"><span class="built_in">bin</span>(num)    <span class="comment"># 0b10111</span></span><br><span class="line"><span class="built_in">print</span>(num)  <span class="comment"># 23</span></span><br><span class="line"><span class="built_in">oct</span>(num)    <span class="comment"># 0o27</span></span><br><span class="line"><span class="built_in">hex</span>(num)    <span class="comment"># 0x17</span></span><br></pre></td></tr></table></figure>
+<p>在f-string中，<code>b</code> , <code>d</code> , <code>o</code> , <code>x</code> 分别代表<strong>二进制, 十进制, 八进制, 十六进制</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">f&quot;<span class="subst">&#123;num:b&#125;</span>&quot;</span>  <span class="comment"># &#x27;10111&#x27;</span></span><br><span class="line"><span class="string">f&quot;<span class="subst">&#123;num:d&#125;</span>&quot;</span>  <span class="comment"># &#x27;23&#x27;</span></span><br><span class="line"><span class="string">f&quot;<span class="subst">&#123;num:o&#125;</span>&quot;</span>  <span class="comment"># &#x27;27&#x27;</span></span><br><span class="line"><span class="string">f&quot;<span class="subst">&#123;num:x&#125;</span>&quot;</span>  <span class="comment"># &#x27;17&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>要显示进制符号, 前面要加 <code>#</code> 号</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">f&quot;<span class="subst">&#123;num:#b&#125;</span>&quot;</span>  <span class="comment"># &#x27;0b10111&#x27;</span></span><br><span class="line"><span class="string">f&quot;<span class="subst">&#123;num:d&#125;</span>&quot;</span>   <span class="comment"># &#x27;23&#x27;  十进制没有前缀</span></span><br><span class="line"><span class="string">f&quot;<span class="subst">&#123;num:#o&#125;</span>&quot;</span>  <span class="comment"># &#x27;0o27&#x27;</span></span><br><span class="line"><span class="string">f&quot;<span class="subst">&#123;num:#x&#125;</span>&quot;</span>  <span class="comment"># &#x27;0x17&#x27;</span></span><br><span class="line"><span class="string">f&quot;<span class="subst">&#123;num:#X&#125;</span>&quot;</span>  <span class="comment"># &#x27;0X17&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>注：仅适用于数值类型。</p>
+<h5 id="宽度和精度"><a class="markdownIt-Anchor" href="#宽度和精度"></a> 宽度和精度</h5>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">格式</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>width</code></td>
+<td style="text-align:center"><code>width</code> 指定宽度</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>0width</code></td>
+<td style="text-align:center"><code>width</code> 指定宽度，<code>0</code> 指定高位用 <code>0</code> 补足宽度</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>width.precision</code></td>
+<td style="text-align:center"><code>width</code> 指定宽度，整数 <code>precision</code> 指定显示精度</td>
+</tr>
+</tbody>
+</table>
+<div class="note info"><p><strong>注1</strong>：<code>0width</code> 不可用于复数类型和非数值类型，<code>width.precision</code> 不可用于整数类型</p>
+<p><strong>注2</strong>：<code>width.precision</code> 用于不同格式类型的浮点数、复数时的含义也不同：</p>
+<ul>
+<li>用于 <code>f</code> , <code>F</code> , <code>e</code> , <code>E</code> 和 <code>%</code> 时 <code>precision</code> 指定的是小数点后的位数</li>
+<li>用于 <code>g</code> 和 <code>G</code> 时 <code>precision</code> 指定的是有效数字位数（小数点前位数+小数点后位数）</li>
+</ul>
+<p><strong>注3</strong>：<code>width.precision</code> 除浮点数、复数外还可用于字符串，此时 <code>precision</code> 含义是只使用字符串中前 <code>precision</code> 位字符</p>
+</div>
+<p><strong>示例</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">123.456</span></span><br><span class="line"><span class="string">f&quot;<span class="subst">&#123;a:<span class="number">8.2</span>f&#125;</span>&quot;</span>   <span class="comment"># &#x27;  123.46&#x27;</span></span><br><span class="line"><span class="string">f&quot;<span class="subst">&#123;a:<span class="number">08.2</span>f&#125;</span>&quot;</span>  <span class="comment"># &#x27;00123.46&#x27;</span></span><br><span class="line"><span class="string">f&quot;<span class="subst">&#123;a:<span class="number">8.2</span>e&#125;</span>&quot;</span>   <span class="comment"># &#x27;1.23e+02&#x27;</span></span><br><span class="line"><span class="string">f&quot;<span class="subst">&#123;a:<span class="number">8.2</span>%&#125;</span>&quot;</span>   <span class="comment"># &#x27;12345.60%&#x27;</span></span><br><span class="line"><span class="string">f&quot;<span class="subst">&#123;a:<span class="number">8.2</span>g&#125;</span>&quot;</span>   <span class="comment"># &#x27; 1.2e+02&#x27;</span></span><br><span class="line"></span><br><span class="line">s = <span class="string">&#x27;hello&#x27;</span></span><br><span class="line"><span class="string">f&quot;<span class="subst">&#123;s:8s&#125;</span>&quot;</span>     <span class="comment"># &#x27;hello   &#x27;</span></span><br><span class="line"><span class="string">f&quot;<span class="subst">&#123;s:<span class="number">8.3</span>s&#125;</span>&quot;</span>   <span class="comment"># &#x27;hel     &#x27;</span></span><br></pre></td></tr></table></figure>
+<h5 id="千位分隔符"><a class="markdownIt-Anchor" href="#千位分隔符"></a> 千位分隔符</h5>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">格式</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>,</code></td>
+<td style="text-align:center">使用 <code>,</code> 作为千位分隔符</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>_</code></td>
+<td style="text-align:center">使用 <code>_</code> 作为千位分隔符</td>
+</tr>
+</tbody>
+</table>
+<div class="note info"><p>注1：若不指定 <code>,</code> 或 <code>_</code> , 则f-string不使用任何千位分隔符，此为默认设置</p>
+<p>注2：<code>,</code> 仅适用于浮点数、复数与十进制整数：对于浮点数和复数，<code>,</code> 只分隔小数点前的数位</p>
+<p>注3：<code>_</code> 适用于浮点数、复数与二、八、十、十六进制整数：</p>
+<ul>
+<li>对于浮点数和复数，<code>_</code> 只分隔小数点前的数位</li>
+<li>对于二、八、十六进制整数，固定从低位到高位每隔四位插入一个 <code>_</code>（十进制整数是每隔三位插入一个 <code>_</code> ）</li>
+</ul>
+</div>
+<p>示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">1234567890.098765</span></span><br><span class="line"><span class="string">f&quot;<span class="subst">&#123;a:f&#125;</span>&quot;</span>      <span class="comment"># &#x27;1234567890.098765&#x27;</span></span><br><span class="line"><span class="string">f&quot;<span class="subst">&#123;a:,f&#125;</span>&quot;</span>     <span class="comment"># &#x27;1,234,567,890.098765&#x27;</span></span><br><span class="line"><span class="string">f&quot;<span class="subst">&#123;a:_f&#125;</span>&quot;</span>     <span class="comment"># &#x27;1_234_567_890.098765&#x27;</span></span><br><span class="line">b = <span class="number">1234567890</span></span><br><span class="line"><span class="string">f&quot;<span class="subst">&#123;b:_b&#125;</span>&quot;</span>     <span class="comment"># &#x27;100_1001_1001_0110_0000_0010_1101_0010&#x27;</span></span><br><span class="line"><span class="string">f&quot;<span class="subst">&#123;b:_o&#125;</span>&quot;</span>     <span class="comment"># &#x27;111_4540_1322&#x27;</span></span><br><span class="line"><span class="string">f&quot;<span class="subst">&#123;b:_d&#125;</span>&quot;</span>     <span class="comment"># &#x27;1_234_567_890&#x27;</span></span><br><span class="line"><span class="string">f&quot;<span class="subst">&#123;b:_x&#125;</span>&quot;</span>     <span class="comment"># &#x27;4996_02d2&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="格式描述符"><a class="markdownIt-Anchor" href="#格式描述符"></a> 格式描述符</h5>
+<p><strong>基本格式</strong></p>
+<table>
+<thead>
+<tr>
+<th>格式</th>
+<th>含义</th>
+<th>适用类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>s</code></td>
+<td>普通字符串格式</td>
+<td>字符串</td>
+</tr>
+<tr>
+<td><code>b</code></td>
+<td>二进制整数格式</td>
+<td>整数</td>
+</tr>
+<tr>
+<td><code>c</code></td>
+<td>字符格式，按unicode编码将整数转换为对应字符</td>
+<td>整数</td>
+</tr>
+<tr>
+<td><code>d</code></td>
+<td>十进制整数格式</td>
+<td>整数</td>
+</tr>
+<tr>
+<td><code>o</code></td>
+<td>八进制整数格式</td>
+<td>整数</td>
+</tr>
+<tr>
+<td><code>x</code></td>
+<td>十六进制整数格式（小写字母）</td>
+<td>整数</td>
+</tr>
+<tr>
+<td><code>X</code></td>
+<td>十六进制整数格式（大写字母）</td>
+<td>整数</td>
+</tr>
+<tr>
+<td><code>e</code></td>
+<td>科学计数格式，以 <code>e</code> 表示 <code>×10^</code></td>
+<td>浮点数、复数、整数（自动转换为浮点数）</td>
+</tr>
+<tr>
+<td><code>E</code></td>
+<td>与 <code>e</code> 等价，但以 <code>E</code> 表示 <code>×10^</code></td>
+<td>浮点数、复数、整数（自动转换为浮点数）</td>
+</tr>
+<tr>
+<td><code>f</code></td>
+<td>定点数格式，默认精度是6</td>
+<td>浮点数、复数、整数（自动转换为浮点数）</td>
+</tr>
+<tr>
+<td><code>F</code></td>
+<td>与 <code>f</code> 等价，但将 <code>nan</code> 和 <code>inf</code> 换成 <code>NAN</code> 和 <code>INF</code></td>
+<td>浮点数、复数、整数（自动转换为浮点数）</td>
+</tr>
+<tr>
+<td><code>g</code></td>
+<td>通用格式，小数用 <code>f</code>，大数用 <code>e</code></td>
+<td>浮点数、复数、整数（自动转换为浮点数）</td>
+</tr>
+<tr>
+<td><code>G</code></td>
+<td>与 <code>G</code> 等价，但小数用 <code>F</code>，大数用 <code>E</code></td>
+<td>浮点数、复数、整数（自动转换为浮点数）</td>
+</tr>
+<tr>
+<td><code>%</code></td>
+<td>百分比格式，数字自动乘上100后按 <code>f</code> 格式排版，并加 <code>%</code> 后缀</td>
+<td>浮点数、整数（自动转换为浮点数）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>特殊格式类型</strong>：标准库 <code>datetime</code> 提供的用于格式化时间信息的格式类型，适用于 <code>date</code> 、<code>datetime</code>和 <code>time</code> 对象。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">格式</th>
+<th>含义</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>%a</code></td>
+<td>星期几（缩写）</td>
+<td>‘Sun’</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>%A</code></td>
+<td>星期几（全名）</td>
+<td>‘Sunday’</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>%w</code></td>
+<td>星期几（数字，0 是周日，6 是周六）</td>
+<td>‘0’</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>%u</code></td>
+<td>星期几（数字，1 是周一，7 是周日）</td>
+<td>‘7’</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>%d</code></td>
+<td>日（数字，以 0 补足两位）</td>
+<td>‘07’</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>%b</code></td>
+<td>月（缩写）</td>
+<td>‘Aug’</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>%B</code></td>
+<td>月（全名）</td>
+<td>‘August’</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>%m</code></td>
+<td>月（数字，以 0 补足两位）</td>
+<td>‘08’</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>%y</code></td>
+<td>年（后两位数字，以 0 补足两位）</td>
+<td>‘14’</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>%Y</code></td>
+<td>年（完整数字，不补零）</td>
+<td>‘2014’</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>%H</code></td>
+<td>小时（24小时制，以 0 补足两位）</td>
+<td>‘23’</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>%I</code></td>
+<td>小时（12小时制，以 0 补足两位）</td>
+<td>‘11’</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>%p</code></td>
+<td>上午/下午</td>
+<td>‘PM’</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>%M</code></td>
+<td>分钟（以 0 补足两位）</td>
+<td>‘23’</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>%S</code></td>
+<td>秒钟（以 0 补足两位）</td>
+<td>‘56’</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>%f</code></td>
+<td>微秒（以 0 补足六位）</td>
+<td>‘553777’</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>%z</code></td>
+<td>UTC偏移量（格式是 ±HHMM[SS]，未指定时区则返回空字符串）</td>
+<td>‘+1030’</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>%Z</code></td>
+<td>时区名（未指定时区则返回空字符串）</td>
+<td>‘EST’</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>%j</code></td>
+<td>一年中的第几天（以 0 补足三位）</td>
+<td>‘195’</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>%U</code></td>
+<td>一年中的第几周（以全年首个周日后的星期为第0周，以 0 补足两位）</td>
+<td>‘27’</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>%w</code></td>
+<td>一年中的第几周（以全年首个周一后的星期为第0周，以 0 补足两位）</td>
+<td>‘28’</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>%V</code></td>
+<td>一年中的第几周（以全年首个包含1月4日的星期为第1周，以 0 补足两位）</td>
+<td>‘28’</td>
+</tr>
+</tbody>
+</table>
+<h5 id="综合示例"><a class="markdownIt-Anchor" href="#综合示例"></a> 综合示例</h5>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">1234</span></span><br><span class="line"><span class="string">f&quot;<span class="subst">&#123;a:^#10X&#125;</span>&quot;</span>      <span class="comment"># 居中, 宽度10位, 十六进制整数(大写字母), 显示0X前缀</span></span><br><span class="line"><span class="string">&#x27;  0X4D2   &#x27;</span></span><br><span class="line"></span><br><span class="line">b = <span class="number">1234.5678</span></span><br><span class="line"><span class="string">f&quot;<span class="subst">&#123;b:&lt;+<span class="number">10.2</span>f&#125;</span>&quot;</span>    <span class="comment"># 左对齐, 宽度10位, 显示正号, 定点数格式, 2位小数</span></span><br><span class="line"><span class="string">&#x27;+1234.57  &#x27;</span></span><br><span class="line"></span><br><span class="line">c = <span class="number">12345678</span></span><br><span class="line"><span class="string">f&quot;<span class="subst">&#123;c:015,d&#125;</span>&quot;</span>      <span class="comment"># 高位补零, 宽度15位, 十进制整数 使用 `,` 作为千分分割位</span></span><br><span class="line"><span class="string">&#x27;000,012,345,678&#x27;</span></span><br><span class="line"></span><br><span class="line">d = <span class="number">0.5</span> + <span class="number">2.5j</span></span><br><span class="line"><span class="string">f&quot;<span class="subst">&#123;d:<span class="number">30.3</span>e&#125;</span>&quot;</span>      <span class="comment"># 宽度30位, 科学计数法, 3位小数</span></span><br><span class="line"><span class="string">&#x27;          5.000e-01+2.500e+00j&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line">e = datetime.datetime.today()</span><br><span class="line"><span class="string">f&quot;the time is <span class="subst">&#123;e:%Y-%m-%d (%a) %H:%M:%S&#125;</span>&quot;</span>   <span class="comment"># datetime 时间格式</span></span><br><span class="line"><span class="string">&#x27;the time is 2018-07-14 (Sat) 20:46:02&#x27;</span></span><br></pre></td></tr></table></figure>
+<h4 id="lambda表达式"><a class="markdownIt-Anchor" href="#lambda表达式"></a> lambda表达式</h4>
+<p>f-string还可以在大括号内包含 lambda 表达式，但 lambda 表达式的冒号 <code>:</code> 会被 f-string误认为是表达式和​​格式说明符之间的分隔符。为了避免歧义，必须将 lambda 表达式括在括号 <code>()</code> 中。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">f&#x27;result is <span class="subst">&#123;<span class="keyword">lambda</span> x: x ** <span class="number">2</span> + <span class="number">1</span> (<span class="number">2</span>)&#125;</span>&#x27;</span></span><br><span class="line">  File <span class="string">&quot;&lt;fstring&gt;&quot;</span>, line <span class="number">1</span></span><br><span class="line">    (<span class="keyword">lambda</span> x)</span><br><span class="line">             ^</span><br><span class="line">SyntaxError: unexpected EOF <span class="keyword">while</span> parsing</span><br><span class="line"></span><br><span class="line"><span class="string">f&#x27;result is <span class="subst">&#123;(<span class="keyword">lambda</span> x: x ** <span class="number">2</span> + <span class="number">1</span>) (<span class="number">2</span>)&#125;</span>&#x27;</span></span><br><span class="line"><span class="string">&#x27;result is 5&#x27;</span></span><br><span class="line"><span class="string">f&#x27;result is <span class="subst">&#123;(<span class="keyword">lambda</span> x: x ** <span class="number">2</span> + <span class="number">1</span>) (<span class="number">2</span>):&lt;+<span class="number">7.2</span>f&#125;</span>&#x27;</span></span><br><span class="line"><span class="string">&#x27;result is +5.00  &#x27;</span></span><br></pre></td></tr></table></figure>
+<hr />
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/6d194609-86cb-11ee-b04c-f58259a2146b/" rel="prev" title="装饰器 Decorator">
+                  <i class="fa fa-angle-left"></i> 装饰器 Decorator
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/6d194604-86cb-11ee-b04c-f58259a2146b/" rel="next" title="列表操作">
+                  列表操作 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2020 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Passion4ever</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr+QR0SQDNfgglgtcM=" crossorigin="anonymous">
+  <script class="next-config" data-name="katex" type="application/json">{"copy_tex_js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/copy-tex.min.js","integrity":"sha256-Us54+rSGDSTvIhKKUs4kygE2ipA0RXpWWh0/zLqw3bs="}}</script>
+  <script src="/js/third-party/math/katex.js"></script>
+
+
+
+</body>
+</html>
