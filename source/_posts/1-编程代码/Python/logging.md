@@ -13,6 +13,7 @@ sticky:
 
 日志是对软件执行时所发生事件的一种追踪方式。开发者还会区分事件的重要性，重要性也被称为 **`等级`** 或 **`严重性`**
 
+<!-- more -->
 
 ## 何时使用日志？
 
@@ -174,7 +175,10 @@ ft = logging.Formatter.__init__(fmt=None,datafmt=None)
 
 ### 逻辑图
 
-![logging 逻辑图](standard_imgs/logging_1.webp)
+{%asset_img logging_1.webp%}
+{%cq%}
+logging 逻辑图
+{%endcq%}
 
 
 ## 如何使用？

@@ -28,7 +28,6 @@ sticky:
 😎总结：最常用的可能是 `Counter` 和 `OrderedDict` 以及 `defaultdict`
 {% endnote %}
 
----
 
 ## Counter
 
@@ -349,7 +348,6 @@ Counter({'a': 2, 'b': 1, 'c': 0, 'd': -1})
 Counter({'a': 2, 'b': 1})
 ```
 
----
 
 ## namedtuple
 
@@ -463,11 +461,12 @@ Point4(x=14, y=16)
 ```
 
 
----
-
 ## deque
 
-![双端队列](standard_imgs/collections_1.webp)
+{%asset_img collections_1.webp%}
+{%cq%}
+双端队列
+{%endcq%}
 
 > **`collections.deque([*iterable*[, *maxlen*]])`**
 > 
@@ -646,7 +645,6 @@ deque([])
 deque([-2, -1, 1, 2, 3, 4, 5, 6, 7, 8])
 ```
 
----
 
 ## defaultdict
 

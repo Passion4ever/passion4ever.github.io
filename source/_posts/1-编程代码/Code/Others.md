@@ -9,6 +9,8 @@ sticky:
 其他工具函数
 {%endnote%}
 
+<!-- more -->
+
 ## 随机生成一定范围的浮点数
 
 ```python

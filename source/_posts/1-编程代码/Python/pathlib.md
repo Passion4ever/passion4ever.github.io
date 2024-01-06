@@ -19,7 +19,10 @@ sticky:
 
 其包含了6个Python类：
 
-![A→B表示A继承自B](standard_imgs/pathlib_1.webp)
+{%asset_img pathlib_1.webp%}
+{%cq%}
+A→B表示A继承自B
+{%endcq%}
 
 大体分为两类：
 - pure paths 路径计算操作没有IO功能
