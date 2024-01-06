@@ -16,7 +16,7 @@ uuid: 5c28ed90-86db-11ee-b00b-9b405c4bcb9e
 
 ## 数据分析
 
-ss
+
 
 ## Anaconda
 
@@ -24,18 +24,25 @@ ss
 [Mamba加速Conda](/posts/6d191ef6-86cb-11ee-b04c-f58259a2146b)
 [conda & pip 安装配置](/posts/6d191ef2-86cb-11ee-b04c-f58259a2146b)
 
+## Git
+
+[解决git@github.com:Permission denied (publickey)](/posts/eacf08b0-ac72-11ee-9ab0-090f13a67101)
+
+
+
+
 ## 深度学习的工具
 
-- [给你的深度学习模型起个名字](https://acronymify.com/)
-- [写paper时候的用词搭配](https://linggle.com/)
-- [颜色搭配](https://colorbrewer2.org/)
-- [找前人paper的code](https://paperswithcode.com/)
-- 
+[给你的深度学习模型起个名字](https://acronymify.com/)
+[写paper时候的用词搭配](https://linggle.com/)
+[颜色搭配](https://colorbrewer2.org/)
+[找前人paper的code](https://paperswithcode.com/)
+
 ## Linux
 
 [Linux 配置 clash-core](/posts/6d191ef0-86cb-11ee-b04c-f58259a2146b)
 [Linux 批量杀死进程](/posts/6d191ef1-86cb-11ee-b04c-f58259a2146b)
-
+[VSCode远程服务器免密配置](/posts/d1f3f430-ac6e-11ee-86cd-4f8d3e6d1f22)
 
 ## Alfred
 

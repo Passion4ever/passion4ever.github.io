@@ -5,6 +5,9 @@ uuid: 6d191ef6-86cb-11ee-b04c-f58259a2146b
 sticky:
 ---
 
+{%note info%}
+Miniforge 现在自带mamba, 推荐安装 [Miniforge](https://github.com/conda-forge/miniforge) 而不是 Miniconda
+{%endnote%}
 
 `Mamba`（黑曼巴）专为加速 `Conda` 而生, 其改写了 `Conda` 下载资源的固有方式, 以多线程的方式对网络资源进行并行下载, 从而大幅提升 `Conda` 效率
 
