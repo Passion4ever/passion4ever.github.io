@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/github_default_180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/github_default_32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/github_default_16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-flash.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"passion4ever.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+
+
+<link rel="canonical" href="https://passion4ever.github.io/posts/6d196d22-86cb-11ee-b04c-f58259a2146b/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://passion4ever.github.io/posts/6d196d22-86cb-11ee-b04c-f58259a2146b/","path":"posts/6d196d22-86cb-11ee-b04c-f58259a2146b/","title":"RoBERTa 和 ALBERT"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>RoBERTa 和 ALBERT | Passion4ever</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Passion4ever</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Goal-Oriented</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-所有文章"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>所有文章</a></li><li class="menu-item menu-item-编程代码"><a href="/1-code" rel="section"><i class="fa fa-code fa-fw"></i>编程代码</a></li><li class="menu-item menu-item-人工智能"><a href="/2-AI" rel="section"><i class="fa fa-robot fa-fw"></i>人工智能</a></li><li class="menu-item menu-item-生物信息"><a href="/3-bioinformatics" rel="section"><i class="fa fa-dna fa-fw"></i>生物信息</a></li><li class="menu-item menu-item-其他"><a href="/4-others" rel="section"><i class="fa fa-bars fa-fw"></i>其他</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E7%89%B9%E7%82%B9"><span class="nav-number">1.</span> <span class="nav-text"> 模型特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#roberta"><span class="nav-number">2.</span> <span class="nav-text"> RoBERTa</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E5%A4%A7%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="nav-number">2.1.</span> <span class="nav-text"> 更大的数据集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%BB%E6%8E%89-nsp-loss"><span class="nav-number">2.2.</span> <span class="nav-text"> 去掉 NSP Loss</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A8%E6%80%81-mask"><span class="nav-number">2.3.</span> <span class="nav-text"> 动态 Mask</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E5%A4%A7%E7%9A%84-batch"><span class="nav-number">2.4.</span> <span class="nav-text"> 更大的 batch</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#albert"><span class="nav-number">3.</span> <span class="nav-text"> ALBERT</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#factorized-embedding-parameterization"><span class="nav-number">3.1.</span> <span class="nav-text"> Factorized embedding parameterization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cross-layer-parameter-sharing"><span class="nav-number">3.2.</span> <span class="nav-text"> Cross-layer parameter sharing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-sop-%E6%9B%BF%E6%8D%A2-nsp"><span class="nav-number">3.3.</span> <span class="nav-text"> 使用 SOP 替换 NSP</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">4.</span> <span class="nav-text"> 总结</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="❤️Passion4ever"
+      src="/images/avatar/4d-boy.webp">
+  <p class="site-author-name" itemprop="name">❤️Passion4ever</p>
+  <div class="site-description" itemprop="description">勿为工具之奴</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://passion4ever.github.io/posts/6d196d22-86cb-11ee-b04c-f58259a2146b/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar/4d-boy.webp">
+      <meta itemprop="name" content="❤️Passion4ever">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Passion4ever">
+      <meta itemprop="description" content="勿为工具之奴">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="RoBERTa 和 ALBERT | Passion4ever">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          RoBERTa 和 ALBERT
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-10-25 22:26:53" itemprop="dateCreated datePublished" datetime="2023-10-25T22:26:53+08:00">2023-10-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-01-03 23:19:32" itemprop="dateModified" datetime="2024-01-03T23:19:32+08:00">2024-01-03</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><div class="note info"><p>参考: <a target="_blank" rel="noopener" href="https://juejin.cn/post/6949901957247172639">https://juejin.cn/post/6949901957247172639</a><br />
+<strong>RoBERTa</strong>论文: <strong>《<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1907.11692.pdf">RoBERTa: A Robustly Optimized BERT Pretraining Approach</a>》</strong><br />
+<strong>ALBERT</strong>论文: <strong>《<a target="_blank" rel="noopener" href="https://openreview.net/pdf?id=H1eA7AEtvS">Albert: A lite bert for self-supervised learning of language representations</a>》</strong></p>
+</div>
+<p>BERT 模型是 2018 年提出的，并在很多自然语言处理任务有前所未有的提升。因此 2019 年就有很多工作是围绕着 BERT 展开的，其中出现了两个 BERT 的改进版模型，RoBERTa 和 ALBERT。<br />
+RoBERTa 在更大的数据集和最优的参数中训练 BERT，使 BERT 的性能再次提升。<br />
+ALBERT 主要是对 BERT 进行压缩，通过共享所有层的参数以及 Embedding 分解减少 BERT 的参数量。</p>
+<span id="more"></span>
+<h2 id="模型特点"><a class="markdownIt-Anchor" href="#模型特点"></a> 模型特点</h2>
+<p><strong>RoBERTa：</strong></p>
+<ul>
+<li>更大的训练集，更大的 batch。</li>
+<li>不需要使用 NSP Loss。</li>
+<li>使用更长的训练 Sequence。</li>
+<li>动态 Mask。</li>
+</ul>
+<p><strong>ALBERT：</strong></p>
+<ul>
+<li>分解 Embedding 矩阵，减少维度。</li>
+<li>所有 Transformer 层共享参数。</li>
+<li>使用 SOP (Sentence Order Prediction) 替代 NSP。</li>
+</ul>
+<h2 id="roberta"><a class="markdownIt-Anchor" href="#roberta"></a> RoBERTa</h2>
+<p>RoBERTa 主要试验了 BERT 中的一些训练设置 (例如 NSP Loss 是否有意义，batch 的大小等)，并找出最好的设置，然后再更大的数据集上训练 BERT。</p>
+<h3 id="更大的数据集"><a class="markdownIt-Anchor" href="#更大的数据集"></a> 更大的数据集</h3>
+<p>原来的 <strong>BERT</strong> 只使用了 <strong>16G</strong> 的数据集，而 <strong>RoBERTa</strong> 在更大的数据集上训练 BERT，使用了 <strong>160G</strong> 的语料：</p>
+<p><code>BOOKCORPUS</code> - <strong>16G</strong> (原来 BERT 的训练数据集)<br />
+<code>CC-NEWS</code> - <strong>76G</strong><br />
+<code>OPENWEBTEXT</code> - <strong>38G</strong><br />
+<code>STORIES</code> - <strong>31G</strong></p>
+<h3 id="去掉-nsp-loss"><a class="markdownIt-Anchor" href="#去掉-nsp-loss"></a> 去掉 NSP Loss</h3>
+<p>BERT 在训练的过程中采用了 NSP Loss，原本用意是为了让模型能够更好地捕捉到文本的语义，给定两段语句 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>X</mtext><mo>=</mo><mo stretchy="false">[</mo><msub><mi>x</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>x</mi><mn>2</mn></msub><mo separator="true">,</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo separator="true">,</mo><msub><mi>x</mi><mi>N</mi></msub><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">\text{X} = [x_1, x_2, ..., x_N]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">X</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.10903em;">N</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">]</span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>Y</mtext><mo>=</mo><mo stretchy="false">[</mo><msub><mi>y</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>y</mi><mn>2</mn></msub><mo separator="true">,</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo separator="true">,</mo><msub><mi>y</mi><mi>M</mi></msub><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">\text{Y} = [y_1, y_2, ...., y_M]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">Y</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.10903em;">M</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">]</span></span></span></span>，BERT 中的 NSP 任务需要预测 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>Y</mtext></mrow><annotation encoding="application/x-tex">\text{Y}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">Y</span></span></span></span></span> 是不是 出现在 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>X</mtext></mrow><annotation encoding="application/x-tex">\text{X}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">X</span></span></span></span></span> 的后面。</p>
+<p>但是 NSP Loss 受到不少文章的质疑 ，例如 XLNet，RoBERTa 采用了一个实验验证 NSP Loss 的实用性。实验中采用了四种组合：</p>
+<ul>
+<li><strong>Segment-Pair + NSP (BERT):</strong> 使用 NSP Loss，输入的两段文字 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>X</mtext></mrow><annotation encoding="application/x-tex">\text{X}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">X</span></span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>Y</mtext></mrow><annotation encoding="application/x-tex">\text{Y}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">Y</span></span></span></span></span> 可以包含多个句子，但是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>X</mtext><mo>+</mo><mtext>Y</mtext></mrow><annotation encoding="application/x-tex">\text{X}+\text{Y}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord text"><span class="mord">X</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">Y</span></span></span></span></span> 的长度要小于 512。</li>
+<li><strong>Sentence-Pair + NSP :</strong> 使用 NSP Loss，但输入的两段文字 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>X</mtext></mrow><annotation encoding="application/x-tex">\text{X}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">X</span></span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>Y</mtext></mrow><annotation encoding="application/x-tex">\text{Y}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">Y</span></span></span></span></span> 都分别是一个句子，因此一个输入包含的 token 通常比 <strong>Segment-Pair</strong> 少，所以要增大 batch，使总的 token 数量和 <strong>Sentence-Pair</strong> 差不多。</li>
+<li><strong>Full-Sentences :</strong> 不使用 NSP，直接从一个或者多个文档中采样多个句子，直到总长度到达 512。当采样到一个文档末尾时，会在序列中添加一个文档分隔符 token，然后再从下一个文档采样。</li>
+<li><strong>Doc-Sentences :</strong> 不使用 NSP，但是只能从一个文档中采样句子，所以输入的长度可能会少于 512。<strong>Doc-Sentences</strong> 也需要动态调整 batch 大小，使其包含的 token 数量和 <strong>Full-Sentences</strong> 差不多。</li>
+</ul>
+<img data-src="/posts/6d196d22-86cb-11ee-b04c-f58259a2146b/roberta_albert_1.webp" class="" width="700">
+<blockquote class="blockquote-center">
+<p>验证 NSP Loss</p>
+
+</blockquote>
+<p>可以看到使用 <strong>Segment-Pair</strong> (多个句子) 要好于 <strong>Sentence-Pair</strong> (单个句子)，实验结果显示使用单个句子会使 BERT 在下游任务的性能下降，主要原因可能是使用单个句子导致模型不能很好地学习长期的依赖关系。</p>
+<p>中间两行是不使用 NSP Loss 的结果，可以看到两种方式都是比使用 NSP 效果要好的，这说明了 NSP Loss 实际上没什么作用，因此在 RoBERTa 中丢弃了 NSP Loss。</p>
+<h3 id="动态-mask"><a class="markdownIt-Anchor" href="#动态-mask"></a> 动态 Mask</h3>
+<p>原始的 BERT 在训练之前就把数据 <code>Mask</code> 了，然后在整个训练过程中都是保持数据不变的，称为 <code>Static Mask</code>。即同一个句子在整个训练过程中，<code>Mask</code> 掉的单词都是一样的。</p>
+<p>RoBERTa 使用了一种 <code>Dynamic Mask</code> 的策略，将整个数据集复制 10 次，然后在 10 个数据集上都 <code>Mask</code> 一次，也就是每一个句子都会有 10 种 <code>Mask</code> 结果。使用 10 个数据集训练 BERT。</p>
+<img data-src="/posts/6d196d22-86cb-11ee-b04c-f58259a2146b/roberta_albert_2.webp" class="" width="600">
+<blockquote class="blockquote-center">
+<p>不同 Mask 对比</p>
+
+</blockquote>
+<p>可以看到使用 <code>Dynamic Mask</code> 的结果会比原来的 <code>Static Mask</code> 稍微好一点，所以 RoBERTa 也使用了 <code>Dynamic Mask</code>。</p>
+<h3 id="更大的-batch"><a class="markdownIt-Anchor" href="#更大的-batch"></a> 更大的 batch</h3>
+<p>之前的一些关于神经网络翻译的研究显示了使用一个大的 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mi>a</mi><mi>t</mi><mi>c</mi><mi>h</mi></mrow><annotation encoding="application/x-tex">batch</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">b</span><span class="mord mathnormal">a</span><span class="mord mathnormal">t</span><span class="mord mathnormal">c</span><span class="mord mathnormal">h</span></span></span></span> 并相应地增大学习率，可以加速优化并且提升性能。RoBERTa 也对 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mi>a</mi><mi>t</mi><mi>c</mi><mi>h</mi></mrow><annotation encoding="application/x-tex">batch</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">b</span><span class="mord mathnormal">a</span><span class="mord mathnormal">t</span><span class="mord mathnormal">c</span><span class="mord mathnormal">h</span></span></span></span> 大小进行了实验，原始的 BERT 使用的 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mi>a</mi><mi>t</mi><mi>c</mi><mi>h</mi><mo>=</mo><mn>256</mn></mrow><annotation encoding="application/x-tex">batch = 256</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">b</span><span class="mord mathnormal">a</span><span class="mord mathnormal">t</span><span class="mord mathnormal">c</span><span class="mord mathnormal">h</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord">5</span><span class="mord">6</span></span></span></span>，训练步数为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>1M</mtext></mrow><annotation encoding="application/x-tex">\text{1M}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">1M</span></span></span></span></span>，这与 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mi>a</mi><mi>t</mi><mi>c</mi><mi>h</mi><mo>=</mo><mtext>2K</mtext></mrow><annotation encoding="application/x-tex">batch = \text{2K}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">b</span><span class="mord mathnormal">a</span><span class="mord mathnormal">t</span><span class="mord mathnormal">c</span><span class="mord mathnormal">h</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">2K</span></span></span></span></span>，训练步数 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>125K</mtext></mrow><annotation encoding="application/x-tex">\text{125K}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">125K</span></span></span></span></span> 的计算量是一样的，与 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mi>a</mi><mi>t</mi><mi>c</mi><mi>h</mi><mo>=</mo><mtext>8K</mtext></mrow><annotation encoding="application/x-tex">batch = \text{8K}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">b</span><span class="mord mathnormal">a</span><span class="mord mathnormal">t</span><span class="mord mathnormal">c</span><span class="mord mathnormal">h</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">8K</span></span></span></span></span> 和训练步数为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>31K</mtext></mrow><annotation encoding="application/x-tex">\text{31K}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">31K</span></span></span></span></span> 也是一样的。</p>
+<img data-src="/posts/6d196d22-86cb-11ee-b04c-f58259a2146b/roberta_albert_3.webp" class="" width="600">
+<blockquote class="blockquote-center">
+<p>不同 Batch 对比</p>
+
+</blockquote>
+<p>可以看到使用 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mi>a</mi><mi>t</mi><mi>c</mi><mi>h</mi><mo>=</mo><mtext>2K</mtext></mrow><annotation encoding="application/x-tex">batch = \text{2K}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">b</span><span class="mord mathnormal">a</span><span class="mord mathnormal">t</span><span class="mord mathnormal">c</span><span class="mord mathnormal">h</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">2K</span></span></span></span></span> 时的效果最好。</p>
+<h2 id="albert"><a class="markdownIt-Anchor" href="#albert"></a> ALBERT</h2>
+<p>BERT 的预训练模型参数量很多，训练时候的时间也比较久。ALBERT 是一个对 BERT 进行压缩后的模型，降低了 BERT 的参数量，减少了训练所需的时间。</p>
+<ul>
+<li>ALBERT 只是减少 BERT 的参数量，而不减少其计算量。</li>
+<li>ALBERT 能减少训练时间，这是因为减少了参数之后可以降低分布式训练时候的通讯量。</li>
+<li>ALBERT 不能减少 inference 的时间，因为 inference 的时候经过的 Transformer 计算量和 BERT 还是一样的。</li>
+</ul>
+<p>下面是 ALBERT 的一些优化方法。</p>
+<h3 id="factorized-embedding-parameterization"><a class="markdownIt-Anchor" href="#factorized-embedding-parameterization"></a> Factorized embedding parameterization</h3>
+<p>这是对 Embedding 进行分解，从而减少参数。在 BERT 中，Embedding 的维度和 Transformer 隐藏层维度是一样的，都是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>H</mtext></mrow><annotation encoding="application/x-tex">\text{H}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">H</span></span></span></span></span>。假设词库的大小为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>V</mtext></mrow><annotation encoding="application/x-tex">\text{V}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">V</span></span></span></span></span>，则单词的 Embedding 矩阵参数量就有 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>VH</mtext></mrow><annotation encoding="application/x-tex">\text{VH}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">VH</span></span></span></span></span>，如果词库很大，则参数量会很多。</p>
+<p>因此，ALBERT 使用了一种基于 Factorized 的方法，不是直接把单词的 one-hot 矩阵映射到 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>H</mtext></mrow><annotation encoding="application/x-tex">\text{H}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">H</span></span></span></span></span> 维的向量，而是先映射到一个低维空间 (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>E</mtext></mrow><annotation encoding="application/x-tex">\text{E}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">E</span></span></span></span></span> 维)，再映射到 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>H</mtext></mrow><annotation encoding="application/x-tex">\text{H}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">H</span></span></span></span></span> 维的空间，这个过程类似于做了一次矩阵分解。</p>
+<ul>
+<li><strong>BERT Embedding 参数量</strong> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>=</mo><mi mathvariant="normal">O</mi><mo stretchy="false">(</mo><mi mathvariant="normal">V</mi><mo>×</mo><mi mathvariant="normal">H</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">=\mathrm{O}(\mathrm{V} \times \mathrm{H})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathrm">O</span></span><span class="mopen">(</span><span class="mord"><span class="mord mathrm" style="margin-right:0.01389em;">V</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathrm">H</span></span><span class="mclose">)</span></span></span></span></li>
+<li><strong>ALBERT Embedding 参数量</strong> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>=</mo><mi mathvariant="normal">O</mi><mo stretchy="false">(</mo><mi mathvariant="normal">V</mi><mo>×</mo><mi mathvariant="normal">E</mi><mo>+</mo><mi mathvariant="normal">E</mi><mo>×</mo><mi mathvariant="normal">H</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">=\mathrm{O}(\mathrm{V} \times \mathrm{E}+\mathrm{E} \times \mathrm{H})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathrm">O</span></span><span class="mopen">(</span><span class="mord"><span class="mord mathrm" style="margin-right:0.01389em;">V</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord"><span class="mord mathrm">E</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord"><span class="mord mathrm">E</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathrm">H</span></span><span class="mclose">)</span></span></span></span></li>
+</ul>
+<h3 id="cross-layer-parameter-sharing"><a class="markdownIt-Anchor" href="#cross-layer-parameter-sharing"></a> Cross-layer parameter sharing</h3>
+<p>这个是参数共享机制，即所有 Transformer 层共享一套参数，Transformer 包括 Multi-Head Attention 的参数和 Feed-Forward 的参数。针对不同部分的参数，ALBERT 采用了四种方式实验。</p>
+<ul>
+<li><strong>all-shared:</strong> 共享所有的 Transformer 参数。</li>
+<li><strong>shared-attention:</strong> 只共享 Transformer 中 Multi-Head Attention 的参数。</li>
+<li><strong>shared-FFN:</strong> 只共享 Transformer 中 Feed-Forward 的参数。</li>
+<li><strong>not-shared:</strong> 不共享参数。</li>
+</ul>
+<img data-src="/posts/6d196d22-86cb-11ee-b04c-f58259a2146b/roberta_albert_4.webp" class="" width="800">
+<blockquote class="blockquote-center">
+<p>不同共享方式</p>
+
+</blockquote>
+<p>可以看到共享所有参数之后的模型要远远小于不共享参数的模型。当 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>E</mtext><mo>=</mo><mn>768</mn></mrow><annotation encoding="application/x-tex">\text{E} = 768</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">E</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">7</span><span class="mord">6</span><span class="mord">8</span></span></span></span> 时，not-shared 的参数量其实就是 BERT-base 的参数量，等于 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>108M</mtext></mrow><annotation encoding="application/x-tex">\text{108M}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">108M</span></span></span></span></span>，而共享所有参数后，模型的参数量变为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>31M</mtext></mrow><annotation encoding="application/x-tex">\text{31M}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">31M</span></span></span></span></span>。</p>
+<p>通过共享参数可以有效地减少模型的参数量，另外共享参数还可以帮助模型稳定网络中的参数。作者对比了 ALBERT 和 BERT 每一层 Transformer 的输入和输出的 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>L2</mtext></mrow><annotation encoding="application/x-tex">\text{L2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord">L2</span></span></span></span></span> 距离，发现 ALBERT 的效果更加平滑，如下图所示。</p>
+<img data-src="/posts/6d196d22-86cb-11ee-b04c-f58259a2146b/roberta_albert_5.webp" class="" width="800">
+<blockquote class="blockquote-center">
+<p>ALBERT 更加平滑</p>
+
+</blockquote>
+<h3 id="使用-sop-替换-nsp"><a class="markdownIt-Anchor" href="#使用-sop-替换-nsp"></a> 使用 SOP 替换 NSP</h3>
+<p>如 RoBERTa 结果显示的，NSP Loss 对于模型并没有什么用处，因此 ALBERT 也对 NSP 进行了一些思考。</p>
+<p>ALBERT 认为 BERT 中使用的 NSP 任务过于简单了，因为 NSP 的反例是随机采样得到的，这些反例的句子通常属于不同的主题，例如前面的句子是来自体育新闻，而后面的句子来自于娱乐新闻。因此 BERT 在进行 NSP 任务时，通常是不需要真正学习句子之间的语义以及顺序的，只需要判断它们的主题类型。</p>
+<p>ALBERT 将 NSP 替换成了 <strong>SOP (sentence order prediction)</strong>，预测两个句子是否被交换了顺序。即输入的两个句子是来自同一文档的连续句子，并随机对这两个句子的顺序进行调换，让模型预测句子是否被调换过。这样可以让模型更好地学习句子语义信息和相互关系。</p>
+<h2 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h2>
+<ul>
+<li><strong>RoBERTa</strong> 更像是一个经过仔细调参后得到的 BERT 模型，并且使用了更大的数据集进行训练。</li>
+<li><strong>ALBERT</strong> 对 BERT 的参数量进行了压缩，并且能够减少分布式训练的开销。但是 ALBERT 并不能减少需要的计算量，因此模型在 inference 时的速度没有提升。</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/6d199421-86cb-11ee-b04c-f58259a2146b/" rel="prev" title="Seq2Seq 模型详解">
+                  <i class="fa fa-angle-left"></i> Seq2Seq 模型详解
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/e3299d40-a3fe-11ee-990e-05f9e0e8d46e/" rel="next" title="UniRep - LSTM 生成蛋白序列">
+                  UniRep - LSTM 生成蛋白序列 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2020 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Passion4ever</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr+QR0SQDNfgglgtcM=" crossorigin="anonymous">
+  <script class="next-config" data-name="katex" type="application/json">{"copy_tex_js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/copy-tex.min.js","integrity":"sha256-Us54+rSGDSTvIhKKUs4kygE2ipA0RXpWWh0/zLqw3bs="}}</script>
+  <script src="/js/third-party/math/katex.js"></script>
+
+
+
+</body>
+</html>
