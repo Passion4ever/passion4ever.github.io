@@ -251,7 +251,7 @@
 <li><strong>PIR</strong> (Protein Information Resource)：PIR由美国国家生物医学研究基金会（NBRF）于1984年成立，旨在协助研究人员识别和解释蛋白质序列信息。</li>
 </ul>
 <h3 id="uniprot-构成"><a class="markdownIt-Anchor" href="#uniprot-构成"></a> UniProt 构成</h3>
-<img data-src="/posts/6d196d1f-86cb-11ee-b04c-f58259a2146b/2.1%E8%9B%8B%E7%99%BD%E8%B4%A8%E6%95%B0%E6%8D%AE%E5%BA%93_1.png" class="" width="800">
+
 <blockquote class="blockquote-center">
 <p>Uniprot数据库截图（截图于2024/03）</p>
 
@@ -299,7 +299,7 @@
 <p><strong>Swiss-Prot</strong> 经过人工验证和注释，是高质量的蛋白质注释数据。但人工效率在高速增长的蛋白质数据面前显得极其低效。因此，注释这些数据需要大量时间。</p>
 <p>为了弥补这一问题，<strong>TrEMBL</strong> 被建立用于存储由机器自动翻译和预测的蛋白质序列。显然，这必然导致蛋白质质量下降。</p>
 <p>简而言之，在 <strong>UniProtKB</strong> 数据库中 <strong>Swiss-Prot</strong> 是由 <strong>TrEMBL</strong> 经过手动注释后得到的高质量非冗余数据库，也是我们今后常用的蛋白质数据库之一。</p>
-<img data-src="/posts/6d196d1f-86cb-11ee-b04c-f58259a2146b/2.1%E8%9B%8B%E7%99%BD%E8%B4%A8%E6%95%B0%E6%8D%AE%E5%BA%93_2.png" class="" width="800">
+
 <blockquote class="blockquote-center">
 <p>UniProt数据库关系</p>
 
@@ -329,12 +329,12 @@
 <p>这里包含了很多第三方算法和软件</p>
 <h4 id="查询蛋白质基础操作"><a class="markdownIt-Anchor" href="#查询蛋白质基础操作"></a> 查询蛋白质基础操作</h4>
 <p>进入官网：<a target="_blank" rel="noopener" href="https://www.uniprot.org/">https://www.uniprot.org/</a></p>
-<img data-src="/posts/6d196d1f-86cb-11ee-b04c-f58259a2146b/2.1%E8%9B%8B%E7%99%BD%E8%B4%A8%E6%95%B0%E6%8D%AE%E5%BA%93_3.png" class="">
+
 <blockquote class="blockquote-center">
 <p>搜索界面</p>
 
 </blockquote>
-<img data-src="/posts/6d196d1f-86cb-11ee-b04c-f58259a2146b/2.1%E8%9B%8B%E7%99%BD%E8%B4%A8%E6%95%B0%E6%8D%AE%E5%BA%93_4.png" class="">
+
 <blockquote class="blockquote-center">
 <p>搜索结果</p>
 
@@ -360,13 +360,13 @@
 <p><strong>数据下载</strong></p>
 <p>下面以 PO5F1_HUMAN 为例。</p>
 <p>先选中感兴趣蛋白前的方框，点击Download下载。</p>
-<img data-src="/posts/6d196d1f-86cb-11ee-b04c-f58259a2146b/2.1%E8%9B%8B%E7%99%BD%E8%B4%A8%E6%95%B0%E6%8D%AE%E5%BA%93_5.png" class="">
+
 <blockquote class="blockquote-center">
 <p>下载数据</p>
 
 </blockquote>
 <p>下载对应的fasta序列来看看：</p>
-<img data-src="/posts/6d196d1f-86cb-11ee-b04c-f58259a2146b/2.1%E8%9B%8B%E7%99%BD%E8%B4%A8%E6%95%B0%E6%8D%AE%E5%BA%93_6.png" class="">
+
 <h4 id="uniprot-fasta-文件解读"><a class="markdownIt-Anchor" href="#uniprot-fasta-文件解读"></a> UniProt Fasta 文件解读</h4>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;sp|Q01860|PO5F1_HUMAN POU domain, class 5, transcription factor 1 OS=Homo sapiens OX=9606 GN=POU5F1 PE=1 SV=1</span><br><span class="line">MAGHLASDFAFSPPPGGGGDGPGGPEPGWVDPRTWLSFQGPPGGPGIGPGVGPGSEVWGI</span><br><span class="line">PPCPPPYEFCGGMAYCGPQVGVGLVPQGGLETSQPEGEAGVGVESNSDGASPEPCTVTPG</span><br><span class="line">AVKLEKEKLEQNPEESQDIKALQKELEQFAKLLKQKRITLGYTQADVGLTLGVLFGKVFS</span><br><span class="line">QTTICRFEALQLSFKNMCKLRPLLQKWVEEADNNENLQEICKAETLVQARKRKRTSIENR</span><br><span class="line">VRGNLENLFLQCPKPTLQQISHIAQQLGLEKDVVRVWFCNRRQKGKRSSSDYAQREDFEA</span><br><span class="line">AGSPFSGGPVSFPLAPGPHFGTPGYGSPHFTALYSSVPFPEGEAFPPVSVTTLGSPMHSN</span><br></pre></td></tr></table></figure>
 <p>首先看<code>&gt;</code>后的注释信息</p>
@@ -419,7 +419,7 @@
 </li>
 <li>
 <p>填写如下内容，即可搜索得到还有蛋白质三维结构的蛋白质列表</p>
- <img data-src="/posts/6d196d1f-86cb-11ee-b04c-f58259a2146b/2.1%E8%9B%8B%E7%99%BD%E8%B4%A8%E6%95%B0%E6%8D%AE%E5%BA%93_7.png" class="">
+ 
  <blockquote class="blockquote-center">
 <p>高级搜索</p>
 
@@ -433,7 +433,7 @@
 <ol>
 <li>
 <p>进入<a target="_blank" rel="noopener" href="https://www.uniprot.org/">官网</a>后，可以在两个入口，点击后进入</p>
- <img data-src="/posts/6d196d1f-86cb-11ee-b04c-f58259a2146b/2.1%E8%9B%8B%E7%99%BD%E8%B4%A8%E6%95%B0%E6%8D%AE%E5%BA%93_7.png" class="">
+ 
  <blockquote class="blockquote-center">
 <p>搜索口</p>
 
@@ -446,20 +446,20 @@
 <p>在<code>From database</code>中选择我们的输入数据格式是<strong>UniprotKB AC/ID</strong></p>
 <p>在<code>To database</code>中选择我们需要转换的<strong>PDB</strong></p>
 <p>点击<code>Map</code>进入工作流程</p>
- <img data-src="/posts/6d196d1f-86cb-11ee-b04c-f58259a2146b/2.1%E8%9B%8B%E7%99%BD%E8%B4%A8%E6%95%B0%E6%8D%AE%E5%BA%93_9.png" class="">
+ 
  <blockquote class="blockquote-center">
 <p>ID mapping</p>
 
 </blockquote>
 <p>点击<code>Completed</code>进入工作结果页面</p>
- <img data-src="/posts/6d196d1f-86cb-11ee-b04c-f58259a2146b/2.1%E8%9B%8B%E7%99%BD%E8%B4%A8%E6%95%B0%E6%8D%AE%E5%BA%93_10.png" class="">
+ 
  <blockquote class="blockquote-center">
 <p>mapping 结果</p>
 
 </blockquote>
 <p>这里显示了匹配的PDB ID，因为一个蛋白质ID可能对应多个PDB ID，因此转换结果较多。</p>
 <p>点击<code>Download</code>进行下载</p>
- <img data-src="/posts/6d196d1f-86cb-11ee-b04c-f58259a2146b/2.1%E8%9B%8B%E7%99%BD%E8%B4%A8%E6%95%B0%E6%8D%AE%E5%BA%93_10.png" class="">
+ 
  <blockquote class="blockquote-center">
 <p>下载 mapping 结果</p>
 
