@@ -1487,7 +1487,7 @@ pre code {
   width: 16px;
   background: #222;
   cursor: pointer;
-  opacity: 0.8;
+  opacity: 0.6;
   position: fixed;
   z-index: 30;
   right: 30px;
@@ -1498,11 +1498,11 @@ pre code {
   }
 }
 .sidebar-toggle:hover {
-  opacity: 1;
+  opacity: 0.8;
 }
 @media (max-width: 991px) {
   .sidebar-toggle {
-    opacity: 1;
+    opacity: 0.8;
   }
 }
 .sidebar-toggle:hover .toggle-line {
@@ -1679,7 +1679,7 @@ pre code {
   }
 }
 .back-to-top {
-  font-size: 16px;
+  font-size: 12px;
   margin: 8px -10px -20px;
   opacity: 0;
   transition: opacity 0.2s ease-in-out;
@@ -1693,10 +1693,10 @@ pre code {
 }
 .back-to-top.back-to-top-on {
   cursor: pointer;
-  opacity: 0.8;
+  opacity: 0.6;
 }
 .back-to-top.back-to-top-on:hover {
-  opacity: 1;
+  opacity: 0.8;
 }
 .reading-progress-bar {
   --progress: 0;
