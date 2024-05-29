@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/github_default_180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/github_default_32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/github_default_16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-flash.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"passion4ever.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+
+
+<link rel="canonical" href="https://passion4ever.github.io/posts/d2af5b60-1c00-11ef-85a8-2589cfbef1e7/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://passion4ever.github.io/posts/d2af5b60-1c00-11ef-85a8-2589cfbef1e7/","path":"posts/d2af5b60-1c00-11ef-85a8-2589cfbef1e7/","title":"Nat Biotechnol｜机器学习用于功能蛋白质设计"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Nat Biotechnol｜机器学习用于功能蛋白质设计 | Passion4ever</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Passion4ever</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Goal-Oriented</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-所有文章"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>所有文章</a></li><li class="menu-item menu-item-编程代码"><a href="/1-code" rel="section"><i class="fa fa-code fa-fw"></i>编程代码</a></li><li class="menu-item menu-item-人工智能"><a href="/2-AI" rel="section"><i class="fa fa-robot fa-fw"></i>人工智能</a></li><li class="menu-item menu-item-生物信息"><a href="/3-bioinformatics" rel="section"><i class="fa fa-dna fa-fw"></i>生物信息</a></li><li class="menu-item menu-item-其他"><a href="/4-others" rel="section"><i class="fa fa-bars fa-fw"></i>其他</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text"> 简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%9B%8B%E7%99%BD%E8%AE%BE%E8%AE%A1%E7%9A%84%E4%B8%89%E7%A7%8D%E6%A0%B8%E5%BF%83%E6%95%B0%E6%8D%AE"><span class="nav-number">2.</span> <span class="nav-text"> 蛋白设计的三种核心数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%9B%8B%E7%99%BD%E8%B4%A8%E8%AE%BE%E8%AE%A1%E7%9A%84%E7%9B%AE%E6%A0%87"><span class="nav-number">3.</span> <span class="nav-text"> 蛋白质设计的目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%9B%8B%E7%99%BD%E8%B4%A8%E8%AE%BE%E8%AE%A1%E7%9A%84%E6%A8%A1%E5%9E%8B"><span class="nav-number">4.</span> <span class="nav-text"> 蛋白质设计的模型</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="❤️Passion4ever"
+      src="/images/avatar/4d-boy.webp">
+  <p class="site-author-name" itemprop="name">❤️Passion4ever</p>
+  <div class="site-description" itemprop="description">勿为工具之奴</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">66</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://passion4ever.github.io/posts/d2af5b60-1c00-11ef-85a8-2589cfbef1e7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar/4d-boy.webp">
+      <meta itemprop="name" content="❤️Passion4ever">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Passion4ever">
+      <meta itemprop="description" content="勿为工具之奴">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Nat Biotechnol｜机器学习用于功能蛋白质设计 | Passion4ever">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Nat Biotechnol｜机器学习用于功能蛋白质设计
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-05-27 16:12:13 / 修改时间：17:12:39" itemprop="dateCreated datePublished" datetime="2024-05-27T16:12:13+08:00">2024-05-27</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>8 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><div class="note info"><p><strong>标题:</strong> <strong>Machine learning for functional protein design</strong><br />
+<strong>期刊/会议:</strong> <strong>Nature Biotechnology</strong><br />
+<strong>年份:</strong> <strong>2024</strong></p>
+</div>
+<h2 id="简介"><a class="markdownIt-Anchor" href="#简介"></a> 简介</h2>
+<p>本文分享2024年2月15日D. S. Marks在<a target="_blank" rel="noopener" href="https://doi.org/10.1038/s41587-024-02127-0">Nature Biotechnology</a>发表的蛋白设计综述文章。</p>
+<span id="more"></span>
+<h2 id="蛋白设计的三种核心数据"><a class="markdownIt-Anchor" href="#蛋白设计的三种核心数据"></a> 蛋白设计的三种核心数据</h2>
+<p>蛋白质设计模型是根据序列、结构和功能三类标签的组合进行训练的。每种数据模式都有独特的优点和注意事项，具体取决于数据的丰富程度、人类知识和干预的需要以及数据示例与所需功能的接近程度。</p>
+<p>序列数据，十亿级别的公开可用的蛋白质序列数据库（如：UniProt，DisProt，MobiDB等），蕴藏着蛋白的进化限制，涵盖蛋白质家族的多样性，并减少了在实验室中生产数据的必要。涉及序列的模型能够优化蛋白功能帮助蛋白进化。</p>
+<p>结构数据，结构类型的数据库有RCSB，AFDB等。数以万计的公开结构提供了支撑蛋白质折叠和功能的生化相互作用的3D细节。序列和结构的模型可以针对已有结构进行活性位点分析，或结合复合物亲和力等进行优化，但通常需要分析关键残基和相互作用的先验知识。</p>
+<p>功能标签，实验室生成的功能标签探索新的结合目标、反应和生化条件。适用的数据集通常是稀疏的和定制的，但生成更大、更通用的库的能力正在发展中。基于序的标签模型可以针对新功能进行发现，或新条件下的现有功能进行优化。</p>
+<img data-src="/posts/d2af5b60-1c00-11ef-85a8-2589cfbef1e7/s41587-024-02127-0_1.webp" class="" width="600">
+<blockquote class="blockquote-center">
+<p>蛋白设计的三种核心数据类型</p>
+
+</blockquote>
+<h2 id="蛋白质设计的目标"><a class="markdownIt-Anchor" href="#蛋白质设计的目标"></a> 蛋白质设计的目标</h2>
+<p>设计目标可以大致分为三组，具体取决于我们是从已知蛋白质开始还是从头开始，以及对于已知蛋白质，我们是增强其现有功能还是创建新功能。</p>
+<img data-src="/posts/d2af5b60-1c00-11ef-85a8-2589cfbef1e7/s41587-024-02127-0_2.webp" class="" width="700">
+<blockquote class="blockquote-center">
+<p>蛋白设计目标</p>
+
+</blockquote>
+<ol>
+<li><strong>增强已有功能的设计</strong></li>
+<li><strong>重新设计新功能</strong>（这里的目标是通过利用具有相关功能的现有蛋白质来设计具有新功能的蛋白质。例如，改变结合剂或酶以作用于新的靶标）</li>
+<li><strong>从头设计</strong></li>
+</ol>
+<h2 id="蛋白质设计的模型"><a class="markdownIt-Anchor" href="#蛋白质设计的模型"></a> 蛋白质设计的模型</h2>
+<p>根据蛋白质的表示方式、用于训练的数据以及底层算法的输入，大多数用于蛋白质设计的深度学习模型可以大致分为三类，即基于序列的模型、基于序列的标签模型、基于结构的模型。</p>
+<img data-src="/posts/d2af5b60-1c00-11ef-85a8-2589cfbef1e7/s41587-024-02127-0_3.webp" class="" width="800">
+<blockquote class="blockquote-center">
+<p>蛋白质设计模型</p>
+
+</blockquote>
+<p><strong>序列Only模型</strong>，这类算法即给定蛋白质一级序列 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">x</span></span></span></span> 的生成模型 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">P(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span> 。通过对大量蛋白质序列进行训练，他们的目标是隐式捕获表征训练集中存在的蛋白质的进化限制。该类别中的模型是经典的基于“家族特异性”比对的模型，并在多序列比对MSA的一组同源序列上进行训练。虽然最初基于MSA的模型（Alignment-based models）侧重于独立于其他序列残基的位置特异性预测（例如，位置特异性评分矩阵PSSM），但随后的DCA/EVmutation等模型考虑了残基对。并且最近，新出来一些完整序列生成模型，如DeepSequence/EVE/WaveNet等。</p>
+<p>基于某些氨基酸限制或模式可能在同一蛋白质家族中普遍存在的直觉，“与家族无关”的蛋白质语言模型（Protein language models），在跨蛋白质家族的未比对序列上进行训练，随后成为一种实用的替代方案。受自然语言处理文献中最初引入的学习范式的启发，这导致了模型的广泛多样性。例如自回归AR建模的蛋白语言模型，UniRep/RITA/ProteinGPT2等。掩码语言模型MLM建模的蛋白语言模型，ESM-1v/ESM2/CARP等。还有Seq2Seq类算法，ProtT5、Ankh等。科学家试图结合每种方法的相对优势，基于这些工作随后产生了多种杂交模型Hybrid Models，比如MSA transformer/PoET/Tranception等。最近，微软基于序列的扩散模型Evodiff，也提出开源了，作为从头生成完整蛋白质序列的一种有前途的算法。</p>
+<p><strong>条件序列模型</strong>，这类模型以各种标签t作为输入，生成蛋白序列 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">x</span></span></span></span> 。生成过程 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false">(</mo><mi>x</mi><mi mathvariant="normal">∣</mi><mi>t</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">P(x|t)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mord">∣</span><span class="mord mathnormal">t</span><span class="mclose">)</span></span></span></span> 限制在广泛的分类组或基因本体注释标签 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathnormal">t</span></span></span></span> ，以保证生成序列的性质和特性的更多控制。比如：人们基于自回归AR建模的Progen/ZymCTRL算法，或掩码语言建模MLM架构的ProteinBERT。</p>
+<p>当蛋白感兴趣的功能属性有足够多的标签可用时，就可以训练判别式监督模型，学习给定输入序列x的功能标签y的分布P(y|x)。功能标签y通常是在实验室中通过定向进化比赛、突变库、天然来源（例如抗体库、嵌合库）的等大规模并行测序收集的得到，或论文补充材料SI中的部分自然序列数据测量数据。序列表示可以是简单的 one-hot编码。产生的预测标签高效的半监督算法，使得物理化学特性和其他手工特征的提取预测越来越容易。训练好的回归器通常是轻量级的，以避免过度拟合，例如岭回归Ridge regression、高斯过程、浅层Shadow CNN或密集神经网络。</p>
+<p>判别模型Discriminative models提供了一种有效的方法来预测大量潜在设计的表型值，并优先考虑最有希望的候选设计。然而，这些候选者的质量直接取决于外部程序的质量（例如，组合库、使用单独的无监督模型采样），该外部程序用于制定要评估的优先突变体的初始列表。<br />
+标签条件生成模型Generative models，例如条件变分自动编码器VAE、引导扩散Guided Diffusion、回归变压器regression 或 ProteinNPT等，学习联合概率 P(x,y) 或条件概率 P(x|y)的近似值序列x和功能标签y。它们能够生成以所需表型值为条件的新序列，从而产生可能更有效的端到端程序。最后，虽然这里大多数监督模型依赖于感兴趣蛋白质的一级序列表示，但某些架构却基于其三级 3D结构，并且可以更充分地描述为结构标签模型。</p>
+<p>基于结构的模型主要有四种主要类别，第一类是结构预测模型P(z|x)，第二列是结构生成模型P(z)，第三类是逆向折叠模型P(x|y)，第四列是结合序列和结构的模型P(x, z)。</p>
+<p>结构预测模型Structure perdition models，诸如AlphaFold2, ColabFold, RoseTTAFold, OmegaFold等，试图根据蛋白质的一级序列x来预测蛋白质的三级结构z。<br />
+结构生成模型Structure generation models，比如基于生成对抗网络的ig-VAE，最近的扩散模型Chroma和RFdifusion，小编知道还有很多此类算法诸如：微软的FoldingDiff、FrameDiff、ProteinSGM、Protein Generator、FrameFlow、SDS、GPDL、LoopGen；还有全原子精度级别的Protpardelle、RFdiffusion-AA、HelixDiff等。这类结构生成模型经过训练可直接学习概率P(z)。<br />
+逆向折叠模型Inverse folding models，顾名思义，是输入蛋白骨架生成Match此骨架结构的蛋白序列。学习蛋白质序列x的概率P(x|z)，以3D结构z为条件输入，其中该结构通常用图神经网络编码，如ProteinMPNN、PiFold、ESM-IF1、LigandMPNN、稳定性的ThromalMPNN、溶解性SolubleMPNN、抗原抗体的AbMPPN、AntiFold、针对膜蛋白的MembraneMPNN等。微软ESM-IF1算法，由于在更多结构数据的AFDB上进行训练，在proteinGym的测试基准上表现更优，特别是在蛋白突变稳定性上。David Baker最新的LigandMPNN骨架考虑4个原子，比原有PortinMPNN基于3个原子的建模，生成的序列在torsion angle方面更合理。涉及到抗原-抗体，TCR-MHC、蛋白多肽、小分子和酶等复合体时，文献已验证报道，输入端可输入complex复合体的建模算法（ESM-IF1、LigandMPNN）要显著优于基于单体骨架的输入。<br />
+序列结构联合设计算法Joint sequence + structure models，例如蛋白质幻觉、inpainting补全、ProteinGenerator等。这类模型学习对序列x和结构z的联合概率P(x,z)建模。在本文中，我们经常提到序列结构模型，其中包括逆折叠以及联合序列和结构模型。为了最终产生新的序列设计，结构生成模型必须与这些序列结构模型配对。在这种情况下，组合架构本身可以被视为序列和结构的联合模型，因为使用概率链式规则 P(x,z)=P(x|z)P(z)。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>❤️Passion4ever
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://passion4ever.github.io/posts/d2af5b60-1c00-11ef-85a8-2589cfbef1e7/" title="Nat Biotechnol｜机器学习用于功能蛋白质设计">https://passion4ever.github.io/posts/d2af5b60-1c00-11ef-85a8-2589cfbef1e7/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/f054b320-13f6-11ef-a086-71cfe652c8b1/" rel="prev" title="FoldingDiff">
+                  <i class="fa fa-angle-left"></i> FoldingDiff
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/92776de0-1c95-11ef-85f5-c99601a558e2/" rel="next" title="ESM系列｜ESM-MSA：蛋白质语言模型MSA Transformer">
+                  ESM系列｜ESM-MSA：蛋白质语言模型MSA Transformer <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2020 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Passion4ever</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">112k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">6:13</span>
+  </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr+QR0SQDNfgglgtcM=" crossorigin="anonymous">
+  <script class="next-config" data-name="katex" type="application/json">{"copy_tex_js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/copy-tex.min.js","integrity":"sha256-Us54+rSGDSTvIhKKUs4kygE2ipA0RXpWWh0/zLqw3bs="}}</script>
+  <script src="/js/third-party/math/katex.js"></script>
+
+
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"passion4ever/utterances","issue_term":"title","theme":"boxy-light"}</script>
+<script src="/js/third-party/comments/utterances.js"></script>
+
+</body>
+</html>

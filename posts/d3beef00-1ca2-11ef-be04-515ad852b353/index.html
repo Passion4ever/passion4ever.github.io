@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/github_default_180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/github_default_32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/github_default_16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-flash.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"passion4ever.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+
+
+<link rel="canonical" href="https://passion4ever.github.io/posts/d3beef00-1ca2-11ef-be04-515ad852b353/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://passion4ever.github.io/posts/d3beef00-1ca2-11ef-be04-515ad852b353/","path":"posts/d3beef00-1ca2-11ef-be04-515ad852b353/","title":"ESM系列｜ESM-2 & ESM-fold：用语言模型进行原子级蛋白结构预测"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>ESM系列｜ESM-2 & ESM-fold：用语言模型进行原子级蛋白结构预测 | Passion4ever</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Passion4ever</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Goal-Oriented</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-所有文章"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>所有文章</a></li><li class="menu-item menu-item-编程代码"><a href="/1-code" rel="section"><i class="fa fa-code fa-fw"></i>编程代码</a></li><li class="menu-item menu-item-人工智能"><a href="/2-AI" rel="section"><i class="fa fa-robot fa-fw"></i>人工智能</a></li><li class="menu-item menu-item-生物信息"><a href="/3-bioinformatics" rel="section"><i class="fa fa-dna fa-fw"></i>生物信息</a></li><li class="menu-item menu-item-其他"><a href="/4-others" rel="section"><i class="fa fa-bars fa-fw"></i>其他</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text"> 简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text"> 算法原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#esm-2"><span class="nav-number">2.1.</span> <span class="nav-text"> ESM-2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#esm-fold"><span class="nav-number">2.2.</span> <span class="nav-text"> ESM-fold</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C"><span class="nav-number">3.</span> <span class="nav-text"> 结果</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C%E6%80%BB%E7%BB%93"><span class="nav-number">3.1.</span> <span class="nav-text"> 结果总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">4.</span> <span class="nav-text"> 总结</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="❤️Passion4ever"
+      src="/images/avatar/4d-boy.webp">
+  <p class="site-author-name" itemprop="name">❤️Passion4ever</p>
+  <div class="site-description" itemprop="description">勿为工具之奴</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">66</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://passion4ever.github.io/posts/d3beef00-1ca2-11ef-be04-515ad852b353/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar/4d-boy.webp">
+      <meta itemprop="name" content="❤️Passion4ever">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Passion4ever">
+      <meta itemprop="description" content="勿为工具之奴">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="ESM系列｜ESM-2 & ESM-fold：用语言模型进行原子级蛋白结构预测 | Passion4ever">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          ESM系列｜ESM-2 & ESM-fold：用语言模型进行原子级蛋白结构预测
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-05-28 11:31:53 / 修改时间：13:04:47" itemprop="dateCreated datePublished" datetime="2024-05-28T11:31:53+08:00">2024-05-28</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.6k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>9 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><div class="note info"><p><strong>标题:</strong> <strong>Evolutionary-scale prediction of atomic level protein structure with a language model</strong><br />
+<strong>期刊/会议:</strong> <strong>Science</strong><br />
+<strong>年份:</strong> <strong>2023</strong></p>
+</div>
+<h2 id="简介"><a class="markdownIt-Anchor" href="#简介"></a> 简介</h2>
+<p>作为<strong>ESM系列的最后一篇文章</strong>，这篇于2023年发表在Science上的文章，提出了ESM-2和ESM-fold模型，向我们展示了蛋白质语言模型是如何一步步优化，并且在蛋白质结构预测问题上发挥重大作用的。机器学习在蛋白质结构预测领域的最新进展，是利用多序列比对MSA中的共进化信息来预测蛋白质结构，如Alphafold2等。而当蛋白质序列的语言模型扩展到150亿参数时，学习到的表征中就蕴含蛋白的共进化信息。使用语言模型的表征能使蛋白结构预测的速度加快一个数量级，从而实现元基因组蛋白质的大规模结构表征。作者利用这种能力构建了ESM元基因组图谱，预测了超过6.17亿个元基因组蛋白质序列的结构，其中包括超过2.25亿个高置信度预测序列，从而让人们看到了天然蛋白质的丰富多样性。</p>
+<ul>
+<li>此论文是ESM-2和ESM-fold两个模型的集成；</li>
+<li>ESM-fold使得蛋白结构预测的速度提升一个数量级；</li>
+<li>ESM-fold相比于AF2更适用于无足够MSA信息的蛋白结构预测，例如：从头设计全新蛋白、元基因组蛋白、孤儿蛋白等。</li>
+</ul>
+<span id="more"></span>
+<h2 id="算法原理"><a class="markdownIt-Anchor" href="#算法原理"></a> 算法原理</h2>
+<h3 id="esm-2"><a class="markdownIt-Anchor" href="#esm-2"></a> ESM-2</h3>
+<img data-src="/posts/d3beef00-1ca2-11ef-be04-515ad852b353/ESM-2&ESM-fold_1.webp" class="" width="600">
+<blockquote class="blockquote-center">
+<p>不同尺度的ESM-2模型参数</p>
+
+</blockquote>
+<p><strong>数据集</strong>：UniRef50，超6000万个蛋白质序列。</p>
+<p><strong>参数量</strong>：有不同版本的：8M、35M、150M、650M、3B、15B，参数量越大，perplexity越小，表现越好，15B参数量的perplexity达到了6.37。使用ESM-2预训练时可按需选择不同参数量的模型。</p>
+<p><strong>方法</strong>：类似ESM-1b，使用了一个Masked language modeling方法，采用了BERT。比较特殊的是在位置编码处作者采用的是旋转位置嵌入（RoPE, rotary position embedding, 提高大模型的外推性，保证在训练和预测时输入的序列长度不同时，模型泛化和鲁棒性不受影响。略微增加计算成本，但是有效。</p>
+<p><strong>问题描述</strong>：对于15%的随机屏蔽的氨基酸进行预测。</p>
+<h3 id="esm-fold"><a class="markdownIt-Anchor" href="#esm-fold"></a> ESM-fold</h3>
+<p><strong>数据集</strong>：蛋白结构数据集分为真实结构和预测结构。真实结构从PDB数据库中收集，包括了32万多条分辨率&lt;9埃米的蛋白质链。预测结构通过AF2生成，为了保证结构的可靠性，只取平均pLDDT&gt;70的序列。</p>
+<p><strong>方法</strong>：包含两个结构，一个是折叠模块(folding module)，将上述语言模型ESM-2（3B参数量版本）输出的特征生成representation，因为是一维的特征所以不需要像AF2的evoformer一样使用轴向注意力机制；另一个是结构模块(structure module)，一个等变Transformer输入上述模块输出，并输出3D原子坐标。最终预测LDDT、TM、distogram三个信息。</p>
+<p><strong>问题描述</strong>：如何把ESM-2的输出映射到蛋白质每个原子的3维坐标。</p>
+<h2 id="结果"><a class="markdownIt-Anchor" href="#结果"></a> 结果</h2>
+<p>进化过程中的蛋白质序列蕴含大量结构和功能信息，作者认为，在整个进化过程中，填补蛋白质序列中缺失氨基酸的任务需要一个语言模型来理解序列模式的底层结构。随着语言模型的表征能力和训练中所见蛋白质序列多样性的增加，有关蛋白质序列生物学特性的深层信息将会出现。作者训练了一个语言模型ESM-2，可以直接从序列中快速实现原子分辨率级别的结构预测。这就替代了目前AF2结构预测过程中成本高昂的部分，不再需要多序列比对MSA，并且大大简化了推理的神经网络架构。这样，仅推理前向传递的速度就提高了60倍，同时还完全省去了搜索相关蛋白序列的过程，而这一过程原先可能需要10分钟以上。</p>
+<ol>
+<li>
+<p><strong>ESM-2的参数量越大，表现越好。ESM-2整体优于ESM-1b。</strong></p>
+<p>ESM-2参数量的不同对结果的影响可以从perplexity、TM-score和长距离接触准确率预测看出。ESM-2（150亿参数量）在CAMEO测试集上的TMm-score为0.72，在CASP14测试集上的TM-score为0.55，均比1.5亿参数量的中间体提升了15%左右。</p>
+ <img data-src="/posts/d3beef00-1ca2-11ef-be04-515ad852b353/ESM-2&ESM-fold_2.webp" class="">
+ <blockquote class="blockquote-center">
+<p>从左到右显示了ESM-2从800万到150亿个参数的模型，通过无监督接触精度作为衡量标准进行比较。</p>
+
+</blockquote>
+<p>对于相同MMseqs hits，ESM-2（参数量1.5亿）和ESM-1b（参数量6.5亿）的表现相当，说明ESM-2相较于ESM-1b的优越性。</p>
+ <img data-src="/posts/d3beef00-1ca2-11ef-be04-515ad852b353/ESM-2&ESM-fold_3.webp" class="" width="500">
+ <blockquote class="blockquote-center">
+<p>搜索训练集时按MMseqs-hit分类的性能。较大的ESM-2模型在所有级别都表现较好；1.5 亿参数的ESM-2模型与6.5亿参数的ESM-1b相当。</p>
+
+</blockquote>
+</li>
+<li>
+<p><strong>模型准确性与进化深度相关</strong></p>
+<p>训练集中相关序列越多的蛋白质，其学习轨迹与模型规模的关系越陡峭。因此，在较低的模型规模下，高进化深度序列（深紫色）的改进会达到饱和，而低进化深度序列（橙色）的改进则会随着模型规模的扩大而持续提高。</p>
+ <img data-src="/posts/d3beef00-1ca2-11ef-be04-515ad852b353/ESM-2&ESM-fold_4.webp" class="" width="500">
+ <blockquote class="blockquote-center">
+<p>对于具有不同MMseqs-hit的序列，随着模型规模的扩大，模型表现改进的轨迹。</p>
+
+</blockquote>
+<p>基于此，作者进一步开发了端到端的单序列结构预测器ESMFold。预测时，蛋白质序列被输入到 ESM-2。序列通过语言模型的前馈层进行处理，然后将模型的表征传递给折叠头。折叠头从一系列折叠块开始。每个折叠块交替更新序列表征和成对表征。这些块的输出被传递给等变结构模块，并在输出最终的原子级结构和预测置信度（下张图）。</p>
+</li>
+<li>
+<p><strong>ESMfold的速度</strong></p>
+<p>在单张NVIDIA V100的GPU上，预测一个含有384个氨基酸的蛋白所需的时间约为14.2s，比AF2快了6倍；更短的序列结构预测更快，最高可达AF2的60倍，并且省去了MSA的搜索时间，这一步就可省去10min多的时间。</p>
+ <img data-src="/posts/d3beef00-1ca2-11ef-be04-515ad852b353/ESM-2&ESM-fold_5.webp" class="" width="800">
+ <blockquote class="blockquote-center">
+<p>(A) ESMFold 模型结构。箭头表示从语言模型到折叠干线再到输出三维坐标和可信度的结构模块的网络信息流。LM，语言模型。(B) ESMFold 能准确预测原子分辨率，其准确性与 CAMEO 上的 RoseTTAFold 相似。 © CAMEO 上模型 pLDDT 与真实 LDDT 的对比（左图）以及与 AlphaFold 的对比（右图）。(D) 使用 ESMFold（左）和 AlphaFold2（右）对 T1057 进行的测试集预测。</p>
+
+</blockquote>
+</li>
+<li>
+<p><strong>蛋白无MSA时，ESMfold预测准</strong></p>
+<p>作者在CAMEO和CASP14测试集上对ESMfold进行测试，平均TM-score分别为0.83和0.68；AF2（包括MSA和模板）的分数为0.88和0.85，但是当删除MSA后再使用AF2进行预测，这一分数分别掉到了0.41和0.38。对于从头蛋白设计而言，大多的蛋白都是自然界中没有存在的，更没有MSA，因此ESMfold将比AF2更适用于此类不存在足够MSA的蛋白（从头设计蛋白和孤儿蛋白）的结构预测。</p>
+ <img data-src="/posts/d3beef00-1ca2-11ef-be04-515ad852b353/ESM-2&ESM-fold_6.webp" class="" width="800">
+ <blockquote class="blockquote-center">
+<p>元基因组序列的 ESMFold 结构预测示例。(A) 六种不同元基因组序列的结构预测示例（B和C）两个ESMFold预测结构的例子，这两个结构与PDB中的实验结构有很好的一致性，但与UniRef90中的任何序列的序列同一性都很低。（B）MGYP000936678158 的预测结构与细菌核酸酶的实验结构一致（浅棕色，PDB：3H4R），而（C）MGYP004000959047 的预测结构与细菌固醇结合结构域的实验结构一致（浅棕色，PDB：6BYM）</p>
+
+</blockquote>
+</li>
+<li>
+<p><strong>ESMfold对大批量元基因组蛋白快速精准预测结构</strong></p>
+<p>作者用两周时间在2000个GPU的集群上对MGnify90的数据库中超6.17亿条蛋白进行结构预测，有1.13亿个达到了极高置信度阈值。这些蛋白在Uniref90中已有序列相似度相当低，与PDB数据库中的已有结构相似度也相当低。</p>
+</li>
+</ol>
+<h3 id="结果总结"><a class="markdownIt-Anchor" href="#结果总结"></a> 结果总结</h3>
+<ul>
+<li>
+<p>此论文是ESM-2和ESM-fold两个模型的集成；</p>
+</li>
+<li>
+<p>ESM-2利用语言模型的优势，通过大量的蛋白质序列信息学习蛋白质的embedding表示；</p>
+</li>
+<li>
+<p>ESMfold接着ESM-2学习得到的特征信息投影，生成蛋白质中的原子3D坐标。</p>
+</li>
+<li>
+<p>蛋白质语言模型训练出的注意力图谱与残基-残基接触图谱有对应关系。作者通过一个线性映射就把语言模型注意力图和结构预测模型的残基残基相互作用图联系起来，这是一个相当有趣的发现。而通过进一步的ESMfold的训练，这一接触图的精度达到了原子级。</p>
+</li>
+<li>
+<p>ESM-2的作用相当于是替代了AF2和Rosettafold中所需的MSA，学习了一套蛋白质进化与序列-结构规律的通用规则。ESM-fold相比于AF2更适用于无足够MSA信息的蛋白结构预测，例如：从头设计全新蛋白、元基因组蛋白、孤儿蛋白等。</p>
+</li>
+<li>
+<p>ESMfold相比于AF2的优点：</p>
+<ul>
+<li>第一：快，计算速度快约6-60倍不等</li>
+<li>第二：不需要搜索目的序列的MSA，进一步节省了大量的时间。</li>
+</ul>
+</li>
+</ul>
+<h2 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h2>
+<ul>
+<li>ESM-Fold使用蕴含共进化信息的ESM-2，加速了蛋白结构预测</li>
+<li>ESM-Fold的准确性与蛋白共进化深度相关</li>
+<li>ESM-2的参数量越大，表现越好（15B参数表现最佳）</li>
+<li>蛋白无MSA时，ESM-Fold预测相对AF2更准确</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>❤️Passion4ever
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://passion4ever.github.io/posts/d3beef00-1ca2-11ef-be04-515ad852b353/" title="ESM系列｜ESM-2 &amp; ESM-fold：用语言模型进行原子级蛋白结构预测">https://passion4ever.github.io/posts/d3beef00-1ca2-11ef-be04-515ad852b353/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/57d254e0-1c9d-11ef-a827-778d84c442c5/" rel="prev" title="ESM系列｜ESM-IF1：从数千万结构中学习逆向折叠">
+                  <i class="fa fa-angle-left"></i> ESM系列｜ESM-IF1：从数千万结构中学习逆向折叠
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2020 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Passion4ever</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">112k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">6:13</span>
+  </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr+QR0SQDNfgglgtcM=" crossorigin="anonymous">
+  <script class="next-config" data-name="katex" type="application/json">{"copy_tex_js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/copy-tex.min.js","integrity":"sha256-Us54+rSGDSTvIhKKUs4kygE2ipA0RXpWWh0/zLqw3bs="}}</script>
+  <script src="/js/third-party/math/katex.js"></script>
+
+
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"passion4ever/utterances","issue_term":"title","theme":"boxy-light"}</script>
+<script src="/js/third-party/comments/utterances.js"></script>
+
+</body>
+</html>

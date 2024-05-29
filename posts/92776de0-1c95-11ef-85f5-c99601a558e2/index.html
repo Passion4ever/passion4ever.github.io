@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/github_default_180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/github_default_32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/github_default_16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-flash.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"passion4ever.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+
+
+<link rel="canonical" href="https://passion4ever.github.io/posts/92776de0-1c95-11ef-85f5-c99601a558e2/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://passion4ever.github.io/posts/92776de0-1c95-11ef-85f5-c99601a558e2/","path":"posts/92776de0-1c95-11ef-85f5-c99601a558e2/","title":"ESM系列｜ESM-MSA：蛋白质语言模型MSA Transformer"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>ESM系列｜ESM-MSA：蛋白质语言模型MSA Transformer | Passion4ever</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Passion4ever</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Goal-Oriented</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-所有文章"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>所有文章</a></li><li class="menu-item menu-item-编程代码"><a href="/1-code" rel="section"><i class="fa fa-code fa-fw"></i>编程代码</a></li><li class="menu-item menu-item-人工智能"><a href="/2-AI" rel="section"><i class="fa fa-robot fa-fw"></i>人工智能</a></li><li class="menu-item menu-item-生物信息"><a href="/3-bioinformatics" rel="section"><i class="fa fa-dna fa-fw"></i>生物信息</a></li><li class="menu-item menu-item-其他"><a href="/4-others" rel="section"><i class="fa fa-bars fa-fw"></i>其他</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text"> 简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E6%A6%82%E8%BF%B0"><span class="nav-number">2.</span> <span class="nav-text"> 模型概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#esm-msa-1b%E6%A8%A1%E5%9E%8B%E6%A6%82%E8%BF%B0"><span class="nav-number">2.1.</span> <span class="nav-text"> ESM-MSA-1b模型概述</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C"><span class="nav-number">3.</span> <span class="nav-text"> 结果</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C%E8%AE%A8%E8%AE%BA"><span class="nav-number">3.1.</span> <span class="nav-text"> 结果讨论</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">4.</span> <span class="nav-text"> 总结</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="❤️Passion4ever"
+      src="/images/avatar/4d-boy.webp">
+  <p class="site-author-name" itemprop="name">❤️Passion4ever</p>
+  <div class="site-description" itemprop="description">勿为工具之奴</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">66</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://passion4ever.github.io/posts/92776de0-1c95-11ef-85f5-c99601a558e2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar/4d-boy.webp">
+      <meta itemprop="name" content="❤️Passion4ever">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Passion4ever">
+      <meta itemprop="description" content="勿为工具之奴">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="ESM系列｜ESM-MSA：蛋白质语言模型MSA Transformer | Passion4ever">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          ESM系列｜ESM-MSA：蛋白质语言模型MSA Transformer
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-05-28 09:57:00 / 修改时间：13:09:42" itemprop="dateCreated datePublished" datetime="2024-05-28T09:57:00+08:00">2024-05-28</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.7k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>6 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><div class="note info"><p><strong>标题:</strong> <strong>MSA transformer</strong><br />
+<strong>期刊/会议:</strong> <strong>PLMR</strong><br />
+<strong>年份:</strong> <strong>2021</strong></p>
+</div>
+<h2 id="简介"><a class="markdownIt-Anchor" href="#简介"></a> 简介</h2>
+<p>作为Facebook <strong>ESM系列的第二篇文章</strong>，MSA Transformer于2021年8月发表在PLMR会议上，提出了一个融合多序列比对（MSA, Multi-sequence alignment）信息的新蛋白质语言模型ESM-MSA-1b。不同于以往的蛋白质语言模型使用单个序列进行训练，ESM-MSA-1b有效的利用了蕴含大量进化信息的MSA，加上极度适配MSA信息的轴向注意力机制进行训练，在最少的参数量下达到了当时无监督大语言模型的SOTA水平，在下游任务上表现得也十分出色。</p>
+<ul>
+<li>ESM-MSA-1b是一个在UR50数据库上训练的掩码语言模型</li>
+<li>ESM-MSA-1b在三种下游任务：无监督氨基酸接触图预测、监督氨基酸接触图预测和二级结构预测上均达到了当时的SOTA水平</li>
+</ul>
+<span id="more"></span>
+<h2 id="模型概述"><a class="markdownIt-Anchor" href="#模型概述"></a> 模型概述</h2>
+<p><strong>问题描述</strong>：ESM-MSA-1b是一个掩码语言模型（MLM,Masked Language Modeling），采用随机masking方法。</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi mathvariant="script">L</mi><mrow><mi mathvariant="normal">M</mi><mi mathvariant="normal">L</mi><mi mathvariant="normal">M</mi></mrow></msub><mo stretchy="false">(</mo><mi mathvariant="bold-italic">x</mi><mo separator="true">;</mo><mi>θ</mi><mo stretchy="false">)</mo><mo>=</mo><munder><mo>∑</mo><mrow><mo stretchy="false">(</mo><mi>m</mi><mo separator="true">,</mo><mi>i</mi><mo stretchy="false">)</mo><mo>∈</mo><mtext> mask </mtext></mrow></munder><mi>log</mi><mo>⁡</mo><mi>p</mi><mrow><mo fence="true">(</mo><msub><mi>x</mi><mrow><mi>m</mi><mi>i</mi></mrow></msub><mo>∣</mo><mover accent="true"><mi mathvariant="bold-italic">x</mi><mo>~</mo></mover><mo separator="true">;</mo><mi>θ</mi><mo fence="true">)</mo></mrow></mrow><annotation encoding="application/x-tex">\mathcal{L}_{\mathrm{MLM}}(\boldsymbol{x} ; \theta)=\sum_{(m, i) \in \text { mask }} \log p\left(x_{m i} \mid \tilde{\boldsymbol{x}} ; \theta\right)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord"><span class="mord mathcal">L</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathrm mtight">M</span><span class="mord mathrm mtight">L</span><span class="mord mathrm mtight">M</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mord"><span class="mord boldsymbol">x</span></span></span><span class="mpunct">;</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.5660100000000003em;vertical-align:-1.516005em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.050005em;"><span style="top:-1.808995em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathnormal mtight">m</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight">i</span><span class="mclose mtight">)</span><span class="mrel mtight">∈</span><span class="mord text mtight"><span class="mord mtight"> mask </span></span></span></span></span><span style="top:-3.0500049999999996em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.516005em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;">(</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">m</span><span class="mord mathnormal mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6812999999999999em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord"><span class="mord boldsymbol">x</span></span></span></span></span><span style="top:-3.36344em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.25em;"><span class="mord">~</span></span></span></span></span></span></span><span class="mpunct">;</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="mclose delimcenter" style="top:0em;">)</span></span></span></span></span></span></p>
+<p><strong>数据集</strong>：使用UR50数据库，包含2600万个MSA的大型数据集，平均每个MSA的深度是1192，大小达4.3Tb的数据量</p>
+<p><strong>方法</strong>：Transformer。比较特殊的是注意力机制采用轴向注意力，使内存占用大大降低，节省计算成本。</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>O</mi><mrow><mo fence="true">(</mo><mo stretchy="false">(</mo><mi>L</mi><mi>M</mi><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo fence="true">)</mo></mrow><mo>→</mo><mi>O</mi><mrow><mo fence="true">(</mo><mi>L</mi><msup><mi>M</mi><mn>2</mn></msup><mo fence="true">)</mo></mrow><mo>+</mo><mi>O</mi><mrow><mo fence="true">(</mo><msup><mi>M</mi><mn>2</mn></msup><mi>L</mi><mo fence="true">)</mo></mrow></mrow><annotation encoding="application/x-tex">O\left((L M)^2\right) \rightarrow O\left(L M^2\right)+O\left(M^2 L\right)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2141179999999998em;vertical-align:-0.35001em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size1">(</span></span><span class="mopen">(</span><span class="mord mathnormal">L</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size1">)</span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.2141179999999998em;vertical-align:-0.35001em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size1">(</span></span><span class="mord mathnormal">L</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size1">)</span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.2141179999999998em;vertical-align:-0.35001em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size1">(</span></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mord mathnormal">L</span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size1">)</span></span></span></span></span></span></span></p>
+<p><strong>参数量</strong>：100M</p>
+<h3 id="esm-msa-1b模型概述"><a class="markdownIt-Anchor" href="#esm-msa-1b模型概述"></a> ESM-MSA-1b模型概述</h3>
+<p>模型与普通Transformer的区别，其特殊的轴向注意力机制，见下图所示。<br />
+对于蛋白质通用规律的学习，MSA信息中同源序列不同位置上的氨基酸对于当前的氨基酸的权重信息并不大，当前氨基酸最重要的关注点还是同一序列其他氨基酸（行）和同源不同序列同一位置的其他氨基酸（列），因此注意力限制在横纵这两条轴向范围就可以了，可以大大降低时间复杂度。</p>
+<img data-src="/posts/92776de0-1c95-11ef-85f5-c99601a558e2/ESM-MSA_1.webp" class="" width="800">
+<blockquote class="blockquote-center">
+<p>ESM-MSA-1b模型概述</p>
+
+</blockquote>
+<h2 id="结果"><a class="markdownIt-Anchor" href="#结果"></a> 结果</h2>
+<ol>
+<li>
+<p><strong>无监督氨基酸接触预测</strong></p>
+<p>作者采用trRosetta的数据集，在trRosetta数据集中的20个蛋白结构上进行训练，然后以此来预测剩下14842个蛋白质结构数据集。具体而言，是在每个序列的注意力图上训练一个稀疏逻辑回归。这一测试中，MSA Transformer在三种不同序列长度的接触预测上均胜过了Potts模型、ProTrans-T5和ESM-1b模型。在CASP13-FM和CAMEO测试中也是如此。</p>
+ <img data-src="/posts/92776de0-1c95-11ef-85f5-c99601a558e2/ESM-MSA_2.webp" class="" width="500">
+ <blockquote class="blockquote-center">
+<p>ESM-MSA-1b和单序列模型在无监督氨基酸接触预测任务中的平均远程精确度</p>
+
+</blockquote>
+<p>作者将用于无监督学习接触图的Transformer拿出来进行分析，发现训练完成的Transformer得到的注意力图与氨基酸接触图息息相关。</p>
+ <img data-src="/posts/92776de0-1c95-11ef-85f5-c99601a558e2/ESM-MSA_3.webp" class="" width="600">
+ <blockquote class="blockquote-center">
+<p>20个结构上训练的稀疏逻辑回归矩阵的权重值</p>
+
+</blockquote>
+</li>
+<li>
+<p><strong>有监督氨基酸接触预测</strong></p>
+<p>作者用15051个MSA和结构组成的trRosetta 数据集和成对的距离分布进行监督学习。在特征选取上，作者使用了两种方法，一是将sequence embedding作为特征，二是将sequence embedding与对称行注意力图结合，分别进行预测。两种方法在CASP-13FM和CAMEO数据集上的准确率超过了trRosetta,ProTrans-T5和ESM-1b，在L-range上最优为55.8%，L/5-range上最优为80.22%。</p>
+ <img data-src="/posts/92776de0-1c95-11ef-85f5-c99601a558e2/ESM-MSA_4.webp" class="" width="500">
+ <blockquote class="blockquote-center">
+<p>ESM-MSA-1b和其他单序列模型在监督氨基酸接触预测任务中的平均远程精确度</p>
+
+</blockquote>
+</li>
+<li>
+<p><strong>二级结构预测表现</strong></p>
+<p>作者使用了基于Netsurf结构训练预测8态二级结构的下游任务，比HMM Profile、Protrans-T5、ESM-1b略强，准确率为73.4%左右。</p>
+ <img data-src="/posts/92776de0-1c95-11ef-85f5-c99601a558e2/ESM-MSA_5.webp" class="" width="300">
+ <blockquote class="blockquote-center">
+<p>ESM-MSA-1b和其他单序列模型在CB513数据集二级结构预测上的表现</p>
+
+</blockquote>
+</li>
+<li>
+<p><strong>错误信息对模型预测的影响</strong></p>
+<p>分别对输入的MSA信息的行和列进行随机打乱的结果。ESM-MSA-1b能在重要信息丢失的情况下依然在氨基酸接触图预测上表现良好。</p>
+ <img data-src="/posts/92776de0-1c95-11ef-85f5-c99601a558e2/ESM-MSA_6.webp" class="" width="800">
+ <blockquote class="blockquote-center">
+<p>ESM-MSA-1b和Potts、ESM-1b被协方差和位置信息干扰后的表现</p>
+
+</blockquote>
+</li>
+</ol>
+<h3 id="结果讨论"><a class="markdownIt-Anchor" href="#结果讨论"></a> 结果讨论</h3>
+<ul>
+<li>
+<p>MSA-Transformer输入是多序列比对MSA，而非大量的、并无先验关联的单蛋白质序列，对于语言模型理解蛋白质序列之间的依赖关系有着重要的作用。这种把输入序列的关系先分类好，再用绑定轴向注意力（tied row attention）降低计算成本的方式非常有效。</p>
+</li>
+<li>
+<p>输入序列多样性对结构预测有很大影响。因为计算成本以及潜在的数据大小不平衡导致的模型表现问题，作者没有把全部的MSA喂给模型，而是选取了其中一部分，作者在四种不同的筛选策略上做了测试，分别是：随机选择序列、汉明距离最大化、汉明距离最小化、HHFilter，其中汉明距离最大化（序列多样性最大）的策略表现最好。这种方式小编认为相当于一种变相的序列去重。<br />
+注意力图与氨基酸接触图是对应的，这很符合直觉上对于蛋白质语言模型中“自注意力”与蛋白质嵌入表示的关联。</p>
+</li>
+<li>
+<p>比较有意思的是文章在讨论部分测试了更改MSA每一列的值和打乱MSA的列对于Potts模型和ESM-1b的影响，从而阐述MSA列间的协方差和序列位置信息分别对两个模型的干扰，而MSA-transformer在这两个干扰项下还能运作，小编猜测可能与他独特的注意力计算机机制能够从MSA信息中学到协方差和相似性有关，这也使得ESM-MSA-1b比potts模型和ESM-1b的泛化性和鲁棒性更佳。</p>
+</li>
+</ul>
+<h2 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h2>
+<ul>
+<li>MSA transformer输入是MSA，加入了轴向注意力</li>
+<li>MSA transformer在预测蛋白质二级结构上表现优于ESM-1b、ProtT5</li>
+<li>MSA transformer在氨基酸接触图预测上表现优异</li>
+<li>将MSA的行列随机打乱，MSA transformer依然表现良好</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>❤️Passion4ever
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://passion4ever.github.io/posts/92776de0-1c95-11ef-85f5-c99601a558e2/" title="ESM系列｜ESM-MSA：蛋白质语言模型MSA Transformer">https://passion4ever.github.io/posts/92776de0-1c95-11ef-85f5-c99601a558e2/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/d2af5b60-1c00-11ef-85a8-2589cfbef1e7/" rel="prev" title="Nat Biotechnol｜机器学习用于功能蛋白质设计">
+                  <i class="fa fa-angle-left"></i> Nat Biotechnol｜机器学习用于功能蛋白质设计
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/0d1eb6c0-1c9b-11ef-815c-2b42e476d498/" rel="next" title="ESM系列｜ESM-1v：蛋白质语言模型零样本预测突变效应">
+                  ESM系列｜ESM-1v：蛋白质语言模型零样本预测突变效应 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2020 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Passion4ever</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">112k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">6:13</span>
+  </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr+QR0SQDNfgglgtcM=" crossorigin="anonymous">
+  <script class="next-config" data-name="katex" type="application/json">{"copy_tex_js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/copy-tex.min.js","integrity":"sha256-Us54+rSGDSTvIhKKUs4kygE2ipA0RXpWWh0/zLqw3bs="}}</script>
+  <script src="/js/third-party/math/katex.js"></script>
+
+
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"passion4ever/utterances","issue_term":"title","theme":"boxy-light"}</script>
+<script src="/js/third-party/comments/utterances.js"></script>
+
+</body>
+</html>
