@@ -5,8 +5,8 @@
 
 # 外观
 appearance:
-  mode: system
-  color: emerald
+  mode: light
+  color: sky
 
 # SEO
 marketing:

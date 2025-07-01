@@ -1,14 +1,14 @@
-# Languages
-#   Create a section for each of your site's languages.
-#   Documentation: https://docs.hugoblox.com/reference/language/
+# 语言
+#   为您的每种网站语言创建一个独立版块。
+#   文档地址：https://docs.hugoblox.com/reference/language/
 
-# Default language
+# 默认语言
 en:
   languageCode: en-us
-  # Uncomment for multi-lingual sites, and move English content into `en` sub-folder.
+  # 若需支持多语言站点，请取消注释，并将英文内容移至 `en` 子文件夹。
   #contentDir: content/en
 
-# Uncomment the lines below to configure your website in a second language.
+# 取消下面几行的注释，可以设置你的网站的第二种语言。
 #zh:
 #  languageCode: zh-Hans
 #  contentDir: content/zh

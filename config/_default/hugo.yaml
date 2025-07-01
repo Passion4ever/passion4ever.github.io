@@ -1,15 +1,15 @@
-# Configuration of Hugo
-# Guide: https://docs.hugoblox.com/tutorial/
-# Hugo Documentation: https://gohugo.io/getting-started/configuration/#all-configuration-settings
-# This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
+# Hugo配置
+# 使用指南：https://docs.hugoblox.com/tutorial/
+# Hugo官方文档：https://gohugo.io/getting-started/configuration/#all-configuration-settings
+# 本配置文件采用YAML语法格式 - 参见：https://learnxinyminutes.com/docs/yaml/
 
-# Website name
+# 网站名称
 title: Passion4ever
-# Website URL
+# 网站网址
 baseURL: 'https://example.com/'
 
 ############################
-## LANGUAGE
+## 语言
 ############################
 
 defaultContentLanguage: en
@@ -18,7 +18,7 @@ defaultContentLanguageInSubdir: false
 removePathAccents: true
 
 ############################
-## ADVANCED
+## 高级
 ############################
 
 build:

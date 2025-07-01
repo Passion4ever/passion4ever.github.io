@@ -1,29 +1,29 @@
 ---
-# Leave the homepage title empty to use the site title
+# 将主页标题留空以使用网站标题
 title: ""
 date: 2022-10-24
 type: landing
 
 design:
-  # Default section spacing
+  # 默认章节间距
   spacing: "6rem"
 
 sections:
   - block: resume-biography-3
     content:
-      # Choose a user profile to display (a folder name within `content/authors/`)
+      # 选择要显示的用户资料（`content/authors/`内的文件夹名称）
       username: admin
       text: ""
       # Show a call-to-action button under your biography? (optional)
-      button:
-        text: Download CV
-        url: uploads/resume.pdf
+      # button:
+      #   text: Download CV
+      #   url: uploads/resume.pdf
     design:
-      css_class: dark
+      css_class: light
       background:
         color: black
         image:
-          # Add your image background to `assets/media/`.
+          # 将您的图片背景添加到 `assets/media/` 目录下。
           filename: stacked-peaks.svg
           filters:
             brightness: 1.0
