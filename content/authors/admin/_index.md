@@ -1,56 +1,52 @@
 ---
-# Display name
-title: 吳健雄
+# 显示名称
+title: Passion4ever
 
-# Name pronunciation (optional)
+# 名称发音（选填）
 name_pronunciation: Chien Shiung Wu
 
-# Full name (for SEO)
-first_name: Shiung Wu
-last_name: Chien
+# 全名（用于SEO优化）
+first_name: Guang
+last_name: Yang
 
-# Status emoji
+# 状态表情符号
 status:
-  icon: ☕️
+  icon: 🔥
 
-# Is this the primary user of the site?
+# 这是该网站的主要用户吗？
 superuser: true
 
-# Highlight the author in author lists? (true/false)
+# 在作者列表中高亮显示作者？（是/否）
 highlight_name: true
 
-# Role/position/tagline
-role: Chief Scientist
+# 角色职位标语
+role: PhD
 
-# Organizations/Affiliations to display in Biography blox
+# 在个人简介框中显示的组织/隶属关系
 organizations:
-  - name: OpenAI
-    url: https://openai.com/
+  - name: Northwestern Polytechnical University
+    url: https://www.nwpu.edu.cn/
 
-# Social network links
-# Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
+# 社交媒体链接
+# 需要使用其他图标？只需将SVG图标下载到您的`assets/media/icons/`文件夹即可。
 profiles:
   - icon: at-symbol
-    url: 'mailto:your-email@example.com'
+    url: 'mailto:gradyyang@mail.nwpu.edu.cn'
     label: E-mail Me
-  - icon: brands/x
-    url: https://twitter.com/GetResearchDev
-  - icon: brands/instagram
-    url: https://www.instagram.com/
   - icon: brands/github
-    url: https://github.com/gcushen
-  - icon: brands/linkedin
-    url: https://www.linkedin.com/
+    url: https://github.com/Passion4ever
   - icon: academicons/google-scholar
-    url: https://scholar.google.com/
+    url: https://scholar.google.com/citations?user=nM1ql0cAAAAJ
   - icon: academicons/orcid
-    url: https://orcid.org/
+    url: https://orcid.org/my-orcid?orcid=0009-0005-7409-3435
 
+# 兴趣
 interests:
   - Artificial Intelligence
   - Computational Linguistics
   - Information Retrieval
 
+# 教育
 education:
   - area: PhD Artificial Intelligence
     institution: Stanford University
@@ -83,6 +79,8 @@ education:
       - lorem ipsum dolor sit amet, consectetur adipiscing elit
       - lorem ipsum dolor sit amet, consectetur adipiscing elit
       - lorem ipsum dolor sit amet, consectetur adipiscing elit
+
+# 工作
 work:
   - position: Director of Cloud Infrastructure
     company_name: GenCoin
@@ -107,8 +105,8 @@ work:
       - lorem ipsum dolor sit amet, consectetur adipiscing elit
       - lorem ipsum dolor sit amet, consectetur adipiscing elit
 
-# Skills
-# Add your own SVG icons to `assets/media/icons/`
+# 技能
+# 将您的自定义SVG图标添加至`assets/media/icons/`目录
 skills:
   - name: Technical Skills
     items:
@@ -149,10 +147,10 @@ languages:
   - name: Portuguese
     percent: 25
 
-# Awards.
-#   Add/remove as many awards below as you like.
-#   Only `title`, `awarder`, and `date` are required.
-#   Begin multi-line `summary` with YAML's `|` or `|2-` multi-line prefix and indent 2 spaces below.
+# 奖项
+#   根据需要随意添加或删除下面的奖项。
+#   仅需要`title`、`awarder`和`date`字段。
+#   开始多行`summary`，使用YAML的`|`或`|2-`多行前缀，并在下方缩进2个空格。
 awards:
   - title: Neural Networks and Deep Learning
     url: https://www.coursera.org/learn/neural-networks-deep-learning
@@ -181,6 +179,7 @@ awards:
       Object-oriented programming (OOP) lets you specify relationships between functions and the objects that they can act on, helping you manage complexity in your code. This is an intermediate level course, providing an introduction to OOP, using the S3 and R6 systems. S3 is a great day-to-day R programming tool that simplifies some of the functions that you write. R6 is especially useful for industry-specific analyses, working with web APIs, and building GUIs.
 ---
 
+<!-- 关于我 -->
 ## About Me
 
-Chien Shiung Wu is a professor of artificial intelligence at the Stanford AI Lab. Her research interests include distributed robotics, mobile computing and programmable matter. She leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.
+Guang Yang is a professor of artificial intelligence at the Stanford AI Lab. Her research interests include distributed robotics, mobile computing and programmable matter. She leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.
