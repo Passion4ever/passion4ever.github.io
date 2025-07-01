@@ -1,9 +1,9 @@
-# SITE SETUP
-# Guide: https://docs.hugoblox.com/tutorial/
-# Documentation: https://docs.hugoblox.com/
-# This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
+# 站点设置
+# 指南：https://docs.hugoblox.com/tutorial/
+# 文档：https://docs.hugoblox.com/
+# 该文件采用YAML语法格式编写 - 了解更多请访问 https://learnxinyminutes.com/docs/yaml/
 
-# Appearance
+# 外观
 appearance:
   mode: system
   color: emerald
@@ -26,7 +26,7 @@ marketing:
     google: ''
     baidu: ''
 
-# Site header
+# 站点标题头
 header:
   navbar:
     enable: true
@@ -35,26 +35,26 @@ header:
     show_search: true
     show_theme_chooser: true
     logo:
-      text: "Your Name"
+      text: "Passion4ever"
 
-# Site footer
+# 站点页脚
 footer:
   copyright:
-    notice: '© {year} Me. This work is licensed under {license}'
+    notice: '© {year} Passion4ever. This work is licensed under {license}'
     license:
       enable: true
       allow_derivatives: false
       share_alike: true
       allow_commercial: false
 
-# Localization
+# 本地化
 locale:
   date_format: 'Jan 2, 2006'
   time_format: '3:04 PM'
 
-# Site features
+# 站点功能
 features:
   math:
-    enable: false
+    enable: true
   privacy_pack:
     enable: false

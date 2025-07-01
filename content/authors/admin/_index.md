@@ -1,9 +1,9 @@
 ---
 # 显示名称
-title: Passion4ever
+title: Guang Yang
 
 # 名称发音（选填）
-name_pronunciation: Chien Shiung Wu
+# name_pronunciation: 
 
 # 全名（用于SEO优化）
 first_name: Guang
@@ -43,8 +43,8 @@ profiles:
 # 兴趣
 interests:
   - Artificial Intelligence
-  - Computational Linguistics
-  - Information Retrieval
+  - Computational Biology
+  - Protein Design
 
 # 教育
 education:
@@ -182,4 +182,4 @@ awards:
 <!-- 关于我 -->
 ## About Me
 
-Guang Yang is a professor of artificial intelligence at the Stanford AI Lab. Her research interests include distributed robotics, mobile computing and programmable matter. She leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.
+Guang Yang is 是一个在读PhD学生，研究方向

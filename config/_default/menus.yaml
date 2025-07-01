@@ -1,7 +1,7 @@
-# Navigation Links
-#   To link a homepage widget, specify the URL as a hash `#` followed by the filename of the
-  #     desired widget in your `content/home/` folder.
-  #   The weight parameter defines the order that the links will appear in.
+# 导航链接
+# 要链接至首页小部件，请将URL指定为井号`#`后接所需部件在`content/home/`目录下的文件名。
+
+# weight参数用于定义链接在页面上出现的顺序排列。
 
 main:
   - name: Bio
