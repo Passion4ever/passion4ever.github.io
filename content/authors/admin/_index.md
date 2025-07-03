@@ -11,7 +11,7 @@ last_name: Yang
 
 # 状态表情符号
 status:
-  icon: 🔥
+  icon: 
 
 # 这是该网站的主要用户吗？
 superuser: true
@@ -180,6 +180,6 @@ education:
 ---
 
 <!-- 关于我 -->
-## About Me
+## About
 
 Guang Yang is a Ph.D. student whose research focuses on protein design, enzyme multi-attribute prediction, and related fields.
