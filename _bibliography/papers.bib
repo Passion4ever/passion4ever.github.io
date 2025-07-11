@@ -1,115 +1,40 @@
 ---
----
 
 @string{aps = {American Physical Society,}}
 
-@book{einstein1920relativity,
-  title={Relativity: the Special and General Theory},
-  author={Einstein, Albert},
-  year={1920},
-  publisher={Methuen & Co Ltd},
-  html={relativity.html}
-}
-
-@book{einstein1956investigations,
+@article{yang2024recognition,
+  title={Recognition of cyanobacteria promoters via Siamese network-based contrastive learning under novel non-promoter generation},
+  author={Yang, Guang and Li, Jianing and Hu, Jinlu and Shi, Jian-Yu},
+  journal={Briefings in Bioinformatics},
+  volume={25},
+  number={3},
+  pages={bbae193},
+  year={2024},
+  publisher={Oxford University Press},
+  abstract={Abstract It is a vital step to recognize cyanobacteria promoters on a genome-wide scale. Computational methods are promising to assist in difficult biological identification. When building recognition models, these methods rely on non-promoter generation to cope with the lack of real non-promoters. Nevertheless, the factitious significant difference between promoters and non-promoters causes over-optimistic prediction. Moreover, designed for E. coli or B. subtilis, existing methods cannot uncover novel, distinct motifs among cyanobacterial promoters. To address these issues, this work first proposes a novel non-promoter generation strategy called phantom sampling, which can eliminate the factitious difference between promoters and generated non-promoters. Furthermore, it elaborates a novel promoter prediction model based on the Siamese network (SiamProm), which can amplify the hidden difference between promoters and non-promoters through a joint characterization of global associations, upstream and downstream contexts, and neighboring associations w.r.t. k-mer tokens. The comparison with state-of-the-art methods demonstrates the superiority of our phantom sampling and SiamProm. Both comprehensive ablation studies and feature space illustrations also validate the effectiveness of the Siamese network and its components. More importantly, SiamProm, upon our phantom sampling, finds a novel cyanobacterial promoter motif (‘GCGATCGC’), which is palindrome-patterned, content-conserved, but position-shifted.},
+  doi={10.1093/bib/bbae193},
+  preview={yang2024recognition.png},
+  abbr={Brief Bioinform},
   bibtex_show={true},
-  title={Investigations on the Theory of the Brownian Movement},
-  author={Einstein, Albert},
-  year={1956},
-  publisher={Courier Corporation},
-  preview={brownian-motion.gif}
-}
-
-@article{einstein1950meaning,
-  abbr={AJP},
-  bibtex_show={true},
-  title={The meaning of relativity},
-  author={Einstein, Albert and Taub, AH},
-  journal={American Journal of Physics},
-  volume={18},
-  number={6},
-  pages={403--404},
-  year={1950},
-  publisher={American Association of Physics Teachers}
-}
-
-@article{PhysRev.47.777,
-  abbr={PhysRev},
-  title={Can Quantum-Mechanical Description of Physical Reality Be Considered Complete?},
-  author={Einstein*†, A. and Podolsky*, B. and Rosen*, N.},
-  abstract={In a complete theory there is an element corresponding to each element of reality. A sufficient condition for the reality of a physical quantity is the possibility of predicting it with certainty, without disturbing the system. In quantum mechanics in the case of two physical quantities described by non-commuting operators, the knowledge of one precludes the knowledge of the other. Then either (1) the description of reality given by the wave function in quantum mechanics is not complete or (2) these two quantities cannot have simultaneous reality. Consideration of the problem of making predictions concerning a system on the basis of measurements made on another system that had previously interacted with it leads to the result that if (1) is false then (2) is also false. One is thus led to conclude that the description of reality as given by a wave function is not complete.},
-  journal={Phys. Rev.},
-  location={New Jersey},
-  volume={47},
-  issue={10},
-  pages={777--780},
-  numpages={0},
-  year={1935},
-  month={May},
-  publisher=aps,
-  doi={10.1103/PhysRev.47.777},
-  url={http://link.aps.org/doi/10.1103/PhysRev.47.777},
-  html={https://journals.aps.org/pr/abstract/10.1103/PhysRev.47.777},
-  pdf={example_pdf.pdf},
-  altmetric={248277},
-  dimensions={true},
-  google_scholar_id={qyhmnyLat1gC},
-  video={https://www.youtube-nocookie.com/embed/aqz-KE-bpKQ},
-  additional_info={. *More Information* can be [found here](https://github.com/alshedivat/al-folio/)},
-  annotation={* Example use of superscripts<br>† Albert Einstein},
   selected={true},
-  inspirehep_id = {3255}
 }
 
-@article{einstein1905molekularkinetischen,
-  title={{\"U}ber die von der molekularkinetischen Theorie der W{\"a}rme geforderte Bewegung von in ruhenden Fl{\"u}ssigkeiten suspendierten Teilchen},
-  author={Einstein, A.},
-  journal={Annalen der physik},
-  volume={322},
-  number={8},
-  pages={549--560},
-  year={1905},
-  publisher={Wiley Online Library}
-}
-
-@article{einstein1905movement,
-  abbr={Ann. Phys.},
-  title={Un the movement of small particles suspended in statiunary liquids required by the molecular-kinetic theory 0f heat},
-  author={Einstein, A.},
-  journal={Ann. Phys.},
-  volume={17},
-  pages={549--560},
-  year={1905}
-}
-
-@article{einstein1905electrodynamics,
-  title={On the electrodynamics of moving bodies},
-  author={Einstein, A.},
-  year={1905}
-}
-
-@Article{einstein1905photoelectriceffect,
+@article{li2023cpromg,
+  title={CProMG: controllable protein-oriented molecule generation with desired binding affinity and drug-like properties},
+  author={Li, Jia-Ning and Yang, Guang and Zhao, Peng-Cheng and Wei, Xue-Xin and Shi, Jian-Yu},
+  journal={Bioinformatics},
+  volume={39},
+  number={Supplement\_1},
+  pages={i326--i336},
+  year={2023},
+  publisher={Oxford University Press},
+  abstract={Deep learning-based molecule generation becomes a new paradigm of *de novo* molecule design since it enables fast and directional exploration in the vast chemical space. However, it is still an open issue to generate molecules, which bind to specific proteins with high-binding affinities while owning desired drug-like physicochemical properties. To address these issues, we elaborate a novel framework for controllable protein-oriented molecule generation, named CProMG, which contains a 3D protein embedding module, a dual-view protein encoder, a molecule embedding module, and a novel drug-like molecule decoder. Based on fusing the hierarchical views of proteins, it enhances the representation of protein binding pockets significantly by associating amino acid residues with their comprising atoms. Through jointly embedding molecule sequences, their drug-like properties, and binding affinities w.r.t. proteins, it autoregressively generates novel molecules having specific properties in a controllable manner by measuring the proximity of molecule tokens to protein residues and atoms. The comparison with state-of-the-art deep generative methods demonstrates the superiority of our CProMG. Furthermore, the progressive control of properties demonstrates the effectiveness of CProMG when controlling binding affinity and drug-like properties. After that, the ablation studies reveal how its crucial components contribute to the model respectively, including hierarchical protein views, Laplacian position encoding as well as property control. Last, a case study w.r.t. protein illustrates the novelty of CProMG and the ability to capture crucial interactions between protein pockets and molecules. It’s anticipated that this work can boost de novo molecule design.},
+  doi={10.1093/bioinformatics/btad222},
+  preview={li2023cpromg.jpeg},
+  abbr={Bioinformatics},
   bibtex_show={true},
-  abbr={Ann. Phys.},
-  title="{{\"U}ber einen die Erzeugung und Verwandlung des Lichtes betreffenden heuristischen Gesichtspunkt}",
-  author={Albert Einstein},
-  abstract={This is the abstract text.},
-  journal={Ann. Phys.},
-  volume={322},
-  number={6},
-  pages={132--148},
-  year={1905},
-  doi={10.1002/andp.19053220607},
-  award={Albert Einstein receveid the **Nobel Prize in Physics** 1921 *for his services to Theoretical Physics, and especially for his discovery of the law of the photoelectric effect*},
-  award_name={Nobel Prize}
+  selected={true},
 }
 
-@book{przibram1967letters,
-  bibtex_show={true},
-  title={Letters on wave mechanics},
-  author={Einstein, Albert and Schrödinger, Erwin and Planck, Max and Lorentz, Hendrik Antoon and Przibram, Karl},
-  year={1967},
-  publisher={Vision},
-  preview={wave-mechanics.gif},
-  abbr={Vision}
-}
+
+

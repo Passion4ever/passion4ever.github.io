@@ -1,9 +1,7 @@
-"AJP":
-  url: https://aapt.scitation.org/journal/ajp
-  color: "#00369f"
 
-"PhysRev":
-  url: https://journals.aps.org/
+"Bioinformatics":
+  url: "https://academic.oup.com/bioinformatics"
+  # color: "#009f36"
 
-"Vision":
-  color: "#009f36"
+"Brief Bioinform":
+  url: "https://academic.oup.com/bib"

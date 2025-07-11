@@ -41,10 +41,12 @@ layout: default
     <div class="clearfix">{{ content }}</div>
 
     <!-- News -->
+    <br>
     {% if page.announcements and page.announcements.enabled %}
       <h2>
-        <a href="{{ '/news/' | relative_url }}" style="color: inherit">news</a>
+      最新消息
       </h2>
+      <a href="{{ '/news/' | relative_url }}" style="color: green">查看历史消息</a>
       {% include news.liquid limit=true %}
     {% endif %}
 
@@ -59,8 +61,9 @@ layout: default
     <!-- Selected papers -->
     {% if page.selected_papers %}
       <h2>
-        <a href="{{ '/publications/' | relative_url }}" style="color: inherit">selected publications</a>
+      部分论文
       </h2>
+      <a href="{{ '/publications/' | relative_url }}" style="color: green">查看所有论文</a>
       {% include selected_papers.liquid %}
     {% endif %}
 
