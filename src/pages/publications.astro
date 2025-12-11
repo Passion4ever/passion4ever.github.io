@@ -1,0 +1,70 @@
+---
+import Layout from '../layouts/Layout.astro'
+import { parseBibFile, groupByYear } from '../utils/parseBib'
+import fs from 'node:fs'
+import path from 'node:path'
+
+// 读取 BibTeX 文件
+const bibPath = path.join(process.cwd(), 'src/data/publications.bib')
+const bibContent = fs.readFileSync(bibPath, 'utf-8')
+const papers = parseBibFile(bibContent)
+const publications = groupByYear(papers)
+
+// 你的名字（用于高亮显示）
+const myName = "Guang Yang"
+
+function highlightAuthor(authors: string[], name: string) {
+  return authors.map((author, i) => {
+    const isMe = author === name
+    const isLast = i === authors.length - 1
+    const isSecondLast = i === authors.length - 2
+    let separator = ''
+    if (!isLast) {
+      separator = isSecondLast ? ', and ' : ', '
+    }
+    return { author, isMe, separator }
+  })
+}
+---
+
+<Layout title="论文发表 - Guang Yang">
+  <div class="max-w-4xl mx-auto px-4 py-12">
+    <h1 class="text-3xl font-bold text-[var(--color-text)] mb-8">论文发表</h1>
+
+    {publications.map(yearGroup => (
+      <section class="mb-10">
+        <h2 class="text-xl font-bold text-[var(--color-text)] mb-4 pb-2 border-b border-[var(--color-border)]">
+          {yearGroup.year}
+        </h2>
+
+        <div class="space-y-5">
+          {yearGroup.papers.map(paper => (
+            <article class="pb-5 border-b border-[var(--color-border)] last:border-0">
+              <h3 class="font-semibold text-[var(--color-text)] leading-snug mb-1">
+                {paper.title}
+              </h3>
+              <p class="text-sm text-[var(--color-text-light)] mb-1">
+                {highlightAuthor(paper.authors, myName).map(({ author, isMe, separator }) => (
+                  <>
+                    {isMe ? <span class="font-semibold text-[var(--color-text)] underline">{author}</span> : author}{separator}
+                  </>
+                ))}
+              </p>
+              <div class="flex items-center gap-3 text-sm">
+                <span class="text-[var(--color-text-light)] italic">
+                  {paper.journal}, {paper.year}
+                </span>
+                {paper.doi && (
+                  <a href={`https://doi.org/${paper.doi}`} class="btn-outline text-xs py-0.5 px-2" target="_blank">DOI</a>
+                )}
+                {paper.code && (
+                  <a href={paper.code} class="btn-outline text-xs py-0.5 px-2" target="_blank">CODE</a>
+                )}
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+    ))}
+  </div>
+</Layout>

@@ -1,0 +1,91 @@
+---
+import Layout from '../layouts/Layout.astro'
+import { parseBibFile } from '../utils/parseBib'
+import { getProfile } from '../utils/parseProfile'
+import fs from 'node:fs'
+import path from 'node:path'
+
+// 读取个人介绍
+const profile = getProfile()
+
+// 读取 BibTeX 文件
+const bibPath = path.join(process.cwd(), 'src/data/publications.bib')
+const bibContent = fs.readFileSync(bibPath, 'utf-8')
+const allPapers = parseBibFile(bibContent)
+
+// 首页只显示最新的几篇
+const featuredPapers = allPapers
+  .sort((a, b) => b.year - a.year)
+  .slice(0, 3)
+
+// 你的名字（用于高亮显示）
+const myName = "Guang Yang"
+
+function highlightAuthor(authors: string[], name: string) {
+  return authors.map((author, i) => {
+    const isMe = author === name
+    const isLast = i === authors.length - 1
+    const isSecondLast = i === authors.length - 2
+    let separator = ''
+    if (!isLast) {
+      separator = isSecondLast ? ', and ' : ', '
+    }
+    return { author, isMe, separator }
+  })
+}
+---
+
+<Layout title={`${profile.name} - 学术主页`}>
+  <div class="max-w-4xl mx-auto px-4 py-12">
+    <!-- 个人介绍 -->
+    <section class="mb-12 profile-section">
+      <h1 class="text-4xl font-bold text-[var(--color-text)] mb-2">{profile.name}</h1>
+      <Fragment set:html={profile.content} />
+    </section>
+
+    <!-- 部分论文 -->
+    <section>
+      <h2 class="text-2xl font-bold text-[var(--color-text)] mb-2">部分论文</h2>
+      <a href="/publications" class="text-sm text-[var(--color-primary)] mb-6 inline-block">查看所有论文</a>
+
+      <div class="space-y-5">
+        {featuredPapers.map(paper => (
+          <article class="pb-5 border-b border-[var(--color-border)] last:border-0">
+            <h3 class="font-semibold text-[var(--color-text)] leading-snug mb-1">
+              {paper.title}
+            </h3>
+            <p class="text-sm text-[var(--color-text-light)] mb-1">
+              {highlightAuthor(paper.authors, myName).map(({ author, isMe, separator }) => (
+                <>
+                  {isMe ? <span class="font-semibold text-[var(--color-text)] underline">{author}</span> : author}{separator}
+                </>
+              ))}
+            </p>
+            <div class="flex items-center gap-3 text-sm">
+              <span class="text-[var(--color-text-light)] italic">
+                {paper.journal}, {paper.year}
+              </span>
+              {paper.doi && (
+                <a href={`https://doi.org/${paper.doi}`} class="btn-outline text-xs py-0.5 px-2" target="_blank">DOI</a>
+              )}
+              {paper.code && (
+                <a href={paper.code} class="btn-outline text-xs py-0.5 px-2" target="_blank">CODE</a>
+              )}
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .profile-section :global(p) {
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+
+  .profile-section :global(a) {
+    color: var(--color-primary);
+  }
+</style>

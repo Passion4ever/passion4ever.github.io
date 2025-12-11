@@ -1,0 +1,36 @@
+---
+import '../styles/global.css'
+import Header from '../components/Header.astro'
+
+interface Props {
+  title: string
+  description?: string
+}
+
+const { title, description = 'Guang Yang - 学术主页' } = Astro.props
+---
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- KaTeX CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
+
+    <title>{title}</title>
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <Header />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <footer class="border-t border-[var(--color-border)] py-8 text-center text-sm text-[var(--color-text-light)]">
+      © Copyright {new Date().getFullYear()} Guang Yang.
+    </footer>
+  </body>
+</html>
